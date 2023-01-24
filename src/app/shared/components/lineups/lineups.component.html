@@ -1,0 +1,103 @@
+<div class="container-left">
+  <div class="table-grid mw-360">
+    <div class="col pt-4">
+      <div class="carddiv">
+        <div class="header p-4 row">
+          <app-header-component title="Lineups"></app-header-component>
+        </div>
+        <div class="content">
+          <div class="grid-item grid-first">
+            <div class="leftpad-10">Formation {{matchData?.formations?.localteam_formation}}</div>
+            <div></div>
+            <div></div>
+            <div class="rightpad-10">
+              <!-- <img [src]="matchData?.localTeam?.logo_path" class="emblem"> -->
+            </div>
+          </div>
+          <div class="grid-item" *ngFor="let item of lineups?.slice(0, 11); let i=index">
+            <div class="number">{{item.number}}</div>
+            <div>{{item.player_name}}</div>
+            <div class="block-align">
+              <i *ngIf="item.stats.goals.scored" class="icon icon-goal"></i>
+            </div>
+            <div class="block-align">
+              <ng-container *ngIf="item.stats.cards?.yellowcards">
+                <i class="icon icon-yellow-card"></i>
+              </ng-container>
+            </div>
+          </div>
+          <div class="grid-item grid-first">
+            <div class="leftpad-10">Bench</div>
+            <div></div>
+            <div></div>
+            <div class="rightpad-10"></div>
+          </div>
+          <div class="grid-item" *ngFor="let item of localTeamBench">
+            <div class="number">{{item.number}}</div>
+            <div>{{item.player_name}}</div>
+            <div class="block-align">
+              <i *ngIf="item.stats.goals.scored" class="icon icon-goal"></i>
+            </div>
+            <div class="block-align">
+              <ng-container *ngIf="item.stats.cards?.yellowcards">
+                <i class="icon icon-yellow-card"></i>
+                <img src="assets/images/yellow-card.png" class="image">
+              </ng-container>
+            </div>
+          </div>
+          <div class="p-1 table-wrap bottomdiv"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="table-grid mw-360">
+    <div class="col pt-4">
+      <div class="carddiv">
+        <div class="header p-4 row">
+          <app-header-component title="Lineups"></app-header-component>
+        </div>
+        <div class="content">
+          <div class="grid-item grid-first">
+            <div class="leftpad-10">Formation {{matchData?.formations?.visitorteam_formation}}</div>
+            <div></div>
+            <div></div>
+            <div class="rightpad-10">
+              <!-- <img [src]="matchData?.visitorTeam?.logo_path" class="emblem"> -->
+            </div>
+          </div>
+          <div class="grid-item" *ngFor="let item of lineups?.slice(11, 22); let i=index">
+            <div class="number">{{item.number}}</div>
+            <div>{{item.player_name}}</div>
+            <div class="block-align">
+              <i *ngIf="item.stats.goals.scored" class="icon icon-goal"></i>
+            </div>
+            <div class="block-align">
+              <ng-container *ngIf="item.stats.cards?.yellowcards">
+                <i class="icon icon-yellow-card"></i>
+              </ng-container>
+            </div>
+          </div>
+          <div class="grid-item grid-first">
+            <div class="leftpad-10">Bench</div>
+            <div></div>
+            <div></div>
+            <div class="rightpad-10"></div>
+          </div>
+          <div class="grid-item" *ngFor="let item of visitorTeamBench">
+            <div class="number">{{item.number}}</div>
+            <div>{{item.player_name}}</div>
+            <div class="block-align">
+              <i *ngIf="item.stats.goals.scored" class="icon icon-goal"></i>
+            </div>
+            <div class="block-align">
+              <ng-container *ngIf="item.stats.cards?.yellowcards">
+                <i class="icon icon-yellow-card"></i>
+              </ng-container>
+            </div>
+          </div>
+          <div class="p-1 table-wrap bottomdiv"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+export interface OverallStatsLeague {
+  leagueId: number;
+  seasonId: number;
+  stats: {
+    numberOfClubs: number;
+    numberOfMatches: number;
+    matchesAlreadyPlayed: number;
+    numberOfGoals: number;
+    avgGoalsPerMatch: number;
+    goalScoredEveryMins: number;
+    mostGoalsByTeam: number;
+    teamWithMostGoals?: string;
+    avgHomegoalsPerMatch: number;
+    avgAwaygoalsPerMatch: number;
+    bttsPercentage: number;
+    mostCleanSheets: number;
+    teamWithMostCleanSheets?: string;
+    goalkeeperMostCleansheetsNumber: number;
+    goalkeeperMostCleansheets?: string;
+    avgLeaguePlayerRating: number;
+    teamWithMostGoalsPerMatchNumber: number;
+    teamWithMostGoalsPerMatch?: string;
+    seasonTopscorerNumber: number;
+    topscorerPlayer: string;
+    teamWithMostConcededGoalsNumber: number;
+    mostConcededGoalsClub?: string;
+    seasonAssistTopscorerNumber: number;
+    mostAssistsPlayer?: string;
+    yellowCards: number;
+    avgYellowcardsPerMatch: number;
+    yellowReds: number;
+    avgYellowredcardsPerMatch: number;
+    directReds: number;
+    avgRedcardsPerMatch: number;
+    avgCornersPerMatch: number;
+    teamMostCornersCount: number;
+    teamMostCorners?: string;
+  }
+}

@@ -1,0 +1,99 @@
+@import "../../../../styles/colors";
+@import "../../../../styles/mixins";
+
+app-header-component {}
+
+
+.date {
+  line-height: 1.2;
+}
+
+
+.home-title {
+  text-align: right;
+  margin-right: 31px;
+
+  @include for-phone-only {
+    margin-right: 20px;
+  }
+}
+
+.away-title {
+  margin-left: 20px;
+}
+
+.result {
+  width: 15px;
+  height: 8px;
+  margin-right: 23px;
+  border-radius: 100px;
+
+  @include for-phone-only {
+    height: 17px;
+    width: 2px;
+    margin-right: 12px;
+  }
+
+  &-win {
+    background: $win;
+  }
+
+  &-draw {
+    background: $draw;
+  }
+
+  &-lost {
+    background: $lost;
+  }
+}
+
+.score {
+  display: flex;
+  margin-left: -5px;
+  align-items: center;
+
+  @include for-phone-only {
+    margin-left: -10px;
+  }
+}
+
+.table-grid {
+  @include for-phone-only {
+    padding-bottom: 7px;
+  }
+}
+
+@import "../../../../styles/mixins";
+
+app-header-component {}
+
+.date {
+  line-height: 1.2;
+}
+
+.home-title {
+  text-align: right;
+  margin-right: 31px;
+
+  @include for-phone-only {
+    margin-right: 4px;
+  }
+}
+
+.away-title {
+  margin-left: 20px;
+
+  @include for-phone-only {
+    margin-right: 4px;
+  }
+}
+
+.table-grid {
+  @include for-phone-only {
+    padding-bottom: 4px;
+  }
+}
+
+.pointer {
+  color: #4C535F;
+}

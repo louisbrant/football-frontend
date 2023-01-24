@@ -1,0 +1,80 @@
+.arrowmenudiv,
+.arrowbtn {
+  background: white;
+}
+
+.greenbg.active-tab>.arrowbtn,
+.greenbg.active-tab>.arrowmenudiv {
+  background: #6DC47F;
+  color: white;
+}
+
+.fstbg.active-tab>.arrowbtn,
+.fstbg.active-tab>.arrowmenudiv {
+  background: #F1F1F1;
+  color: #6DC47F;
+}
+
+.divflex {
+  display: flex;
+}
+
+.fstbg {
+  background: white;
+}
+
+.fstbg.active-tab>.arrowbtn {
+  padding-right: 1rem;
+}
+
+.fstbg.active-tab>.arrowbtn,
+.fstbg.active-tab>.arrowmenudiv {
+  background: #F1F1F1;
+  color: #6DC47F;
+}
+
+.fstbg>.arrowbtn,
+.fstbg>.arrowmenudiv {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.arrowbtn {
+  border-radius: 0%;
+}
+
+.arrowmenudiv {
+  width: 2em !important;
+  height: 2em;
+  margin-left: -1.8rem;
+  border-radius: 1rem;
+  border-top-right-radius: 5px;
+  transform: rotate(45deg);
+  border-top: 1px solid #F1F1F1;
+  border-right: 1px solid #F1F1F1;
+}
+
+.arrowbuttongroup {
+  border-top: 1px solid #F1F1F1;
+  --bs-gutter-x: 0rem;
+  border-bottom: 1px solid #F1F1F1;
+}
+
+.arrowbuttongroup>.divflex.gerneldiv {
+  margin-left: -1rem;
+}
+
+.arrowbuttongroup>.divflex.smalldiv {
+  margin-left: -2rem;
+}
+
+.arrowbuttongroup>.divflex:first-child {
+  margin-left: 0rem;
+}
+
+.arrowbtn {
+  border-top: 1px solid#F1F1F1 !important;
+  border-bottom: 1px solid #F1F1F1 !important;
+  border-left: 1px solid #F1F1F1 !important;
+  border-right: 0px solid #F1F1F1 !important;
+}

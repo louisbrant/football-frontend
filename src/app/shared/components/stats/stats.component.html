@@ -1,0 +1,14 @@
+<div class="rowstats divflex" *ngIf="showtype == 'column' ; else row">
+  <div class="divstats">
+    <i class="icon icon-stats"></i>
+  </div>
+  <div class="pl-1">
+    Stats
+  </div>
+</div>
+<ng-template #row>
+  <div class="stats">
+    <i class="icon icon-stats"></i>
+    Stats
+  </div>
+</ng-template>

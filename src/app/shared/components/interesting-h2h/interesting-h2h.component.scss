@@ -1,0 +1,60 @@
+@import "../../../../styles/mixins";
+
+.flags,
+.players,
+.count {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 11px;
+}
+
+.count {
+  color: #4C535F;
+}
+
+.players {
+  flex: 1;
+}
+
+.image {
+  width: 28px;
+  height: 28px;
+  margin-right: 16px;
+}
+
+.card {
+
+  &-body {
+    padding: 16px 0 10px;
+  }
+
+  &-item {
+    @include font-params(16px, #121619, 400, 16px);
+    padding: 14px 0;
+    align-items: initial;
+  }
+}
+
+.stats {
+  align-self: center;
+  margin: 0 60px 0 10px;
+}
+
+
+.card-header {
+  font-weight: 600;
+  font-size: 17px;
+}
+
+.starimg {
+  width: 20px;
+  height: 20px;
+}
+
+.scoreitem {
+  background: #A4A6BF;
+  border-radius: 4px;
+  font-size: 12px;
+  color: #FFFF;
+}

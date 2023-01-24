@@ -1,0 +1,29 @@
+<div class="container d-flex">
+  <div class="left">
+    <ng-container *ngIf="league; else leagueEmpty">
+      <app-league-info [seasons]="seasons" [league]="league" class="mb-60 whitebg br20 league-info"></app-league-info>
+      <app-league-fixtures [title]="league.name" class="mb-60 whitebg br20"></app-league-fixtures>
+      <app-detailed-stat [title]="league.name" class="mb-60 whitebg br20"></app-detailed-stat>
+      <app-league-results [title]="league.name" class="mb-60 whitebg br20"></app-league-results>
+      <app-league-table [title]="league.name" class="mb-60 whitebg br20"></app-league-table>
+      <app-team-player-stats [title]="league.name" [coachShow]="false" [seasonId]="league.currentSeasonId"
+        class="mb-60 whitebg br20"></app-team-player-stats>
+      <app-league-overall-stats [title]="league.name" class="mb-60 whitebg br20"></app-league-overall-stats>
+      <app-league-interesting-h2h [title]="league.name" class="mb-60 whitebg br20"></app-league-interesting-h2h>
+      <app-search-h2h class="mb-60 whitebg br20"></app-search-h2h>
+    </ng-container>
+    <ng-template #leagueEmpty>
+      <div *ngIf="!loading">
+        <h1 class="font-weight-bold text-center">League not found!</h1>
+      </div>
+
+      <div *ngIf="loading">
+        <h1 class="font-weight-bold text-center">League is loading...</h1>
+      </div>
+    </ng-template>
+  </div>
+  <div class="right">
+    <app-interesting-h2h class="mb-30"></app-interesting-h2h>
+    <app-live-events></app-live-events>
+  </div>
+</div>

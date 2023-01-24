@@ -1,0 +1,25 @@
+@import "../../../../styles/mixins";
+
+.home {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 15px;
+  line-height: 1.2;
+
+  @include for-phone-only {
+    gap: 4px;
+  }
+}
+
+.image {
+  max-height: 32px;
+
+  @include for-phone-only {
+    max-height: 14px;
+  }
+}
+
+img {
+  max-width: none;
+}

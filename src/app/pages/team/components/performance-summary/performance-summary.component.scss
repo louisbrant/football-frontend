@@ -1,0 +1,16 @@
+@import "../../../../../styles/mixins";
+
+app-header-component {}
+
+.stat {
+  width: 29%;
+}
+
+.overall,
+.home {
+  width: 23.5%;
+}
+
+.away {
+  width: 24%;
+}

@@ -1,0 +1,84 @@
+<header class="header-menu f-rl">
+  <div class="header-container">
+    <div class="row">
+      <div class="block top-block put-forward">
+        <div class="logo" (click)="navigation('/')">
+          <span class="font-weight-bold h3 f-rl">MATCH</span><span class="h3 f-rl">STAT</span>
+        </div>
+        <div class="search-area">
+          <app-search placeholder="Search..." [type]="'header'" class="search" [listResult]="searchResult"
+            [showBorder]="true" [size]="'short'" [isDebounce]="true" (eventSubmit)="searchData($event)" clickOutside
+            (clickOutside)="clearSearchResult($event)">
+          </app-search>
+        </div>
+        <div class="cs-top custom-select">
+          <img class="me-1" src="assets/icons/ball.svg" />
+          <select class="select w-100" [formControl]="route" (change)="navigation('tennis')">
+            <option *ngFor="let route of routes" [value]="route.value">
+              {{ route.name }}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="block">
+        <ul class="links">
+          <li class="link" routerLink="/matches">
+            <img class="me-1" src="assets/icons/matches.svg">Matches
+          </li>
+          <li class="link" routerLink="/matches">
+            <img class="me-1" src="assets/icons/header-calender.png">Calendar
+          </li>
+          <li class="link" routerLink="/matches">
+            <img class="me-1" src="assets/icons/header-h2h.png">H2H
+          </li>
+        </ul>
+        <div class="custom-select mb-d-none">
+          <img class="me-1" src="assets/icons/header-user.png" />
+          <select class="w-100" [formControl]="route" (change)="navigation('tennis')">
+            <option *ngFor="let route of routes" [value]="route.value">
+              {{ route.name }}
+            </option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!--<header class="header-menu">-->
+<!--  <div class="container">-->
+<!--    <div class="row">-->
+<!--      <div class="block put-forward">-->
+<!--        <div class="logo"><span class="font-weight-bold">MATCH</span>STAT</div>-->
+<!--        <app-search [isMenu]="true" placeholder="Search" class="search"-->
+<!--                    [listResult]="searchResult"-->
+<!--                    [showBorder]="true"-->
+<!--                    [size]="'short'"-->
+<!--                    [isDebounce]="true"-->
+<!--                    (eventSubmit)="searchData($event)"-->
+<!--                    clickOutside-->
+<!--                    (clickOutside)="clearSearchResult($event)">-->
+
+<!--        </app-search>-->
+<!--        <div>-->
+<!--          <i class="icon icon-burger"></i>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="block">-->
+<!--        <ul class="links">-->
+<!--          <li class="link"><i class="icon icon-matches"></i>Matches</li>-->
+<!--          <li class="link"><i class="icon icon-calendar"></i>Calendar</li>-->
+<!--          <li class="link" [routerLink]="['/h2h', 3468, 83]"><i class="icon icon-users"></i>H2H</li>-->
+<!--        </ul>-->
+<!--        <div class="custom-select">-->
+<!--          <i class="icon icon-ball"></i>-->
+<!--          Football-->
+<!--          <i class="icon icon-arrow-down"></i>-->
+<!--        </div>-->
+<!--        <select class="select" [formControl]="route">-->
+<!--          <option *ngFor="let route of routes" [value]="route.url">{{route.name}}</option>-->
+<!--        </select>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</header>-->

@@ -1,0 +1,46 @@
+<app-header-component
+  title="Head To Head"
+></app-header-component>
+<div class="card w-100">
+  <div class="card-body">
+    <div class="teams">
+      <div class="home">
+        <div class="emblem">
+          <img src="assets/images/rm-emblem.png">
+        </div>
+      </div>
+      <div class="matches">
+        7 Matches
+      </div>
+      <div class="away">
+        <div class="emblem">
+          <img src="assets/images/elche-emblem.png">
+        </div>
+      </div>
+    </div>
+    <div class="wins">
+      <div class="wins-stat">
+        <div class="home-win">{{homeWin}}</div>
+        <div>Wins</div>
+      </div>
+      <div class="wins-stat">
+        <div class="draw">{{draw}}</div>
+        <div>Draws</div>
+      </div>
+      <div class="wins-stat">
+        <div class="away-win">{{awayWin}}</div>
+        <div>Wins</div>
+      </div>
+    </div>
+    <div class="line">
+      <div class="line-home-win"
+           [class.right-border]="!draw"
+           *ngIf="homeWins"
+           [style.width]="homeWins + '%'"></div>
+      <div class="line-away-win"
+           [class.left-border]="!draw"
+           *ngIf="awayWins"
+           [style.width]="awayWins + '%'"></div>
+    </div>
+  </div>
+</div>

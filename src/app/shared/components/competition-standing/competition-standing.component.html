@@ -1,0 +1,35 @@
+<app-header-component title="Competition Standings" [hasSelectLeague]="true" [leagues]="leagues" [curLeague]="curLeague"
+  (selectedLeague)="selectLeague($event)" [hasSelectRange]="true" [seasons]="seasons" [curSeason]="curSeason"
+  (selectedSeason)="selectSeason($event)" [leaguestat]="true"></app-header-component>
+
+<ng-container *ngIf="competitionStandings.length">
+  <div class="table-grid nonepd">
+    <div class="grid-item grid-header nonemg nonepd py-3 nonebr">
+      <div>ID</div>
+      <div>Team</div>
+      <div>GP</div>
+      <div>P</div>
+      <div>W</div>
+      <div>D</div>
+      <div>L</div>
+      <div>G</div>
+      <div>GD</div>
+    </div>
+    <div class="grid-item pointer" *ngFor="let item of competitionStandings" (click)="navigateToTeamPage(item.name)">
+      <div class="position">
+        {{ item.rank }}
+        <div [className]="'position-color ' + item.class"></div>
+      </div>
+      <app-team [teamEmblem]="item.logo_path" [teamName]="item.name"></app-team>
+      <div>{{ item.gamesPlayed }}</div>
+      <div>{{ item.points }}</div>
+      <div>{{ item.wins }}</div>
+      <div>{{ item.draws }}</div>
+      <div>{{ item.losses }}</div>
+      <div>{{ item.goalsTotal }}</div>
+      <div>{{ item.goalsDifference }}</div>
+    </div>
+  </div>
+  <app-more *ngIf="lastLength !== competitionStandings.length" (getMore)="more()"
+    [loaderState]="loaderState"></app-more>
+</ng-container>

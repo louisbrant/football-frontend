@@ -1,0 +1,161 @@
+<!-- 
+
+<div class="table-grid">
+  <div class="grid-item grid-first">
+    Match End  {{matchData?.matchEnd}}
+  </div>
+  <div class="grid-item" *ngFor="let item of events">
+    <div class="home">
+      <ng-container *ngIf="item.home">
+        <ng-container *ngIf="item.home.type==='goal'">
+          {{item.home.player_name}}
+          <i class="icon icon-goal"></i>
+        </ng-container>
+        <ng-container *ngIf="item.home.type==='own-goal'">
+          {{item.home.player_name}}
+        Own goal
+        </ng-container>
+        <ng-container *ngIf="item.home.type==='yellowcard'">
+          {{item.home.player_name}}
+          <i class="icon icon-yellow-card"></i>
+        </ng-container>
+        <ng-container *ngIf="item.home.type==='redcard'">
+          <i class="icon icon-red-card"></i>
+          {{item.home.player_name}}
+        </ng-container>
+        <ng-container *ngIf="item.home.type==='substitution'">
+          <div class="block">
+            <span class="substitution">
+              {{item.home.player_name}}
+              <i class="icon icon-out"></i>
+            </span>
+            <span class="substitution">
+              {{item.home.related_player_name}}
+              <i class="icon icon-in"></i>
+            </span>
+          </div>
+        </ng-container>
+      </ng-container>
+    </div>
+    <div *ngIf="item.home?.player_name || item.away?.player_name" class="text-center">{{item.home?.minute ? item.home?.minute : item.away?.minute}}’</div>
+    <div class="away">
+      <ng-container *ngIf="item.away">
+        <ng-container *ngIf="item.away.type==='goal'">
+          <i class="icon icon-goal"></i>
+          {{item.away.player_name}}
+        </ng-container>
+        <ng-container *ngIf="item.away.type==='own-goal'">
+          <span class="own-goal">Own goal</span>
+          {{item.away.player_name}}
+        </ng-container>
+        <ng-container *ngIf="item.away.type==='yellowcard'">
+          <i class="icon icon-yellow-card"></i>
+          {{item.away.player_name}}
+        </ng-container>
+        <ng-container *ngIf="item.away.type==='redcard'">
+          <i class="icon icon-red-card"></i>
+          {{item.away.player_name}}
+        </ng-container>
+
+        <ng-container *ngIf="item.away.type==='substitution'">
+          <div class="block">
+            <span class="substitution">
+              <i class="icon icon-out"></i>
+              {{item.away.player_name}}
+            </span>
+            <span class="substitution">
+              <i class="icon icon-in"></i>
+              {{item.away.related_player_name}}
+            </span>
+          </div>
+        </ng-container>
+      </ng-container>
+    </div>
+  </div>
+</div>
+<app-more *ngIf="events?.length !== allEvents?.length"
+          [loaderState]="loaderState"
+          (getMore)="more()">
+</app-more> -->
+
+
+
+<div class="col pt-4">
+  <div class="carddiv">
+    <div class="header p-4 row">
+      <app-header-component title="Match Events"></app-header-component>
+    </div>
+    <div class="content">
+      <div class="grid-item" *ngFor="let item of events">
+        <div class="home">
+          <ng-container *ngIf="item.home">
+            <ng-container *ngIf="item.home.type==='goal'">
+              {{item.home.player_name}}
+              <i class="icon icon-goal"></i>
+            </ng-container>
+            <ng-container *ngIf="item.home.type==='own-goal'">
+              {{item.home.player_name}}
+              Own goal
+            </ng-container>
+            <ng-container *ngIf="item.home.type==='yellowcard'">
+              {{item.home.player_name}}
+              <i class="icon icon-yellow-card"></i>
+            </ng-container>
+            <ng-container *ngIf="item.home.type==='redcard'">
+              <i class="icon icon-red-card"></i>
+              {{item.home.player_name}}
+            </ng-container>
+            <ng-container *ngIf="item.home.type==='substitution'">
+              <div class="block">
+                <span class="substitution">
+                  {{item.home.player_name}}
+                  <i class="icon icon-out"></i>
+                </span>
+                <span class="substitution">
+                  {{item.home.related_player_name}}
+                  <i class="icon icon-in"></i>
+                </span>
+              </div>
+            </ng-container>
+          </ng-container>
+        </div>
+        <div *ngIf="item.home?.player_name || item.away?.player_name" class="text-center">{{item.home?.minute ?
+          item.home?.minute : item.away?.minute}}’</div>
+        <div class="away">
+          <ng-container *ngIf="item.away">
+            <ng-container *ngIf="item.away.type==='goal'">
+              <i class="icon icon-goal"></i>
+              {{item.away.player_name}}
+            </ng-container>
+            <ng-container *ngIf="item.away.type==='own-goal'">
+              <span class="own-goal">Own goal</span>
+              {{item.away.player_name}}
+            </ng-container>
+            <ng-container *ngIf="item.away.type==='yellowcard'">
+              <i class="icon icon-yellow-card"></i>
+              {{item.away.player_name}}
+            </ng-container>
+            <ng-container *ngIf="item.away.type==='redcard'">
+              <i class="icon icon-red-card"></i>
+              {{item.away.player_name}}
+            </ng-container>
+
+            <ng-container *ngIf="item.away.type==='substitution'">
+              <div class="block">
+                <span class="substitution">
+                  <i class="icon icon-out"></i>
+                  {{item.away.player_name}}
+                </span>
+                <span class="substitution">
+                  <i class="icon icon-in"></i>
+                  {{item.away.related_player_name}}
+                </span>
+              </div>
+            </ng-container>
+          </ng-container>
+        </div>
+      </div>
+      <div class="p-1 table-wrap bottomdiv"></div>
+    </div>
+  </div>
+</div>

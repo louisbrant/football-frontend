@@ -1,0 +1,67 @@
+<!-- <h2 class="title"><span class="live">Live</span> Match Stats</h2>
+
+<div class="table">
+  <table>
+    <thead>
+      <tr>
+        <th>Performance Summary</th>
+        <th>{{matchData?.localTeam?.name}}</th>
+        <th>{{matchData?.visitorTeam?.name}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of list">
+        <td>{{item.performance}}</td>
+        <td>{{item.home}}</td>
+        <td>{{item.away}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+ -->
+
+
+
+<div class="col pt-4">
+  <div class="carddiv">
+    <div class="header p-4 row">
+      <span class="table-title careerstatehead fw-bold"><span class="redcolor">Live </span> Match Stats</span>
+    </div>
+    <div class="content">
+      <table class="table text-left">
+        <tbody>
+          <tr class="text-uppercase text-start table-header">
+            <td class=" pt-1 pb-1 text-left leftpad-10"><span class="py-1 py-md-2 px-0">
+                Performance Summary
+              </span>
+            </td>
+            <td class=" pt-1 pb-1 text-left"><span class="py-1 py-md-2 px-0">
+                {{matchData?.localTeam?.name}}
+              </span>
+            </td>
+            <td class=" pt-1 pb-1 text-left"><span class="py-1 py-md-2 px-0">
+                {{matchData?.visitorTeam?.name}}
+              </span>
+            </td>
+          </tr>
+
+          <tr class="text-start " *ngFor="let item of list">
+            <td class=" pt-2 pb-2 text-left leftpad-10"><span class="py- py-md-2 px-0 ">
+                {{item.performance}}
+              </span>
+            </td>
+            <td class=" pt-2 pb-2 text-left"><span class="py-1 py-md-2 px-0 ">
+                {{item.home}}
+              </span>
+            </td>
+            <td class=" pt-2 pb-2 text-left"><span class="py-1 py-md-2 px-0 ">
+                {{item.away}}
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="p-1 table-wrap bottomdiv"></div>
+    </div>
+  </div>
+</div>

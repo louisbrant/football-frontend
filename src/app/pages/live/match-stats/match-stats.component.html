@@ -1,0 +1,39 @@
+<div class=header>
+  <h2 class="title"><span class="live">{{firstTeamName}}
+    Vs {{secondTeamName}}</span> Match Stats</h2>
+  <select #selectedMatch
+          (change)="changeMatch(selectedMatch.value)"
+          class="select select-league">
+    <option selected>Last No.Match</option>
+    <option *ngFor="let match of matches;  let i = index"
+            [value]="match.id">
+      {{i + 1}}
+    </option>
+  </select>
+  <select #selectedTeam (change)="changeMatchByHomeTeam(selectedTeam.value)"
+          class="select select-league">
+    <option selected=true disabled>Home Team</option>
+    <option *ngFor="let team of teams"
+            [value]="team.id">
+      {{team.name}}
+    </option>
+  </select>
+</div>
+<div class="table">
+  <table>
+    <thead>
+    <tr>
+      <th>Performance Summary</th>
+      <th>{{allMatches && allMatches[0]?.homeTeam?.name}}</th>
+      <th>{{allMatches && allMatches[0]?.awayTeam?.name}}</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of list">
+      <td>{{item.performance}}</td>
+      <td>{{item.home}}</td>
+      <td>{{item.away}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

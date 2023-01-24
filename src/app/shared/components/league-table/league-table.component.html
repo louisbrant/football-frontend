@@ -1,0 +1,35 @@
+<app-header-component [title]="label" [hasSelectRange]="true" [seasons]="seasons" [curSeason]="curSeason"
+  (selectedSeason)="selectSeason($event)"></app-header-component>
+<ng-container *ngIf="table.length">
+  <div class="table-grid br20">
+    <div class="grid-item grid-header nonemg nonebr bbcolor">
+      <div>ID</div>
+      <div>TEAM</div>
+      <div class="text-center">P</div>
+      <div class="text-center">W</div>
+      <div class="text-center">D</div>
+      <div class="text-center">L</div>
+      <div class="text-center">GOALS</div>
+      <div class="text-center">LAST 5</div>
+      <div class="text-center">PTS</div>
+    </div>
+    <div class="grid-item" *ngFor="let item of table">
+      <div class="position">
+        <div [className]="'position-color ' + item.class"></div>
+        {{ item.position }}
+      </div>
+      <app-team (click)="navigateToTeamPage(item.name)" style="cursor: pointer" [teamName]="item.name"
+        [teamEmblem]="item.logo_path"></app-team>
+      <div class="text-center">{{ item.stats.gamesPlayed }}</div>
+      <div class="text-center">{{ item.stats.wins }}</div>
+      <div class="text-center">{{ item.stats.draws }}</div>
+      <div class="text-center">{{ item.stats.losses }}</div>
+      <div class="text-center">
+        {{ item.stats.goalsScored }}:{{ item.stats.goalsAgainst }}
+      </div>
+      <div class="d-flex" [innerHTML]="item?.recent_form | lastGames"></div>
+      <div class="text-center">{{ item.stats.points }}</div>
+    </div>
+    <div class="secondheight br20"></div>
+  </div>
+</ng-container>

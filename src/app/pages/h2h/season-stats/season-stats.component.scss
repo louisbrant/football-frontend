@@ -1,0 +1,48 @@
+@import "../../../../styles/mixins";
+
+.p-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 14px;
+
+  @include for-phone-only {
+    margin-bottom: 11px;
+  }
+}
+
+.p-header-name {
+  margin-bottom: 20px;
+}
+
+#s-match {
+  margin: 0 0 0 7px;
+  padding: 0;
+  min-width: 48px;
+}
+
+.s-label {
+  margin: 0 0 0 16px;
+  font-size: 13px;
+
+  @include for-phone-only {
+    display: none;
+  }
+}
+
+.t-summary {
+  width: 37%;
+}
+
+table>thead>tr {
+  background-color: #FBFBFB;
+  text-transform: uppercase !important;
+  color: #04071E;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+table>tbody>tr:nth-of-type(even) {
+  background: #FBFBFB;
+}

@@ -1,0 +1,314 @@
+@import "../../../../styles/mixins";
+
+app-header-component {
+  margin-bottom: 20px;
+
+  @include for-phone-only {
+    margin-bottom: 6px;
+  }
+}
+
+.table-grid {
+  border-radius: 20px;
+}
+
+.grid-item {
+  grid-template-columns: 1fr 5fr 1.5fr 1.5fr 2fr;
+  padding: 14px 0 15px;
+  font-weight: 600;
+
+  @include for-phone-only {
+    padding: 5px 0 2px;
+  }
+}
+
+.grid-first {
+  grid-template-columns: 6fr 1.5fr 1.5fr 2fr;
+  padding: 0px 0 10px;
+  font-size: 18px;
+  font-weight: 600;
+  border-bottom: none;
+
+  @include for-phone-only {
+    font-size: 10px;
+  }
+}
+
+.emblem {
+  margin-left: auto;
+  max-height: 31px;
+
+  @include for-phone-only {
+    max-height: 12px;
+  }
+}
+
+.image {
+  margin: 0 auto;
+}
+
+.substitution {
+  display: flex;
+  justify-content: flex-end;
+  gap: 7px;
+  align-items: center;
+
+  @include for-phone-only {
+    gap: 5px;
+  }
+}
+
+.number {
+  font-size: 16px;
+
+  @include for-phone-only {
+    font-size: 8px;
+  }
+}
+
+.block-align {
+  display: flex;
+  justify-content: center;
+}
+
+.lineups {
+  height: 900px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+  &::-webkit-scrollbar-thumb {
+    background-color: gray;
+    border-radius: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: #E5E5E5;
+  }
+
+  &::-webkit-scrollbar {
+    width: 6px;
+    background-color: #E5E5E5;
+  }
+}
+
+
+@media (max-width: 991px) {
+  .table-scroll {
+    overflow-x: scroll;
+  }
+}
+
+.table-header {
+  background-color: #FBFBFB;
+}
+
+
+.carddiv {
+  background: white;
+  border-radius: 20px;
+}
+
+.headertext {
+  font-family: "Source Code Pro", sans-serif;
+  font-size: 35px;
+  font-weight: 400 !important;
+}
+
+.content_header {
+  border-top: 1px solid #F1F1F1;
+
+  --bs-gutter-x: 0rem !important;
+}
+
+.content {
+  border-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+
+
+.divflex {
+  display: flex;
+}
+
+.playerimg {
+  border-radius: 100%;
+  object-fit: cover;
+  height: 80%;
+  width: 110% !important;
+}
+
+.greencolor {
+  color: #6DC47F;
+}
+
+.blackcolor {
+  color: #04071E;
+}
+
+.redcolor {
+  color: #EC1D24;
+}
+
+.nonepd {
+  padding: 0% !important;
+}
+
+.fs12 {
+  font-size: 12px;
+}
+
+.information-wrap__header {
+  padding-bottom: 0% !important;
+}
+
+.information-wrap {
+  border-radius: 20px !important;
+}
+
+
+.careerstatehead {
+  font-size: 26px !important;
+}
+
+.arrowbtn {
+  width: 160px;
+  border-radius: 0%;
+}
+
+.rightbtn {
+  background: #ffff;
+}
+
+.rightdiv {
+  background: #ffff;
+  margin-left: -12px;
+}
+
+.arrowbuttongroup {
+  border-top: 1px solid #F1F1F1;
+  --bs-gutter-x: 0rem;
+  border-bottom: 1px solid #F1F1F1;
+}
+
+.arrowmenudiv {
+  width: 31px;
+  transform: rotate(45deg);
+  border-top-right-radius: 10px;
+  border-top: 1px solid #F1F1F1;
+  height: 31px;
+  border-right: 1px solid #F1F1F1;
+  margin-top: 4px;
+  margin-left: -11px;
+}
+
+.leftdiv {
+  background: buttonface;
+}
+
+
+
+
+
+
+
+
+.carddiv {
+  background: white;
+  border-radius: 20px;
+}
+
+.headertext {
+  font-family: "Source Code Pro", sans-serif;
+  font-size: 35px;
+  font-weight: 400 !important;
+}
+
+.content_header {
+  background: white;
+  border-top: 1px solid #F1F1F1;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.content {
+  border-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.table-wrap {
+  border-radius: 20px;
+}
+
+.bigselect {
+  width: 100% !important;
+}
+
+.currentsel {
+  color: #6DC47F;
+}
+
+
+.table>thead>tr>td span {
+  background: #FBFBFB !important;
+}
+
+.table>tbody>tr:first-child {
+  font-weight: bold;
+  border-top: 1px solid #F1F1F1;
+  font-weight: 700;
+}
+
+.table>tbody>tr:first-child>td {
+  font-weight: bold;
+  border-top: 1px solid #F1F1F1;
+  font-weight: 700;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.grid-item:nth-of-type(odd) {
+  background: #FBFBFB;
+}
+
+.table {
+  width: 100%;
+  padding: 0px !important;
+  border-radius: 20px;
+}
+
+tr {
+  height: 35px !important;
+  border-top: 1px solid;
+}
+
+.header {
+  padding: 1rem !important;
+  padding-bottom: 0rem !important;
+}
+
+td {
+  border-bottom: 1px solid #F1F1F1;
+}
+
+.leftpad-10 {
+  padding-left: 10px;
+}
+
+.rightpad-10 {
+  padding-right: 10px;
+}
+
+.bottomdiv {
+  height: 20px;
+}
+
+.grid-first {
+  background: #FBFBFB;
+  border-top: 1px solid #F1F1F1;
+  height: 41px;
+}

@@ -1,0 +1,84 @@
+<app-header-component title="Performance Summary" [hasSelectLeague]="true" [leagues]="leagues" [curLeague]="curLeague"
+  (selectedLeague)="selectLeague($event)" [hasSelectRange]="true" [seasons]="seasons" [curSeason]="curSeason"
+  (selectedSeason)="selectSeason($event)"></app-header-component>
+
+<div class="table br20" *ngIf="performance">
+  <table class="w-100 br20">
+    <thead>
+      <tr>
+        <th class="stat">Stat</th>
+        <th class="overall">Overall</th>
+        <th class="home">Home</th>
+        <th class="away">Away</th>
+      </tr>
+    </thead>
+    <tbody class="br20">
+      <tr>
+        <td>Wins</td>
+        <td>{{performance.wins.overall}}</td>
+        <td>{{performance.wins.home}}</td>
+        <td>{{performance.wins.away}}</td>
+      </tr>
+      <tr>
+        <td>Draw</td>
+        <td>{{performance.draw.overall}}</td>
+        <td>{{performance.draw.home}}</td>
+        <td>{{performance.draw.away}}</td>
+      </tr>
+      <tr>
+        <td>Lost</td>
+        <td>{{performance.lost.overall}}</td>
+        <td>{{performance.lost.home}}</td>
+        <td>{{performance.lost.away}}</td>
+      </tr>
+      <tr>
+        <td>Goals For</td>
+        <td>{{performance.goalsFor.overall}}</td>
+        <td>{{performance.goalsFor.home}}</td>
+        <td>{{performance.goalsFor.away}}</td>
+      </tr>
+      <tr>
+        <td>Goals Against</td>
+        <td>{{performance.goalsAgainst.overall}}</td>
+        <td>{{performance.goalsAgainst.home}}</td>
+        <td>{{performance.goalsAgainst.away}}</td>
+      </tr>
+      <tr>
+        <td>Clean Sheet</td>
+        <td>{{performance.cleanSheet.overall}}</td>
+        <td>{{performance.cleanSheet.home}}</td>
+        <td>{{performance.cleanSheet.away}}</td>
+      </tr>
+      <tr>
+        <td>Failed To Score</td>
+        <td>{{performance.failedToScore.overall}}</td>
+        <td>{{performance.failedToScore.home}}</td>
+        <td>{{performance.failedToScore.away}}</td>
+      </tr>
+      <tr>
+        <td>Av Goals Scored</td>
+        <td>{{performance.avGoalsScored.overall}}</td>
+        <td>{{performance.avGoalsScored.home}}</td>
+        <td>{{performance.avGoalsScored.away}}</td>
+      </tr>
+      <tr>
+        <td>Av Goals Conceeded</td>
+        <td>{{performance.avGoalsConceded.overall}}</td>
+        <td>{{performance.avGoalsConceded.home}}</td>
+        <td>{{performance.avGoalsConceded.away}}</td>
+      </tr>
+      <tr>
+        <td>Av 1st Goal Scored</td>
+        <td>{{performance.avFirstGoalsScored.overall}}</td>
+        <td>{{performance.avFirstGoalsScored.home}}</td>
+        <td>{{performance.avFirstGoalsScored.away}}</td>
+      </tr>
+      <tr>
+        <td>Av 1st Goal Conceeded</td>
+        <td>{{performance.avFirstGoalsConceded.overall}}</td>
+        <td>{{performance.avFirstGoalsConceded.home}}</td>
+        <td>{{performance.avFirstGoalsConceded.away}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

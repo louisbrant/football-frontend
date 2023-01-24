@@ -1,0 +1,81 @@
+<app-header-component title="Total Match Goals Probabilities" [hasSelectLeague]="true" [leagues]="leagues"
+  [curLeague]="curLeague" (selectedLeague)="selectLeague($event)" [seasons]="seasons" [curSeason]="curSeason"
+  (selectedSeason)="selectSeason($event)"></app-header-component>
+
+<div class="table br20" *ngIf="probabilities">
+  <table class="br20">
+    <thead>
+      <tr>
+        <th class="goals">Goals</th>
+        <th class="home">Home</th>
+        <th class="away">Away</th>
+      </tr>
+    </thead>
+    <tbody class="br20">
+      <tr>
+        <td>Over 0.5</td>
+        <td>{{probabilities.stats.home.over_0_5}}</td>
+        <td>{{probabilities.stats.away.over_0_5}}</td>
+      </tr>
+      <tr>
+        <td>Over 1.5</td>
+        <td>{{probabilities.stats.home.over_1_5}}</td>
+        <td>{{probabilities.stats.away.over_1_5}}</td>
+      </tr>
+      <tr>
+        <td>Over 2.5</td>
+        <td>{{probabilities.stats.home.over_2_5}}</td>
+        <td>{{probabilities.stats.away.over_2_5}}</td>
+      </tr>
+      <tr>
+        <td>Over 3.5</td>
+        <td>{{probabilities.stats.home.over_3_5}}</td>
+        <td>{{probabilities.stats.away.over_3_5}}</td>
+      </tr>
+      <tr>
+        <td>Over 4.5</td>
+        <td>{{probabilities.stats.home.over_4_5}}</td>
+        <td>{{probabilities.stats.away.over_4_5}}</td>
+      </tr>
+      <tr>
+        <td>Over 5.5</td>
+        <td>{{probabilities.stats.home.over_5_5}}</td>
+        <td>{{probabilities.stats.away.over_5_5}}</td>
+      </tr>
+      <tr>
+        <td>Under 0.5</td>
+        <td>{{probabilities.stats.home.under_0_5}}</td>
+        <td>{{probabilities.stats.away.under_0_5}}</td>
+      </tr>
+      <tr>
+        <td>Under 1.5</td>
+        <td>{{probabilities.stats.home.under_1_5}}</td>
+        <td>{{probabilities.stats.away.under_1_5}}</td>
+      </tr>
+      <tr>
+        <td>Under 2.5</td>
+        <td>{{probabilities.stats.home.under_2_5}}</td>
+        <td>{{probabilities.stats.away.under_2_5}}</td>
+      </tr>
+      <tr>
+        <td>Under 3.5</td>
+        <td>{{probabilities.stats.home.under_3_5}}</td>
+        <td>{{probabilities.stats.away.under_3_5}}</td>
+      </tr>
+      <tr>
+        <td>Under 4.5</td>
+        <td>{{probabilities.stats.home.under_4_5}}</td>
+        <td>{{probabilities.stats.away.under_4_5}}</td>
+      </tr>
+      <tr>
+        <td>Under 5.5</td>
+        <td>{{probabilities.stats.home.under_5_5}}</td>
+        <td>{{probabilities.stats.away.under_5_5}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="littleheight br20">
+
+  </div>
+</div>

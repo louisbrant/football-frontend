@@ -1,0 +1,40 @@
+@import "../../../../styles/mixins";
+@import "../../../../styles/colors";
+
+:host {
+  display: flex;
+}
+
+.headtitle {
+  font-size: 26px;
+}
+
+.header {
+  border-bottom: 1px solid #F1F1F1;
+}
+
+.leaguestxt {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: #4C535F;
+}
+
+.leagueskind {
+  width: 15px;
+  height: 8px;
+  border-radius: 100px;
+  margin-top: 5px;
+}
+
+.UECL {
+  background: #7CBF7F;
+}
+
+.UEEL {
+  background: #FFBD35;
+}
+
+.Relegation {
+  background: #F25D45;
+}

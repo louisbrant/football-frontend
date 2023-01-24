@@ -1,0 +1,243 @@
+@import "../../../../styles/colors";
+@import "../../../../styles/mixins";
+
+a, a:hover, a:link {
+  color: #5f94da
+}
+
+.match {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  color: #21272A;
+  margin-right: auto;
+  padding: 15px 0;
+
+  @include for-phone-only {
+    font-size: 10px;
+    padding: 15px 0 5px 0;
+  }
+}
+
+.icon {
+  width: 18px;
+  height: 18px;
+}
+
+.date {
+  line-height: 1.2;
+}
+
+.home-title {
+  text-align: right;
+  margin-right: 31px;
+
+  @include for-phone-only {
+    margin-right: 20px;
+  }
+}
+
+.away-title {
+  margin-left: 20px;
+}
+
+.result {
+  width: 3px;
+  height: 23px;
+  margin-right: 23px;
+
+  @include for-phone-only {
+    height: 17px;
+    width: 2px;
+    margin-right: 12px;
+  }
+
+  &-win {
+    background: $win;
+  }
+  &-draw {
+    background: $draw;
+  }
+  &-lost {
+    background: $lost;
+  }
+}
+
+.score {
+  display: flex;
+  margin-left: -19px;
+  align-items: center;
+
+  @include for-phone-only {
+    margin-left: -10px;
+  }
+}
+
+.table-grid {
+  @include for-phone-only {
+    padding-bottom: 7px;
+  }
+}
+
+.away {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  line-height: 1.2;
+
+  @include for-phone-only {
+    gap: 4px;
+  }
+}
+
+.image {
+  max-height: 32px;
+
+  @include for-phone-only {
+    max-height: 14px;
+  }
+}
+
+
+.percent {
+  text-align: center;
+  color: #FFFFFF;
+  border: none;
+  font-size: 14px;
+  border-radius: 4px;
+
+  @include for-phone-only {
+    width: 31px;
+    font-size: 8px;
+  }
+
+  &-green {
+    background: #019633;
+  }
+
+  &-orange {
+    background: #C99E57;
+  }
+}
+
+.dash {
+  padding: 0 4px;
+  font-size: 20px;
+
+  @include for-phone-only {
+    padding: 0 2px;
+    font-size: 12px;
+  }
+}
+
+.group {
+  display: flex;
+  gap: 10px;
+  padding: 7px 30px 10px;
+  border-bottom: 1px solid #DDE1E6;
+}
+
+.grid-item {
+  display: grid;
+  grid-template-columns: 5fr 5fr 5fr 3fr 4fr;
+  padding: 9px 32px 11px;
+  border-bottom: 1px solid #DDE1E6;
+  align-items: center;
+  font-size: 14px;
+
+  @include for-phone-only {
+    font-size: 8px;
+    padding: 4px 16px;
+  }
+}
+
+::ng-deep .home {
+  flex-direction: row-reverse;
+}
+
+::ng-deep .text-right {
+  text-align: unset;
+}
+
+.prediction {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+  background-color: #376BB2;
+  border: 1px solid #376BB2;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+
+  @include for-phone-only{
+    font-size: 8px;
+    padding: 0.0625rem 0.375rem;
+  }
+}
+
+.league-link {
+  cursor: pointer;
+  transition: 0.2s;
+
+  @include for-phone-only {
+    font-size: 7px;
+    font-weight: 600;
+  }
+}
+
+.league-link:hover {
+  color: black;
+}
+
+.h2h-link {
+  transition: 0.2s;
+  cursor: pointer;
+  &:hover {
+    color: #777 !important;
+  }
+}
+
+
+
+.date{
+  background: white;
+  display: flex;
+  border-radius: 6px;
+  height: 54px;
+  margin-bottom: 20px;
+}
+
+.date button{
+  background: white;
+  color: #21272A;
+  margin: 9px 18px;
+  font-weight: 600;
+font-size: 16px;
+line-height: 16px;
+text-align: center;
+}
+.active{
+  background: #376BB2 !important;
+  color: white !important;
+}
+.border{
+  height: 30px;
+  border: 1px solid #C1C7CD;
+  margin: auto;
+}
+
+select {
+  border-radius: 4px;
+  border: 1px solid #AAAAAA;
+}
+
+.dates {
+  margin-bottom: 15px!important;
+}
+
+@media (max-width: 992px) {
+  div, select, option {
+    font-size: 8px !important;
+  }
+}

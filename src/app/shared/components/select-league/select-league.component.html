@@ -1,0 +1,10 @@
+<select (change)="change()"
+        [(ngModel)]="curLeague"
+        [ngModelOptions]="{standalone: true}"
+        class="select select-league">
+  <option *ngIf="allSelected">All</option>
+  <option *ngFor="let league of leagues | sort : 'leagueName'"
+          [value]="league.leagueId">
+    {{league.leagueName}}
+  </option>
+</select>

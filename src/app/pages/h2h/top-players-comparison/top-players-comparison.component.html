@@ -1,0 +1,28 @@
+<app-header-component class="title" *ngIf="list" [title]="
+    firstTeam?.name + ' ' + 'VS' + ' ' + secondTeam?.name + ' ' + 'Comparision'
+  " [hasSelectLeague]="false" [hasSelectRange]="true" [seasons]="seasons" [leagues]="leagues" [curSeason]="curSeason"
+  [curLeague]="curLeague" (selectedSeason)="selectSeason($event)"
+  (selectedLeague)="selectLeague($event)"></app-header-component>
+
+<div class="table three-rows  nonepd br20" *ngIf="list">
+  <table class="w-100 nonebd br20">
+    <thead>
+      <tr>
+        <td class="nonebd">Performance Summary</td>
+        <td class="nonebd">{{ firstTeam?.name }}</td>
+        <td class="nonebd">{{ secondTeam?.name }}</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of list">
+        <td class="nonebd">{{ item.performance }}</td>
+        <td class="pointer nonebd" (click)="navigateToPlayerProfile(item.home)">
+          {{ item.home }}
+        </td>
+        <td class="pointer nonebd" (click)="navigateToPlayerProfile(item.away)">
+          {{ item.away }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

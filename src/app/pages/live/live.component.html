@@ -1,0 +1,21 @@
+<div class="container d-flex">
+  <div class="left">
+    <div class="left">
+      <ng-container *ngIf="live; else liveEmpty">
+        <app-live [matchData]="matchData" class="mb-40"></app-live>
+        <app-live-match-stat [matchData]="matchData" class="mb-40"></app-live-match-stat>
+        <app-lineups [matchData]="matchData" class="mb-40"></app-lineups>
+        <app-match-events [matchData]="matchData" class="mb-40"></app-match-events>
+      </ng-container>
+      <ng-template #liveEmpty>
+        <div *ngIf="!loading">
+          <h1 class="font-weight-bold text-center">Live not found!</h1>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+  <div class="right">
+    <app-interesting-h2h class="mb-30"></app-interesting-h2h>
+    <app-live-events></app-live-events>
+  </div>
+</div>

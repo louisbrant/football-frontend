@@ -1,0 +1,8 @@
+@import "../../../../styles/mixins";
+.header {
+  margin-bottom: 14px;
+
+  @include for-phone-only {
+    margin-bottom: 9px;
+  }
+}

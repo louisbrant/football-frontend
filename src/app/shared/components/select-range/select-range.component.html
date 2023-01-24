@@ -1,0 +1,10 @@
+<select (change)="change()"
+        [(ngModel)]="curSeason"
+        [ngModelOptions]="{standalone: true}"
+        class="select select-range">
+  <option  value="All" *ngIf="allSelected">All</option>
+  <option *ngFor="let season of seasons | sort : 'seasonName'"
+          [value]="season.seasonId">
+    {{season.seasonName}}
+  </option>
+</select>

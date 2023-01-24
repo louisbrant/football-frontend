@@ -1,0 +1,24 @@
+@import "../../../../styles/mixins";
+
+.divmore {
+  padding: 0 14px 0 10px;
+  display: flex;
+  align-items: center;
+  margin: 16px auto 0;
+  border: none;
+  color: #6DC47F;
+  font-size: 16px;
+  font-weight: 400;
+  height: 36px;
+  width: 130px;
+  justify-content: center;
+
+  @include for-phone-only {
+    border-radius: 4px;
+    padding: 3px 9px 3px 6px;
+    font-size: 8px;
+    margin-top: 12px;
+    height: 22px;
+    width: 63px;
+  }
+}

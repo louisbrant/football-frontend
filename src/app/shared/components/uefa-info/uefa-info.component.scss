@@ -1,0 +1,14 @@
+@import "../../../../styles/mixins";
+
+.info {
+  display: flex;
+  gap: 30px;
+  margin-top: 19px;
+  font-size: 14px;
+
+  @include for-phone-only {
+    font-size: 8px;
+    gap: 10px;
+    margin-top: 10px;
+  }
+}

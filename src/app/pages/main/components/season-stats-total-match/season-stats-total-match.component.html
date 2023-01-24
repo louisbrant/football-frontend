@@ -1,0 +1,43 @@
+<div class="table three-rows">
+  <table class="w-100">
+    <thead>
+      <tr>
+        <td>Total Match Goals Percentages</td>
+        <td>Real Madrid</td>
+        <td>FC Elche</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+          <div class="group">
+            <span>Home</span>
+            <span>Away</span>
+          </div>
+        </td>
+        <td>
+          <div class="group">
+            <span>Home</span>
+            <span>Away</span>
+          </div>
+        </td>
+      </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of list">
+      <td>{{item.total}}</td>
+      <td>
+        <div class="group">
+          <span>{{item.home.home}}</span>
+          <span>{{item.home.away}}</span>
+        </div>
+      </td>
+      <td>
+        <div class="group">
+          <span>{{item.away.home}}</span>
+          <span>{{item.away.away}}</span>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

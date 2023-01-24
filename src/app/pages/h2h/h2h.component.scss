@@ -1,0 +1,39 @@
+@import "../../../styles/mixins";
+
+.right,
+.left {
+  display: flex;
+  margin-top: 60px;
+  flex-direction: column;
+}
+
+.right {
+  max-width: 360px;
+  width: 100%;
+
+  @include for-phone-only {
+    display: none;
+  }
+}
+
+.left {
+  margin-top: 60px;
+  flex: 1;
+
+  @include for-phone-only {
+    margin-top: 16px;
+  }
+}
+
+.d-flex {
+  gap: 40px;
+}
+
+
+.whitebg {
+  background: #FFFF;
+}
+
+.brd-20 {
+  border-radius: 20px;
+}

@@ -1,0 +1,25 @@
+@import "../../../../../styles/mixins";
+
+app-header-component {}
+
+.goals {
+  width: 27%;
+}
+
+.home {
+  width: 36%;
+}
+
+.away {
+  width: 37%;
+}
+
+tr:last-child td {
+  @include for-phone-only {
+    padding-bottom: 6px;
+  }
+}
+
+.littleheight {
+  height: 1rem;
+}

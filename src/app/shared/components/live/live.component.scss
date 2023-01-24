@@ -1,0 +1,229 @@
+@import "../../../../styles/mixins";
+
+.column {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+}
+
+.live {
+  &-container {
+    display: flex;
+    flex-direction: column;
+    background: url("../../../../assets/images/live-bg.png");
+    border-radius: 20px;
+    min-height: 408px;
+    color: white;
+
+    @include for-phone-only {
+      min-height: auto;
+      background-size: cover;
+    }
+  }
+
+
+  &-body {
+    padding: 20px 25px 30px;
+    flex: 1;
+
+    @include for-phone-only {
+      padding: 10px 8px;
+    }
+  }
+
+  &-item {
+    display: grid;
+    grid-template-columns: 5fr 3fr 5fr;
+
+    &.league-row {
+      margin-bottom: 49px;
+
+      @include for-phone-only {
+        margin-bottom: 15px;
+      }
+    }
+
+    &.clubs {
+      margin-bottom: 24px;
+
+      @include for-phone-only {
+        margin-bottom: 8px;
+      }
+    }
+  }
+
+  &-status {
+    background: linear-gradient(125.85deg, #EC1D24 10.82%, #EC1D24 29.29%, #EC1D24 93.41%);
+    border-radius: 3px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 3px 11px 2px 12px;
+    max-width: 53px;
+    text-align: center;
+    @include font-params(14px, white, 500, 17px);
+
+    @include for-phone-only {
+      padding: 0 5px;
+      max-width: 28px;
+      font-size: 8px;
+      border-width: 1px;
+    }
+  }
+
+  &-footer {
+    display: flex;
+    padding: 20px 23px 23px 24px;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 15px;
+    border-top: 1px solid #999999;
+
+    @include for-phone-only {
+      padding: 8px 10px;
+      font-size: 8px;
+    }
+
+    span {
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+
+.icon {
+  &-calendar-white {
+    margin-right: 10px;
+
+    @include for-phone-only {
+      margin-right: 3px;
+    }
+  }
+
+  &-location {
+    margin-right: 11px;
+
+    @include for-phone-only {
+      margin-right: 3px;
+    }
+  }
+
+  &-referee,
+  &-weather {
+    margin-right: 8px;
+
+    @include for-phone-only {
+      margin-right: 3px;
+    }
+  }
+}
+
+.lc-emblem {
+  margin: 0 auto;
+  max-height: 61px;
+
+  @include for-phone-only {
+    max-height: 40px;
+  }
+}
+
+.home,
+.away {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+
+  @include for-phone-only {
+    gap: 10px;
+  }
+}
+
+.home {
+  justify-content: flex-end;
+}
+
+.club-name {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  @include for-phone-only {
+    gap: 0;
+    font-size: 8px;
+  }
+
+  span:first-child {
+    font-size: 24px;
+    font-weight: 600;
+
+    @include for-phone-only {
+      font-size: 10px;
+    }
+  }
+}
+
+.score-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px 0 2px;
+  justify-content: space-between;
+
+  @include for-phone-only {
+    font-size: 8px;
+    padding: 5px 0 2px;
+  }
+}
+
+.score {
+  padding: 1px 17px 2px;
+  background: rgba(241, 242, 247, .2);
+  border-radius: 6px;
+  @include font-params(27px, white, 700, 34px);
+
+  @include for-phone-only {
+    font-size: 10px;
+    padding: 1px 10px 2px;
+    line-height: 16px;
+  }
+}
+
+.home-goal,
+.away-goal {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin: 10px;
+
+  @include for-phone-only {
+    gap: 5px;
+  }
+}
+
+.home-goal {
+  justify-content: flex-end;
+}
+
+.goals {
+  margin-bottom: 13px;
+
+  @include for-phone-only {
+    margin-bottom: 2px;
+    font-size: 8px;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.image {
+  max-height: 60px;
+
+  @include for-phone-only {
+    max-height: 60px;
+  }
+}
+
+.minute {
+  padding-bottom: 10px;
+}

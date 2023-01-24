@@ -1,0 +1,29 @@
+@import "../../../../../styles/mixins";
+
+.group {
+  display: flex;
+
+  span {
+    width: 50%;
+    text-align: center;
+  }
+}
+
+tbody {
+  tr {
+    &:first-child td {
+      padding-top: 9px;
+
+      @include for-phone-only {
+        padding-top: 9px;
+      }
+    }
+    &:last-child td {
+      padding-bottom: 8px;
+
+      @include for-phone-only {
+        padding-bottom: 4px;
+      }
+    }
+  }
+}

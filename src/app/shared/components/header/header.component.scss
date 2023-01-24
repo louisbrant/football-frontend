@@ -1,0 +1,265 @@
+@import "../../../../styles/colors";
+@import "../../../../styles/mixins";
+
+.header-container {
+  width: 100%;
+  padding-right: 2rem;
+  padding-left: 2rem;
+  margin-right: auto;
+  margin-left: auto;
+
+  @include for-phone-only {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.header-menu {
+  background: #04071E;
+  padding: 11px 0;
+  line-height: 1.5;
+
+  @media (max-width: 992px) {
+    display: flex;
+    justify-content: center;
+  }
+
+  @include for-phone-only {
+    padding: 8px 0;
+  }
+}
+
+.search-area {
+  display: flex;
+  min-width: 400px;
+
+  @media (max-width: 992px) {
+    min-width: 250px;
+  }
+
+  @media screen and (max-width: 768px) {
+    min-width: 200px;
+  }
+
+  @media screen and (max-width: 576px) {
+    min-width: 130px;
+  }
+}
+
+.select {
+  font-size: 16px;
+}
+
+select {
+  padding-right: 0;
+  margin-right: 0;
+  border: none;
+  background-color: #04071e !important;
+  color: white;
+  min-width: 100px;
+
+  @include for-phone-only {
+    margin-left: 0;
+    padding-left: 0;
+    min-width: 80px;
+    font-size: 14px;
+  }
+}
+
+@include for-phone-only {
+  ::ng-deep app-search.search {
+
+    .search-input {
+      font-size: 14px;
+    }
+
+    .icon-search {
+      right: 7px;
+      top: 8px;
+      width: 16px;
+      height: 16px;
+      background-size: 16px;
+      transform: translate(0, -30%)
+    }
+  }
+}
+
+app-search {
+  width: 100%;
+
+  @include for-phone-only {}
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  margin-right: 2rem;
+  margin-left: calc(-0.5 * 0.5rem);
+
+  @media (max-width: 992px) {
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 768px) {
+    //flex-direction: column;
+    padding: 0;
+    margin: 0 12px;
+  }
+}
+
+.top-block {
+  @include for-phone-only {
+    padding-left: 10px;
+  }
+}
+
+.block {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  width: 100%;
+  justify-content: space-between;
+
+  @media (max-width: 992px) {
+    &:last-child {
+      margin-top: 7px;
+    }
+  }
+
+  @include for-phone-only {
+    margin-left: 5px;
+  }
+}
+
+.logo {
+  cursor: pointer;
+  padding-right: 20px;
+  @include font-params(28px, $white, 400, 35px);
+
+  @include for-phone-only {
+    font-size: 14px;
+    line-height: 18px;
+    padding-right: unset;
+  }
+}
+
+.links {
+  color: $white;
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  max-width: 295px;
+  width: 100%;
+  padding-left: 34px;
+
+  @include for-phone-only {
+    max-width: 100%;
+    padding-left: unset;
+  }
+}
+
+.cs-top {
+  display: none !important;
+
+  @media (max-width: 992px) {
+    display: flex !important;
+    font-size: 14px !important;
+  }
+}
+
+.link,
+.custom-select {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.link {
+  flex: 1 1 auto;
+  text-align: center;
+}
+
+.custom-select {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+
+  @include for-phone-only {
+    margin-left: 0;
+  }
+}
+
+.mb-d-none {
+  @media (max-width: 992px) {
+    display: none;
+  }
+}
+
+.f-rl {
+  font-family: Roboto Light, sans-serif !important;
+}
+
+.me-1 {
+  margin-right: 0.25rem !important;
+}
+
+img {
+  width: 1.4em;
+}
+
+a {
+  color: white;
+
+  &:hover {
+    color: #ddd
+  }
+}
+
+@media (min-width: 576px) {
+  .header-container {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .header-container {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .header-container {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .header-container {
+    max-width: 1140px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .header-container {
+    max-width: 1320px;
+  }
+}
+
+@media (min-width: 1400px) {}
+
+@media screen and (max-width: 1166px) {}
+
+@media screen and (max-width: 1024px) {}
+
+@media screen and (max-width: 992px) {
+  .header-container {
+    margin: 0;
+  }
+}
+
+@media screen and (max-width: 768px) {}
+
+@media screen and (max-width: 576px) {}

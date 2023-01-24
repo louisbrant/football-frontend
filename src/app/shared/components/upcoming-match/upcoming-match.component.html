@@ -1,0 +1,69 @@
+<app-header-component [title]="title"></app-header-component>
+<div class="container-left br20" *ngIf="upcoming">
+  <div class="card w-100 nonepd br20">
+    <div class="divflex F1bg">
+      <div class="match-left nonemg nonepd upcomdiv nonebd nonebr halfwidth">
+        <div class="times divflow">
+          <span class="number">{{ daysToDday }} </span>
+          <span class="unit">day</span>
+        </div>
+        <div class="times divflow">
+          <span class="number">{{ hoursToDday }} </span>
+          <span class="unit">hr</span>
+        </div>
+        <div class="times divflow">
+          <span class="number">{{ minutesToDday }} </span>
+          <span class="unit">min</span>
+        </div>
+        <div class="times divflow">
+          <span class="number">{{ secondsToDday }} </span>
+          <span class="unit">sec</span>
+        </div>
+      </div>
+      <div *ngIf="showprediction" class="halfwidth px-4">
+        <div class="px-4 py-3">
+          <button class="btn btn-predic upprebtn py-2 px-4 divflex">
+            <span class="right p-1"><i class="icon icon-eye"></i></span> View Match Prediction <span class="left p-1"><i
+                class="icon icon-out"></i></span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="card-body pb-3 br20">
+      <div class="coming-match">
+        <div class="teams pointer">
+          <div class="home"
+            (click)="upcomingMatch?.firstTeam?.name ? navigateToTeam(upcomingMatch?.firstTeam?.name) : navigateToH2h(upcoming.firstTeam.id, upcoming.secondTeam.id)">
+            <div class="emblem">
+              <img [src]="upcoming.firstTeam?.logo_path" />
+            </div>
+            <span class="name">{{ upcoming.firstTeam?.name }}</span>
+            <div *ngIf="upcomingMatch?.odds?.oddFirstTeam" class="percent percent-green">
+              {{upcomingMatch?.odds?.oddFirstTeam ?
+              upcomingMatch?.odds?.oddFirstTeam : upcoming.firstTeam?.odd }}</div>
+          </div>
+          <div class="league"
+            (click)="upcomingMatch?.league?.name ? navigateToLeague(upcomingMatch?.league?.name) : navigateToH2h(upcoming.firstTeam.id, upcoming.secondTeam.id)">
+            <div class="emblem">
+              <img [src]="upcoming.league?.logo_path" />
+            </div>
+            <div class="date">
+              <span>{{ upcoming.league?.name }}</span>
+              <span class="upcomingtime">{{ upcoming?.dateTime | date: "yyyy-MM-dd HH:mm" }}</span>
+            </div>
+          </div>
+          <div class="away"
+            (click)="upcomingMatch?.secondTeam?.name ? navigateToTeam(upcomingMatch?.secondTeam?.name) : navigateToH2h(upcoming.firstTeam.id, upcoming.secondTeam.id)">
+            <div class="emblem">
+              <img [src]="upcoming.secondTeam?.logo_path" />
+            </div>
+            <span class="name">{{ upcoming.secondTeam?.name }}</span>
+            <div *ngIf="upcomingMatch?.odds?.oddSecondTeam" class="percent percent-orange">{{
+              upcomingMatch?.odds?.oddSecondTeam ?
+              upcomingMatch?.odds?.oddSecondTeam : upcoming.secondTeam?.odd }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

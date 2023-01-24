@@ -1,0 +1,139 @@
+@import "../../../../../styles/mixins";
+
+app-header-component {}
+
+.card {
+  padding: 33px 30px 26px;
+
+  @include for-phone-only {
+    padding: 20px;
+    ;
+  }
+
+  &-body {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.teams {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 10px;
+}
+
+.emblem {
+  height: 96px;
+  display: flex;
+  align-items: center;
+
+  img {
+    max-height: 96px;
+  }
+
+  @include for-phone-only {
+    height: 46px;
+
+    img {
+      height: 100%;
+    }
+  }
+}
+
+.matches {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  font-size: 22px;
+
+  @include for-phone-only {
+    font-size: 10px;
+  }
+}
+
+.wins {
+  display: flex;
+  justify-content: space-between;
+  margin: 12px 162px 20px 156px;
+
+  @include for-phone-only {
+    margin: 12px 50px 10px;
+  }
+}
+
+.wins-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 18px;
+
+  @include for-phone-only {
+    font-size: 8px;
+  }
+}
+
+.home-win,
+.draw,
+.away-win {
+  font-size: 48px;
+  font-weight: 600;
+  color: #004996;
+  margin-bottom: 15px;
+
+  @include for-phone-only {
+    font-size: 16px;
+    margin-bottom: 0;
+  }
+}
+
+.draw {
+  color: #878D96;
+}
+
+.away-win {
+  color: #E6C777;
+}
+
+.line {
+  width: 100%;
+  height: 12px;
+  border-radius: 40px;
+  background: #878D96;
+  position: relative;
+
+  @include for-phone-only {
+    height: 6px;
+    border-radius: 20px;
+  }
+
+  &-home-win,
+  &-away-win {
+    background: #004996;
+    border-radius: 40px;
+    position: absolute;
+    left: 0;
+    height: 12px;
+
+    @include for-phone-only {
+      height: 6px;
+      border-radius: 20px;
+    }
+  }
+
+  &-away-win {
+    background: #E6C777;
+    right: 0;
+    left: unset;
+  }
+}
+
+.right-border {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.left-border {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}

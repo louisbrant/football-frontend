@@ -1,0 +1,311 @@
+@import "mixins";
+@import "colors";
+
+.icon {
+  background-size: auto;
+  background: $white;
+
+  &-search {
+    background: url("../assets/icons/search.png");
+    width: 16px;
+    height: 16px;
+  }
+
+  &-matches {
+    @include cross-browser('mask', url("../assets/icons/matches.svg"));
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+  }
+
+  &-calendar {
+    @include cross-browser('mask', url("../assets/icons/calendar.svg"));
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+  }
+
+  &-users {
+    @include cross-browser('mask', url("../assets/icons/users.svg"));
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+  }
+
+  &-ball {
+    @include cross-browser('mask', url("../assets/icons/ball.svg"));
+    width: 18px;
+    height: 18px;
+    margin-right: 7px;
+  }
+
+  &-arrow-down {
+    @include cross-browser('mask', url("../assets/icons/arrow-down.png"));
+    width: 10px;
+    height: 5px;
+    margin-left: 10px;
+  }
+
+  &-burger {
+    @include cross-browser('mask', url("../assets/icons/burger.svg"));
+    width: 18px;
+    height: 16px;
+  }
+
+  &-events {
+    @include cross-browser('mask', url("../assets/icons/events.svg"));
+    width: 17px;
+    height: 17px;
+    margin-right: 10px;
+  }
+
+  &-circle-star {
+    @include cross-browser('mask', url("../assets/icons/circle-star.svg"));
+    width: 17px;
+    height: 17px;
+    margin-right: 10px;
+  }
+
+  &-black-star {
+    @include cross-browser('mask', url("../assets/icons/blackstar.png"));
+    width: 17px;
+    height: 17px;
+    margin-right: 10px;
+  }
+
+  &-stats {
+    @include cross-browser('mask', url("../assets/icons/stats.svg"));
+    width: 14px;
+    height: 12px;
+    margin-bottom: 3px;
+    background: #6DC47F;
+
+    @include for-phone-only {
+      width: 7px;
+      height: 6px;
+      mask-size: 7px 6px;
+      margin-bottom: 2px;
+    }
+  }
+
+  &-cup {
+    @include cross-browser('background', url("../assets/icons/cup.png"));
+    width: 12px;
+    height: 12px;
+    margin-left: 6px;
+
+    @include for-phone-only {
+      width: 8px;
+      height: 8px;
+      background-size: 8px;
+    }
+
+  }
+
+  &-more {
+    @include cross-browser('mask', url("../assets/icons/arrow-down-more.svg"));
+    width: 11px;
+    height: 7px;
+    margin-left: 8px;
+
+    @include for-phone-only {
+      width: 6px;
+      height: 4px;
+      mask-size: 6px 4px;
+      margin-left: 6px;
+    }
+  }
+
+  &-player-ball {
+    @include cross-browser('background', url("../assets/icons/player-ball.png"));
+    width: 20px;
+    height: 20px;
+
+    @include for-phone-only {
+      width: 9px;
+      height: 9px;
+      background-size: 9px;
+    }
+  }
+
+  &-handshake {
+    @include cross-browser('background', url("../assets/icons/handshake.png"));
+    width: 24px;
+    height: 20px;
+
+    @include for-phone-only {
+      width: 9px;
+      height: 8px;
+      background-size: 9px 8px;
+    }
+  }
+
+  &-cards {
+    @include cross-browser('background', url("../assets/icons/cards.png"));
+    width: 17px;
+    height: 17px;
+
+    @include for-phone-only {
+      width: 10px;
+      height: 10px;
+      background-size: 10px;
+    }
+  }
+
+  &-times {
+    @include cross-browser('background', url("../assets/icons/times.png"));
+    width: 24px;
+    height: 24px;
+
+    @include for-phone-only {
+      width: 10px;
+      height: 10px;
+      background-size: 10px;
+    }
+  }
+
+  &-eye {
+    @include cross-browser('background', url("../assets/icons/eye.svg"));
+    width: 16px;
+    height: 11px;
+
+    @include for-phone-only {
+      width: 10px;
+      height: 10px;
+      background-size: 10px;
+    }
+  }
+
+  &-out {
+    @include cross-browser('background', url("../assets/icons/out.svg"));
+    width: 12px;
+    height: 7px;
+
+    @include for-phone-only {
+      width: 10px;
+      height: 10px;
+      background-size: 10px;
+    }
+  }
+
+  &-rating {
+    @include cross-browser('background', url("../assets/icons/rating.png"));
+    width: 16px;
+    height: 20px;
+
+    @include for-phone-only {
+      width: 10px;
+      height: 11px;
+      background-size: 10px 11px;
+    }
+  }
+
+  &-in {
+    @include cross-browser('background', url("../assets/icons/in.png"));
+    width: 18px;
+    height: 18px;
+
+    @include for-phone-only {
+      width: 8px;
+      height: 8px;
+      background-size: 8px 8px;
+    }
+  }
+
+
+  &-goal {
+    @include cross-browser('background', url("../assets/icons/goal.png"));
+    width: 18px;
+    height: 18px;
+
+    @include for-phone-only {
+      width: 8px;
+      height: 8px;
+      background-size: 8px 8px;
+    }
+  }
+
+  &-goal-white {
+    @include cross-browser('background', url("../assets/icons/goal-white.png"));
+    width: 20px;
+    height: 20px;
+
+    @include for-phone-only {
+      width: 8px;
+      height: 8px;
+      background-size: 8px 8px;
+    }
+  }
+
+  &-yellow-card {
+    @include cross-browser('background', url("../assets/icons/yellow-card.png"));
+    width: 13px;
+    height: 16px;
+
+    @include for-phone-only {
+      width: 6px;
+      height: 8px;
+      background-size: 6px 8px;
+    }
+  }
+
+  &-red-card {
+    @include cross-browser('background', url("../assets/icons/red-card.png"));
+    width: 13px;
+    height: 16px;
+
+    @include for-phone-only {
+      width: 6px;
+      height: 8px;
+      background-size: 6px 8px;
+    }
+  }
+
+  &-calendar-white {
+    @include cross-browser('background', url("../assets/icons/calendar.png"));
+    width: 20px;
+    height: 20px;
+
+    @include for-phone-only {
+      width: 10px;
+      height: 10px;
+      background-size: 10px 10px;
+    }
+  }
+
+  &-location {
+    @include cross-browser('background', url("../assets/icons/location.png"));
+    width: 18px;
+    height: 22px;
+
+    @include for-phone-only {
+      width: 9px;
+      height: 11px;
+      background-size: 9px 11px;
+    }
+  }
+
+  &-referee {
+    @include cross-browser('background', url("../assets/icons/referee.png"));
+    width: 24px;
+    height: 19px;
+
+    @include for-phone-only {
+      width: 12px;
+      height: 9px;
+      background-size: 12px 9px;
+    }
+  }
+
+  &-weather {
+    @include cross-browser('background', url("../assets/icons/weather.png"));
+    width: 24px;
+    height: 18px;
+
+    @include for-phone-only {
+      width: 12px;
+      height: 9px;
+      background-size: 12px 9px;
+    }
+  }
+}

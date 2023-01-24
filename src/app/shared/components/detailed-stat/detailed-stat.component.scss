@@ -1,0 +1,172 @@
+@import "../../../../styles/colors";
+@import "../../../../styles/mixins";
+
+app-header-component {
+
+  @include for-phone-only {
+    margin-bottom: 9px;
+  }
+}
+
+.grid-item {
+  grid-template-columns: 2fr 5fr 3fr 3fr 4fr;
+  padding: 4px 8px 6px 12px;
+  font-size: 14px;
+
+  @include for-phone-only {
+    grid-template-columns: 2fr 4fr 3fr 3fr 4fr;
+    font-size: 8px;
+    padding: 7px 7px 6px;
+  }
+}
+
+.grid-header {
+  padding: 11px 0 10px;
+
+  @include for-phone-only {
+    padding: 0;
+    font-size: 7px;
+  }
+
+  div:first-child {
+    margin-left: 16px;
+
+    @include for-phone-only {
+      margin-left: 10px;
+    }
+  }
+}
+
+.image {
+  max-height: 28px;
+  margin: 0 auto;
+
+  .team & {
+    margin: 0;
+  }
+
+  @include for-phone-only {
+    max-height: 14px;
+  }
+}
+
+.table-grid {
+  @include for-phone-only {
+    padding-bottom: 5px;
+  }
+}
+
+.btn {
+  &-primary {
+    font-size: 14px;
+    padding: 6px 25px;
+
+    @include for-phone-only {
+      padding: 0 12px;
+      font-size: 7px;
+      line-height: 13px;
+      border-radius: 4px;
+    }
+  }
+
+  &-default {
+    font-weight: 600;
+    height: 36px;
+    border-left: 1px solid #C1C7CD;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    background: $white;
+    padding: 0;
+
+    @include for-phone-only {
+      font-size: 7px;
+      line-height: 13px;
+      height: 13px;
+      border-left: none;
+      border-radius: 4px;
+    }
+
+    &:first-child {
+      border-left: none;
+    }
+
+    &.btn {
+      &-active {
+        background: #376BB2;
+        color: $white;
+        border-left: none;
+        border-bottom-left-radius: 4px;
+        border-top-left-radius: 4px;
+
+        @include for-phone-only {
+          border-bottom-left-radius: 4px;
+          border-top-left-radius: 4px;
+        }
+
+        &+.btn-default {
+          border-left: none;
+        }
+      }
+
+      &-fts {
+        width: 12.5%;
+      }
+
+      &-clean-sheet {
+        width: 17.6%;
+      }
+
+      &-corners {
+        width: 13.7%;
+      }
+
+      &-cards {
+        width: 12%;
+      }
+
+      &-btts {
+        width: 14.6%;
+      }
+
+      &-over {
+        width: 14.6%;
+      }
+
+      &-under {
+        width: 14.6%;
+      }
+    }
+  }
+}
+
+.stats {
+  margin-bottom: 16px;
+  padding: 11px 12px;
+}
+
+.card {
+  @include for-phone-only {
+    padding: 1px 8px 2px;
+    margin-bottom: 8px;
+    border-radius: 6px;
+  }
+}
+
+
+.btn-predic {
+  background: #6DC47F;
+  border-radius: 7px;
+  color: #FFFFFF;
+}
+
+.grid-header {
+  font-weight: 600;
+}
+
+.w-2 {
+  width: 2rem !important;
+}
+
+.w-7 {
+  width: 7rem !important;
+}

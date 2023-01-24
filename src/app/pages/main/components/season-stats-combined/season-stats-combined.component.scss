@@ -1,0 +1,13 @@
+@import "../../../../../styles/mixins";
+
+tbody {
+  tr {
+    &:last-child td {
+      padding-bottom: 0;
+
+      @include for-phone-only {
+        padding-bottom: 0;
+      }
+    }
+  }
+}

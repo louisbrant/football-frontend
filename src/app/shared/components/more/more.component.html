@@ -1,0 +1,14 @@
+<div class="divmore" (click)="more()">
+  <ng-container *ngIf="loaderState.val; else button">
+    <div class="loader">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </ng-container>
+  <ng-template #button>
+    View More
+    <img [src]="'assets/icons/arrow-down.png'" class="image">
+  </ng-template>
+</div>

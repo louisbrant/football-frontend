@@ -1,0 +1,71 @@
+<div class="block">
+  <div class="mw-360">
+    <app-header-component
+      class="header"
+      [title]="listFirst?.name + ' ' + 'Recently Played'"
+    ></app-header-component>
+    <div class="table-grid">
+      <div
+        class="grid-item pointer"
+        *ngFor="let item of listFirstSelected"
+        (click)="navigateToTeamPage(item?.opponent_name)"
+      >
+        <img class="emblem" />
+        <div>{{ item?.opponent_name }}</div>
+        <app-league-emblem
+          [leagueEmblem]="item.league.data.logo_path"
+        ></app-league-emblem>
+        <div class="text-center">
+          <span
+            *ngIf="
+              firstTeamId?.toString() === item.localteam_id?.toString();
+              else away
+            "
+            >H</span
+          >
+          <ng-template #away> A </ng-template>
+        </div>
+        <app-score *ngIf="item.scores.ft_score"  class="score" [score]="item.scores.ft_score"></app-score>
+      </div>
+    </div>
+    <app-more
+      *ngIf="listFirstSelected?.length !== listFirst?.latest?.length"
+      [loaderState]="loaderState"
+      (getMore)="moreFirstTeam()"
+    >
+    </app-more>
+  </div>
+  <div class="mw-360">
+    <app-header-component
+      class="header"
+      [title]="listSecond?.name + ' ' + 'Recently Played'"
+    ></app-header-component>
+    <div class="table-grid">
+      <div
+        class="grid-item pointer"
+        *ngFor="let item of listSecondSelected"
+        (click)="navigateToTeamPage(item.opponent_name)"
+      >
+        <img class="emblem" />
+        <div>{{ item.opponent_name }}</div>
+        <app-league-emblem
+          [leagueEmblem]="item.league.data.logo_path"
+        ></app-league-emblem>
+        <div class="text-center">
+          <span>{{
+            secondTeamId?.toString() === item?.localteam_id?.toString()
+              ? "H"
+              : "A"
+          }}</span>
+        </div>
+        <app-score *ngIf="item.scores.ft_score" class="score" [score]="item.scores.ft_score"></app-score>
+      </div>
+    </div>
+    <app-more
+      *ngIf="listSecondSelected?.length !== listFirst?.latest?.length"
+      [loaderState]="loaderState"
+      (getMore)="moreSecondTeam()"
+    >
+    </app-more>
+  </div>
+</div>

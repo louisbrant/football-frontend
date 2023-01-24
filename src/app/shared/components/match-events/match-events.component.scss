@@ -1,0 +1,327 @@
+@import "../../../../styles/mixins";
+
+app-header-component {
+  margin-bottom: 20px;
+
+  @include for-phone-only {
+    margin-bottom: 4px;
+  }
+}
+
+.table-grid {
+  padding: 0 16px 24px;
+
+  @include for-phone-only {
+    padding: 2px 8px 18px;
+  }
+}
+
+.grid-item {
+  grid-template-columns: 4fr 3fr 4fr;
+  padding: 0;
+  height: 47px;
+  font-weight: 600;
+
+  @include for-phone-only {
+    grid-template-columns: 3fr 4fr 3fr;
+    height: auto;
+    padding: 6px 0 2px;
+
+    &:last-child {
+      border-bottom: 1px solid #DDE1E6;
+    }
+  }
+}
+
+.grid-first {
+  font-size: 18px;
+  grid-template-columns: 11fr;
+  text-align: center;
+  font-weight: 600;
+
+  @include for-phone-only {
+    grid-template-columns: 10fr;
+    font-size: 10px;
+    border-bottom: none;
+  }
+}
+
+.block {
+  display: flex;
+  flex-direction: column;
+}
+
+.substitution {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+
+  @include for-phone-only {
+    gap: 5px;
+  }
+}
+
+.home {
+  justify-content: flex-end;
+  display: flex;
+  align-items: center;
+
+  .icon {
+    &-yellow-card {
+      margin-left: 16px;
+
+      @include for-phone-only {
+        margin-right: 5px;
+      }
+    }
+
+    &-goal {
+      margin-left: 13px;
+
+      @include for-phone-only {
+        margin-right: 5px;
+      }
+    }
+  }
+}
+
+.away {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  .icon {
+    &-yellow-card {
+      margin-right: 16px;
+
+      @include for-phone-only {
+        margin-right: 5px;
+      }
+    }
+
+    &-goal {
+      margin-right: 13px;
+
+      @include for-phone-only {
+        margin-right: 5px;
+      }
+    }
+  }
+}
+
+.own-goal {
+  color: red;
+  margin-right: 10px;
+}
+
+
+@media (max-width: 991px) {
+  .table-scroll {
+    overflow-x: scroll;
+  }
+}
+
+.table-header {
+  background-color: #FBFBFB;
+}
+
+
+.carddiv {
+  background: white;
+  border-radius: 20px;
+}
+
+.headertext {
+  font-family: "Source Code Pro", sans-serif;
+  font-size: 35px;
+  font-weight: 400 !important;
+}
+
+.content_header {
+  border-top: 1px solid #F1F1F1;
+
+  --bs-gutter-x: 0rem !important;
+}
+
+.content {
+  border-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+
+
+.divflex {
+  display: flex;
+}
+
+.playerimg {
+  border-radius: 100%;
+  object-fit: cover;
+  height: 80%;
+  width: 110% !important;
+}
+
+.greencolor {
+  color: #6DC47F;
+}
+
+.blackcolor {
+  color: #04071E;
+}
+
+.redcolor {
+  color: #EC1D24;
+}
+
+.nonepd {
+  padding: 0% !important;
+}
+
+.fs12 {
+  font-size: 12px;
+}
+
+.information-wrap__header {
+  padding-bottom: 0% !important;
+}
+
+.information-wrap {
+  border-radius: 20px !important;
+}
+
+
+.careerstatehead {
+  font-size: 26px !important;
+}
+
+.arrowbtn {
+  width: 160px;
+  border-radius: 0%;
+}
+
+.rightbtn {
+  background: #ffff;
+}
+
+.rightdiv {
+  background: #ffff;
+  margin-left: -12px;
+}
+
+.arrowbuttongroup {
+  border-top: 1px solid #F1F1F1;
+  --bs-gutter-x: 0rem;
+  border-bottom: 1px solid #F1F1F1;
+}
+
+.arrowmenudiv {
+  width: 31px;
+  transform: rotate(45deg);
+  border-top-right-radius: 10px;
+  border-top: 1px solid #F1F1F1;
+  height: 31px;
+  border-right: 1px solid #F1F1F1;
+  margin-top: 4px;
+  margin-left: -11px;
+}
+
+.leftdiv {
+  background: buttonface;
+}
+
+
+
+
+
+
+
+
+.carddiv {
+  background: white;
+  border-radius: 20px;
+}
+
+.headertext {
+  font-family: "Source Code Pro", sans-serif;
+  font-size: 35px;
+  font-weight: 400 !important;
+}
+
+.content_header {
+  background: white;
+  border-top: 1px solid #F1F1F1;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.content {
+  border-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.table-wrap {
+  border-radius: 20px;
+}
+
+.bigselect {
+  width: 100% !important;
+}
+
+.currentsel {
+  color: #6DC47F;
+}
+
+
+.table>thead>tr>td span {
+  background: #FBFBFB !important;
+}
+
+.table>tbody>tr:first-child {
+  font-weight: bold;
+  border-top: 1px solid #F1F1F1;
+  font-weight: 700;
+}
+
+.table>tbody>tr:first-child>td {
+  font-weight: bold;
+  border-top: 1px solid #F1F1F1;
+  font-weight: 700;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.table>tbody>tr:nth-of-type(even) {
+  background: #FBFBFB;
+}
+
+.table {
+  width: 100%;
+  padding: 0px !important;
+  border-radius: 20px;
+}
+
+tr {
+  height: 35px !important;
+  border-top: 1px solid;
+}
+
+.header {
+  padding: 2rem !important;
+  padding-bottom: 1rem !important;
+}
+
+td {
+  border-bottom: 1px solid #F1F1F1;
+}
+
+.leftpad-10 {
+  padding-left: 10px;
+}
+
+.bottomdiv {
+  height: 20px;
+}

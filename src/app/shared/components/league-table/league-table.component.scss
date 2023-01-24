@@ -1,0 +1,66 @@
+@import "../../../../styles/colors";
+@import "../../../../styles/mixins";
+
+app-header-component {}
+
+.grid-item {
+  grid-template-columns: 1.5fr 5fr 1fr 1fr 1fr 1fr 2fr 4fr 1.5fr;
+  padding: 11px 16px 12px 16px;
+  font-size: 14px;
+
+  .last-games {
+    margin: 0 auto;
+  }
+
+  @include for-phone-only {
+    font-size: 8px;
+    padding: 7px 7px 6px;
+  }
+}
+
+.grid-header {
+
+  @include for-phone-only {
+    padding: 0;
+  }
+
+  div:first-child {
+    margin-left: 16px;
+
+    @include for-phone-only {
+      margin-left: 10px;
+    }
+  }
+}
+
+.image {
+  max-height: 28px;
+
+  @include for-phone-only {
+    max-height: 14px;
+  }
+}
+
+.team {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  @include for-phone-only {
+    gap: 5px;
+  }
+}
+
+.table-grid {
+  @include for-phone-only {
+    padding-bottom: 5px;
+  }
+}
+
+.d-flex {
+  justify-content: center;
+}
+
+.grid-item:nth-child(odd) {
+  background: #FBFBFB;
+}

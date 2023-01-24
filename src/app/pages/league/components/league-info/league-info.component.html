@@ -1,0 +1,94 @@
+<div class="w-100 divflex  bbcolor">
+  <div class="left br20">
+    <div class="card px-3 p-4 pb-25 br20" *ngIf="leagueInfo">
+      <div class="card-header nonepd">
+        <div class="teamhead">
+          <div class="">
+            <div class="imgcontainer">
+              <img [src]="[leagueInfo.logo_path]" class="teammarkimg">
+            </div>
+          </div>
+          <div class="px-3 pt-3">
+            <span class="league-name">{{leagueInfo.name}}</span>
+            <div class="league-country pt-2">
+              <img [src]="leagueInfo.country_flag" class="league-country-flag">
+              {{leagueInfo.country}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="right"><app-header-component title="" [nonebb]="true" [hasSelectRange]="true" [seasons]="seasons"
+      (selectedSeason)="selectedSeason($event)" [curSeason]="league?.currentSeasonId"></app-header-component>
+  </div>
+</div>
+
+
+<div class="card-body divflex pt-4">
+  <div class="card-item nonebd nonepd pl-3">
+    <span class="center">Start Date</span>
+  </div>
+  <div class="card-item nonebd nonepd">
+    <span class="center">End Date</span>
+  </div>
+  <div class="card-item nonebd nonepd">
+    <span class="center">Fixtures Played</span>
+  </div>
+</div>
+
+<div class="card-body divflex pb-2">
+  <div class="card-item nonebd nonepd pl-3">
+    <span class="center">{{leagueInfo.seasonsDates?.startDate | date : 'dd.MM.yyyy'}}</span>
+
+  </div>
+  <div class="card-item nonebd nonepd"><span class="center">{{leagueInfo.seasonsDates?.endDate | date :
+      'dd.mm.yyyy'}}</span>
+
+  </div>
+  <div class="card-item nonebd nonepd"><span
+      class="center">{{leagueInfo?.seasonsDates?.numberOfMatchesPlayed}}/{{leagueInfo?.seasonsDates?.numberOfMatches}}</span>
+  </div>
+</div>
+
+<div class="card-body divflex pt-2">
+  <div class="card-item nonebd nonepd pl-3"><span class="center">League progress</span>
+
+  </div>
+  <div class="card-item nonebd nonepd"><span class="center">League type</span>
+
+  </div>
+  <div class="card-item nonebd nonepd"><span class="center">Predictability</span>
+
+  </div>
+</div>
+
+
+<div class="card-body divflex pb-4">
+  <div class="card-item  nonebd nonepd pl-3"><span class="center">{{leagueInfo?.seasonsDates?.progress}}</span>
+
+  </div>
+  <div class="card-item  nonebd nonepd"><span class="center">{{leagueInfo.type}}</span>
+
+  </div>
+  <div class="card-item  nonebd nonepd"><span class="center">{{leagueInfo.predictability}}</span>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+<div class="card-header FBbg pl-3 pt-3 pb-3 btcolor">Past Champion</div>
+<div class="card-body divspacebody bbcolor py-2" *ngFor="let champion of pastChampions">
+  <div class="divspace w100 nonepd f-400 ">
+    <span class="center pl-3">{{champion?.season?.data?.name}}</span>
+    <span class="center pr-3">{{champion?.team_name}}</span>
+  </div>
+</div>
+<div class="thirdheight br20"></div>

@@ -1,0 +1,19 @@
+@import '../../../../styles/mixins';
+
+.image {
+  max-height: 28px;
+
+  @include for-phone-only {
+    max-height: 14px;
+  }
+}
+
+.team {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  @include for-phone-only {
+    gap: 5px;
+  }
+}

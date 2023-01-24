@@ -1,0 +1,27 @@
+<div class="card card-right-block br10 bb10">
+  <div class="card-header br10">
+    <img [src]="'assets/icons/blackstar.png'" alt="" class="image starimg" />
+    Interesting H2H’s
+  </div>
+  <div class="card-body bb10">
+    <ng-container *ngIf="interesting$ | async as interesting">
+      <div class="card-item" *ngFor="let item of interesting">
+        <div class="flags">
+          <img [src]="item.winnerTeamLogo" alt="" class="image" />
+          <img [src]="item.failedTeamLogo" alt="" class="image" />
+        </div>
+        <div class="players">
+          <span (click)="navigateToTeamPage(item.winnerTeamName)" style="cursor: pointer">{{ item.winnerTeamName
+            }} <span class="scoreitem px-1">{{item.winnerTeamScore}}</span></span>
+          vs
+          <span (click)="navigateToTeamPage(item.failedTeamName)" style="cursor: pointer">{{
+            item.failedTeamName}} <span class="scoreitem px-1">{{item.failedTeamScore}}</span></span>
+        </div>
+        <app-stats class="stats"></app-stats>
+        <div class="count pt-3">
+          <span class="pt-1">{{ item.winnerTeamScore+item.failedTeamScore }}</span>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>

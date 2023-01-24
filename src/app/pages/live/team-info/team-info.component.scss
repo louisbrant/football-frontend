@@ -1,0 +1,115 @@
+@import "../../../../styles/mixins";
+@import "../../../../styles/colors";
+
+.profile-image {
+  width: 100%;
+  border-radius: 6px;
+
+  @include for-phone-only {
+    max-height: 89px;
+  }
+}
+
+app-header-component {
+  margin-bottom: 12px;
+
+  @include for-phone-only {
+    margin-bottom: 4px;
+  }
+}
+
+.card {
+
+  &-header {
+    &.trophies {
+      padding: 24px 0 14px;
+
+      @include for-phone-only {
+        padding: 11px 0 0;
+      }
+    }
+    &.rivals {
+      padding: 16px 0 18px;
+
+      @include for-phone-only {
+        padding: 8px 0 0;
+      }
+    }
+  }
+
+  &-body {
+    padding: 16px 0 8px;
+
+    @include for-phone-only {
+      padding: 8px 0 0;
+    }
+
+    &.trophies {
+      padding: 0;
+    }
+    &.rivals {
+      padding: 0 0 9px;
+
+      @include for-phone-only {
+        padding: 0;
+      }
+    }
+  }
+
+  &-filter {
+    display: flex;
+    gap: 13px;
+  }
+
+  &-item {
+    display: flex;
+    justify-content: space-between;
+
+    .trophies &{
+      padding: 13px 0 15px;
+
+      @include for-phone-only {
+        padding: 4px 0 2px;
+      }
+
+      &:last-child {
+        padding-bottom: 15px!important;
+        border-bottom: 1px solid #DDE1E6!important;
+
+        @include for-phone-only {
+          padding-bottom: 2px !important;
+        }
+      }
+    }
+
+    .rivals &{
+      padding: 8px 0;
+
+
+      @include for-phone-only {
+        padding: 4px 0 2px;
+      }
+    }
+  }
+}
+
+.right {
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  text-align: right;
+}
+
+.btn-info {
+  background: #F1F2F5;
+  padding: 10px 13px;
+  white-space: nowrap;
+
+  @include for-phone-only {
+    font-size: 8px;
+    padding: 2px 4px;
+  }
+}
+.card-header {
+  background-color: white;
+}

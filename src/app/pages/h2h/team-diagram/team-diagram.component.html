@@ -1,0 +1,44 @@
+<app-header-component [title]="'Head To Head'"></app-header-component>
+<div class="container-left" *ngIf="fixtures">
+  <div class="card pt-0 nonebd w-100 br20">
+    <div class="card-body  pt-0">
+      <div class="coming-match  pt-0">
+        <div class="teams  pt-0">
+          <div class="home teammarkdiv">
+            <div class="emblem">
+              <img [src]="firstTeamLogo" />
+              <div class="teamName text-center pb-2">{{firstTeamName}}</div>
+            </div>
+          </div>
+          <div class="league">
+            <div class="emblem">
+              <span class="title matchtitle"> {{ allMatches?.length }} Matches </span>
+            </div>
+          </div>
+          <div class="away teammarkdiv">
+            <div class="emblem">
+              <img [src]="secondTeamLogo" />
+              <div class="teamName text-center pb-2">{{secondTeamName}}</div>
+            </div>
+          </div>
+        </div>
+        <div class="progress mb-3 pt-4">
+
+          <div [style]="{ width: firstTeamPercent }">
+            <div class="stwinnum">{{firstTeamWinner}}&nbsp;<span class="stwintxt">wins</span></div>
+            <div class="stwinpersent"></div>
+          </div>
+          <div [style]="{ width: teamDrawPercent }">
+            <div class="drawnum">{{teamDraw}}&nbsp;<span class="drawtxt">Draws</span></div>
+            <div class="drawpersent"></div>
+          </div>
+          <div [style]="{ width: secondTeamPercent }">
+            <div class="ndwinnum">{{secondTeamWinner}}&nbsp;<span class="ndwintxt">wins</span></div>
+            <div class="ndwinpersent"></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

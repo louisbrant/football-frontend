@@ -1,0 +1,25 @@
+<app-header-component [title]="teamName + ' Interesting Head to Heads'"></app-header-component>
+
+<div class="container w-100 pb-4">
+  <div *ngFor="let item of fixtures">
+    <div class="cardComp item nonepd pt-3 pb-1">
+      <div class="card nonepd">
+        <div class="card-body">
+          <div class="card-item">
+            <span class="font-weight-bold pointer" (click)="navigateToTeamPage(item.visitor_team.name)">{{
+              item.visitor_team.name }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cardComp item nonepd pt-1 pb-3">
+      <div class="card nonepd">
+        <div class="card-body">
+          <div class="card-item"><span class="pointer"
+              (click)="navigateToH2h(item.localteam_id, item.visitorteam_id)">H2H {{ item.ft_score }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

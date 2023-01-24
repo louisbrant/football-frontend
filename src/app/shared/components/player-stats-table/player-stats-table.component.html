@@ -1,0 +1,58 @@
+<app-header-component class="whitebg btr20" [title]="title + ' Player Stats'" [hasSelectRange]="true"
+  [seasons]="seasons" [curSeason]="seasonId" (selectedSeason)="selectedSeason.emit($event)"></app-header-component>
+<ng-container *ngIf="playerStats">
+  <div class="table-grid nonebr">
+    <div class="teams-info" *ngIf="coachShow">
+      <div class="coach-info text-uppercase">
+        <span class="playstat-head">Coach</span>
+        <div class="coach-name">
+          <img [src]="playerStats.coach?.image_path" class="coach-image" />
+          {{ playerStats.coach?.fullname }}
+        </div>
+      </div>
+      <div class="total-players">
+        <span class="playstat-head">TOTAL PLAYERS</span>
+        <span>{{ allPlayers.length }}</span>
+      </div>
+    </div>
+    <div class="grid-item nonepd nonemg grid-header playinfor-head py-1">
+      <div>ID</div>
+      <div></div>
+      <div class="player-title">PLAYER</div>
+      <div>TEAM</div>
+      <div (click)="sortByGP()" class="pointer">GP</div>
+      <div>
+        <i class="icon icon-player-ball pointer" (click)="sortByGoals()"></i>
+      </div>
+      <div>
+        <i class="icon icon-handshake pointer" (click)="sortByAssists()"></i>
+      </div>
+      <div><i class="icon icon-cards pointer" (click)="sortByCards()"></i></div>
+      <div>
+        <i class="icon icon-times pointer" (click)="sortBytimePlayed()"></i>
+      </div>
+      <div>
+        <i class="icon icon-rating pointer" (click)="sortByRating()"></i>
+      </div>
+    </div>
+    <div class="grid-item nonepd pt-2 pb-2" *ngFor="let item of playerStats.players; let i = index">
+      <div>{{ item.number }}</div>
+      <div><img [src]="item.image_path" class="image" /></div>
+      <div class="player pointer" (click)="navigateToPlayerProfile(item.fullName)">
+        <span>{{ item.fullName }}</span>
+        <span>{{ item.position }}</span>
+      </div>
+      <div class="text-center">
+        <img [src]="item?.team_logo" class="image" />
+      </div>
+      <div class="text-center">{{ item.gamesPlayed || 0 }}</div>
+      <div class="text-center">{{ item.goals || 0 }}</div>
+      <div class="text-center">{{ item.assists || 0 }}</div>
+      <div class="text-center">{{ item.cards || 0 }}</div>
+      <div class="text-center">{{ item.timePlayed || 0 }}</div>
+      <div class="text-center">{{ item.rating || 0 }}</div>
+    </div>
+  </div>
+  <app-more class="br20" *ngIf="playerStats.players.length !== allPlayers.length" (getMore)="more.emit()"
+    [loaderState]="loaderState"></app-more>
+</ng-container>

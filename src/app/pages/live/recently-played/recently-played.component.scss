@@ -1,0 +1,59 @@
+@import "../../../../styles/mixins";
+.block {
+  display: flex;
+  gap: 40px;
+  @include for-phone-only {
+    gap: 10px;
+  }
+}
+
+
+.table-grid {
+  padding: 4px 0 0;
+  @include for-phone-only {
+    padding: 0;
+  }
+}
+
+.grid-item {
+  padding: 9px 20px 14px 17px;
+  grid-template-columns: 1fr 4fr 2fr 2fr 2fr;
+  align-items: center;
+  @include for-phone-only {
+    padding: 2px 8px 4px;
+  }
+}
+
+.team {
+  display: flex;
+  align-items: center;
+}
+
+.emblem {
+  max-height: 24px;
+  margin-right: 9px;
+  @include for-phone-only {
+    max-height: 10px;
+  }
+}
+
+::ng-deep app-score.score {
+  margin-left: auto;
+  .result {
+    margin-right: 16px;
+    @include for-phone-only {
+      margin-right: 4px;
+      height: 10px;
+    }
+  }
+  .score {
+    margin-left: 0;
+  }
+}
+
+app-league-emblem {
+  margin: 0 auto;
+}
+.header {
+  padding: 15px;
+}

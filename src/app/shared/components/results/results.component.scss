@@ -1,0 +1,63 @@
+@import "../../../../styles/colors";
+@import "../../../../styles/mixins";
+
+app-header-component {}
+
+
+.date {
+  line-height: 1.2;
+}
+
+
+.home-title {
+  text-align: right;
+  margin-right: 31px;
+
+  @include for-phone-only {
+    margin-right: 20px;
+  }
+}
+
+.away-title {
+  margin-left: 20px;
+}
+
+.result {
+  width: 3px;
+  height: 23px;
+  margin-right: 23px;
+
+  @include for-phone-only {
+    height: 17px;
+    width: 2px;
+    margin-right: 12px;
+  }
+
+  &-win {
+    background: $win;
+  }
+
+  &-draw {
+    background: $draw;
+  }
+
+  &-lost {
+    background: $lost;
+  }
+}
+
+.score {
+  display: flex;
+  margin-left: -19px;
+  align-items: center;
+
+  @include for-phone-only {
+    margin-left: -10px;
+  }
+}
+
+.table-grid {
+  @include for-phone-only {
+    padding-bottom: 7px;
+  }
+}

@@ -1,0 +1,285 @@
+@import "../../../../styles/mixins";
+@import "~bootstrap/dist/css/bootstrap.css";
+
+app-header-component {
+  margin-bottom: 16px;
+
+  @include for-phone-only {
+    margin-bottom: 0;
+  }
+}
+
+.coming-match {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  margin: 18px auto 0;
+
+  @include for-phone-only {
+    max-width: 253px;
+    margin-top: 28px;
+  }
+}
+
+.teams {
+  display: flex;
+  justify-content: space-between;
+}
+
+.emblem {
+  max-height: 105px;
+  max-width: 105px;
+  align-items: flex-end;
+
+  img {
+    height: 7rem !important;
+    width: 7rem !important;
+  }
+
+  @include for-phone-only {
+    max-height: 46px;
+    max-width: 46px;
+
+    img {
+      height: 3rem !important;
+      width: 3rem !important;
+    }
+  }
+}
+
+.home,
+.away,
+.league {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: 600;
+}
+
+.name {
+  margin-top: 16px;
+  margin-bottom: 20px;
+
+  @include for-phone-only {
+    margin-top: 6px;
+    margin-bottom: 8px;
+    font-size: 12px;
+  }
+}
+
+.date {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+
+  @include for-phone-only {
+    margin-top: 6px;
+    gap: 0;
+    font-size: 10px;
+    line-height: 14px;
+  }
+}
+
+.match-left {
+  padding: 20px 15px 15px;
+  margin: 32px auto 45px;
+  display: flex;
+  gap: 50px;
+
+
+  @include for-phone-only {
+    padding: 6px 14px 7px 15px;
+    margin: 16px auto 20px;
+    gap: 24px;
+  }
+}
+
+.times {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &:first-child {
+    margin-right: 5px;
+  }
+}
+
+.number {
+  @include font-params(21px, #181818, 400, 27px);
+  font-family: 'Digital Normal', sans-serif;
+
+  @include for-phone-only {
+    font-size: 13px;
+    line-height: 16px;
+    margin-bottom: 4px;
+  }
+}
+
+.unit {}
+
+.mr-n2 {
+  margin-right: -.75em !important;
+}
+
+.btn-primary {
+  margin: 0 auto;
+  width: 256px;
+  font-weight: 600;
+
+  @include for-phone-only {
+    width: 175px;
+    font-size: 13px;
+  }
+}
+
+.percent {
+  padding: 2px 0;
+  width: 62px;
+  text-align: center;
+  color: #FFFFFF;
+  border: none;
+  font-size: 14px;
+
+  @include for-phone-only {
+    width: 31px;
+    font-size: 10px;
+  }
+
+  &-green {
+    background: #019633;
+  }
+
+  &-orange {
+    background: #C99E57;
+  }
+}
+
+.first-num {
+  font-size: 26px;
+  font-weight: normal;
+  line-height: normal;
+  color: #053584;
+}
+
+.second-num {
+  font-size: 26px;
+  font-weight: normal;
+  line-height: normal;
+  color: #dfbc64;
+}
+
+.draws-num {
+  font-size: 26px;
+  color: #747a84;
+  font-weight: normal;
+  line-height: normal;
+}
+
+.first-wins {
+  background-color: #053584;
+}
+
+.second-wins {
+  background: #dfbc64;
+}
+
+.draws {
+  background: #747a84;
+}
+
+.teammarkdiv {
+  padding: 1.5rem !important;
+  padding-bottom: 2rem !important;
+  border: 1px solid #F1F1F1;
+  border-radius: 34px;
+}
+
+.matchtitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  line-height: 16px;
+  color: #979797;
+  padding-top: 4rem;
+}
+
+.progress-bar {
+  border-radius: 5px;
+}
+
+.progress {
+  height: 5rem !important;
+  background: none !important;
+}
+
+.stwinnum {
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 37px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #004996;
+  font-family: digital;
+}
+
+.stwintxt {
+  font-size: 16px;
+  line-height: 16px;
+  color: #004996;
+}
+
+.stwinpersent {
+  height: 0.5rem;
+  background: #004996;
+  border-radius: 100px;
+}
+
+.drawnum {
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 37px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #878D96;
+  font-family: digital;
+}
+
+.drawtxt {
+  font-size: 16px;
+  line-height: 16px;
+  color: #878D96;
+}
+
+.drawpersent {
+  height: 0.5rem;
+  background: #878D96;
+  border-radius: 100px;
+}
+
+.ndwinnum {
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 37px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #E6C777;
+  font-family: digital;
+}
+
+.ndwintxt {
+  font-size: 16px;
+  line-height: 16px;
+  color: #E6C777;
+}
+
+.ndwinpersent {
+  height: 0.5rem;
+  background: #E6C777;
+  border-radius: 100px;
+}

@@ -1,0 +1,51 @@
+<div class="block">
+  <div class="header p-header p-4 pb-25">
+    <div class="p-header-name">
+      <h2 class="title">
+        {{listFirst?.name + ' & ' + listSecond?.name + 'Recently Played'}}
+      </h2>
+    </div>
+  </div>
+  <div class="divflex">
+
+    <div class="table-grid rightbd">
+      <div class="grid-item pointer" *ngFor="let item of listFirstSelected"
+        (click)="navigateToTeamPage(item?.opponent_name)">
+        <img class="emblem" [src]="" />
+        <div>{{ item?.opponent_name }}</div>
+        <app-league-emblem [leagueEmblem]="item.league.data.logo_path"></app-league-emblem>
+        <div class="text-center">
+          <span *ngIf="
+              firstTeamId?.toString() === item.localteam_id?.toString();
+              else away
+            ">H</span>
+          <ng-template #away> A </ng-template>
+        </div>
+        <app-score *ngIf="item.scores.ft_score" class="score" [score]="item.scores.ft_score"></app-score>
+      </div>
+    </div>
+    <div class="table-middle-grid">
+
+    </div>
+    <div class="table-grid leftbd">
+      <div class="grid-item pointer" *ngFor="let item of listSecondSelected"
+        (click)="navigateToTeamPage(item.opponent_name)">
+        <img class="emblem" [src]="" />
+        <div>{{ item.opponent_name }}</div>
+        <app-league-emblem [leagueEmblem]="item.league.data.logo_path"></app-league-emblem>
+        <div class="text-center">
+          <span>{{
+            secondTeamId?.toString() === item?.localteam_id?.toString()
+            ? "H"
+            : "A"
+            }}</span>
+        </div>
+        <app-score *ngIf="item.scores.ft_score" class="score" [score]="item.scores.ft_score"></app-score>
+      </div>
+    </div>
+  </div>
+  <app-more class="pb-4"
+    *ngIf="listSecondSelected?.length !== listFirst?.latest?.length||listFirstSelected?.length !== listSecond?.latest?.length"
+    [loaderState]="loaderState" (getMore)="moreAllTeam()">
+  </app-more>
+</div>

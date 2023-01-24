@@ -1,0 +1,59 @@
+<app-header-component
+  title="Head to Head: Real Madrid VS Chelsea Predictions"
+></app-header-component>
+<div class="container-left">
+  <div class="card mw-360">
+    <div class="card-header">
+      Real Madrid
+      <img src="assets/images/rm-emblem-small.png" class="emblem">
+    </div>
+    <img src="assets/images/real-madrid.png" class="profile-image">
+    <div class="card-body">
+      <div class="card-item" *ngFor="let item of list">
+        <span class="left">{{item.title}}</span>
+        <span *ngIf="item.isIcons; else val" [innerHTML]="item.value | lastGames"></span>
+        <ng-template #val>
+          <span class="right" >{{item.value}}</span>
+        </ng-template>
+      </div>
+    </div>
+    <div class="card-header trophies">Main Trophies</div>
+    <div class="card-body trophies">
+      <div class="card-item">
+        <span class="left">La Liga</span>
+        <span class="cups" [innerHTML]="4 | cups"></span>
+      </div>
+      <div class="card-item">
+        <span class="left">Championchip</span>
+        <span class="cups" [innerHTML]="1 | cups"></span>
+      </div>
+    </div>
+  </div>
+  <div class="card mw-360">
+    <div class="card-header">
+      Elche
+      <img src="assets/images/elche-emblem-small.png" class="emblem">
+    </div>
+    <img src="assets/images/real-madrid.png" class="profile-image">
+    <div class="card-body">
+      <div class="card-item" *ngFor="let item of list">
+        <span class="left">{{item.title}}</span>
+        <span *ngIf="item.isIcons; else val" [innerHTML]="item.value | lastGames"></span>
+        <ng-template #val>
+          <span class="right" >{{item.value}}</span>
+        </ng-template>
+      </div>
+    </div>
+    <div class="card-header trophies">Main Trophies</div>
+    <div class="card-body trophies">
+      <div class="card-item">
+        <span class="left">La Liga</span>
+        <span class="cups" [innerHTML]="4 | cups"></span>
+      </div>
+      <div class="card-item">
+        <span class="left">Championchip</span>
+        <span class="cups" [innerHTML]="1 | cups"></span>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,92 @@
+@import "../../../../../styles/mixins";
+
+.profile-image {
+  width: 100%;
+  border-radius: 6px;
+
+  @include for-phone-only {
+    max-height: 89px;
+  }
+}
+
+app-header-component {}
+
+.card {
+  @include for-phone-only {
+    padding: 8px;
+  }
+
+  &-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &.trophies {
+      padding: 24px 0 14px;
+
+      @include for-phone-only {
+        padding: 11px 0 0;
+      }
+    }
+  }
+
+  &-body {
+    padding: 16px 0 8px;
+
+    @include for-phone-only {
+      padding: 8px 0 0;
+    }
+
+    &.trophies {
+      padding: 0;
+    }
+  }
+
+  &-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0 15px;
+
+    @include for-phone-only {
+      padding: 2px 0 4px;
+    }
+
+    .trophies & {
+      padding: 13px 0 15px;
+
+      @include for-phone-only {
+        padding: 4px 0 2px;
+      }
+
+      &:last-child {
+        padding-bottom: 15px !important;
+        border-bottom: 1px solid #DDE1E6 !important;
+
+        @include for-phone-only {
+          padding-bottom: 2px !important;
+          border-bottom: none !important;
+        }
+      }
+    }
+  }
+}
+
+.right {
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  text-align: right;
+}
+
+.emblem {
+  max-height: 31px;
+
+  @include for-phone-only {
+    max-height: 8px;
+  }
+}
+
+.cups {
+  display: flex;
+  align-items: center;
+}

@@ -1,0 +1,27 @@
+@import "../../../../../styles/mixins";
+
+app-header-component {}
+
+.table-grid {}
+
+.grid-item {
+  grid-template-columns: 1fr 5fr 2fr;
+  font-weight: 400;
+  font-size: 16px;
+  color: #4C535F;
+
+  @include for-phone-only {
+    font-size: 8px;
+    padding: 3px 11px;
+    margin: 0 8px;
+
+    &:first-child {
+      padding: 0 11px 4px;
+      margin-bottom: 2px;
+    }
+  }
+}
+
+.grid-item:first-child {
+  font-weight: 600;
+}

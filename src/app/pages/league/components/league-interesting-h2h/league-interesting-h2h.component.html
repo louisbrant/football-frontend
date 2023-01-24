@@ -1,0 +1,41 @@
+<app-header-component
+  [title]="title + ' Interesting Head To head’s:'"
+></app-header-component>
+
+<ng-container *ngIf="fixtures.length">
+  <div class="table-grid">
+    <div class="grid-item grid-header">
+      <div class="home-title">Home</div>
+      <div></div>
+      <div class="away-title">Away</div>
+      <div class="text-center">H2H</div>
+      <div></div>
+    </div>
+    <div class="grid-item" *ngFor="let item of fixtures">
+      <app-home-team
+        class="pointer"
+        (click)="navigateToTeamPage(item.local_team.name)"
+        [home]="item.local_team.name"
+        [homeEmblem]="item.local_team.logo_path"
+      ></app-home-team>
+      <app-league-emblem
+        [leagueEmblem]="item.league.logo_path"
+      ></app-league-emblem>
+      <app-away-team
+        class="pointer"
+        (click)="navigateToTeamPage(item.visitor_team.name)"
+        [away]="item.visitor_team.name"
+        [awayEmblem]="item.visitor_team.logo_path"
+      ></app-away-team>
+      <div class="text-center">
+        H2H {{ item.localteam_score }}-{{ item.visitorteam_score }}
+      </div>
+      <div>
+        <app-stats
+          class="pointer"
+          (click)="navigateToH2h(item.localteam_id, item.visitorteam_id)"
+        ></app-stats>
+      </div>
+    </div>
+  </div>
+</ng-container>

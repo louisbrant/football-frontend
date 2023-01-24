@@ -1,0 +1,14 @@
+@import "../../../../styles/mixins";
+
+.image {
+  max-height: 32px;
+
+  @include for-phone-only {
+    max-height: 14px;
+  }
+}
+
+.league {
+  display: flex;
+  justify-content: center;
+}

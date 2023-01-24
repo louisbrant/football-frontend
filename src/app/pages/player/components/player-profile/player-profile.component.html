@@ -1,0 +1,112 @@
+<div class="container-left br20">
+  <div class="card br20">
+    <div class="card-header pl-4">
+      <div class="player-image-block">
+        <img [src]="player.image_path" class="player-image" />
+      </div>
+      <div class="player-info">
+        <span class="player-name pb-3 pt-1">{{ player.fullName }}</span>
+        <app-stats [showtype]="'column'"></app-stats>
+      </div>
+      <div class="card-emblems pt-1 nonemg">
+        <div class="emblems-block">
+          <div class="emblem-div">
+            <img [src]="player.team.logo_path" class="emblem" />
+          </div>
+        </div>
+        <div class="emblems-block">
+          <div class="emblem-div">
+            <img [src]="player.birthplace.flag_image_path" class="emblem" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body nonepd pt-4 py-2 divflex">
+      <div class="card-item nonebd nonepd pl-4">
+        <span class="center">Country</span>
+      </div>
+      <div class="card-item nonebd nonepd">
+        <span class="center">Position</span>
+      </div>
+      <div class="card-item nonebd nonepd">
+        <span class="center">Club Name</span>
+      </div>
+      <div class="card-item nonebd nonepd">
+        <span class="center">Club League</span>
+      </div>
+    </div>
+    <div class="card-body nonepd pt-1 pb-3 divflex">
+      <div class="card-item nonebd nonepd pl-4">
+        <span class="center divflex">
+          <img [src]="player.birthplace.flag_image_path" class="country-flag pr-1" />
+          {{ player.birthplace.country }}</span>
+      </div>
+      <div class="card-item nonebd nonepd"><span class="center">{{ player.position }}</span>
+      </div>
+      <div class="card-item nonebd nonepd"><span class="center">{{ player.team.name }}</span>
+      </div>
+      <div class="card-item nonebd nonepd">
+        <span class="center divflex">
+          <img [src]="player.team.logo_path" class="country-flag pr-1" />
+          {{ player.team.name }}
+        </span>
+      </div>
+    </div>
+    <div class="card-body nonepd pt-3 py-2 divflex">
+      <div class="card-item nonebd nonepd pl-4">
+        <span class="center">Club Shirt Number</span>
+      </div>
+      <div class="card-item nonebd nonepd">
+        <span class="center">Player Rating</span>
+      </div>
+      <div class="card-item nonebd nonepd">
+        <span class="center">Club League Position</span>
+      </div>
+      <div class="card-item nonebd nonepd">
+        <span class="center">Age</span>
+      </div>
+    </div>
+    <div class="card-body nonepd pt-1 pb-3 divflex">
+      <div class="card-item nonebd nonepd pl-4"><span class="center">{{ player.number }}</span>
+      </div>
+      <div class="card-item nonebd nonepd"><span class="center">{{ player?.rating }}</span>
+      </div>
+      <div class="card-item nonebd nonepd"><span class="center">{{ player.position }}</span>
+      </div>
+      <div class="card-item nonebd nonepd"><span class="center">{{ player.age }} ({{ player.birthdate | date:
+          "dd-MM-yyyy"
+          }})</span>
+      </div>
+    </div>
+    <div class="card-body nonepd pt-3 py-2 divflex">
+      <div class="card-item nonebd nonepd pl-4">
+        <span class="center">Birthplace</span>
+      </div>
+      <div class="card-item nonebd nonepd">
+        <span class="center">Height</span>
+      </div>
+      <div class="card-item nonebd nonepd">
+        <span class="center">Weight</span>
+      </div>
+      <div class="card-item nonebd nonepd">
+        <span class="center">Backhand</span>
+      </div>
+    </div>
+    <div class="card-body nonepd pt-1 pb-4 divflex">
+      <div class="card-item nonebd nonepd pl-4">
+        <span class="center">{{ player.birthplace.city }}, {{ player.birthplace.country }}</span>
+      </div>
+      <div class="card-item nonebd nonepd"><span class="center">{{ player.height }}</span>
+      </div>
+      <div class="card-item nonebd nonepd"><span class="center">{{ player.weight }}</span>
+      </div>
+      <div class="card-item nonebd nonepd">
+        <span class="center">Right-handed</span>
+      </div>
+    </div>
+    <div class="card-filter btcolor">
+      <button class="btn btn-predic">H2H With</button>
+      <app-search class="w-100"></app-search>
+    </div>
+  </div>
+</div>

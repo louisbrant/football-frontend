@@ -1,0 +1,36 @@
+@import "../../../../styles/mixins";
+
+.stats {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @include font-params(12px, #6DC47F, 400, 16px);
+
+  @include for-phone-only {
+    font-size: 7px;
+    line-height: 1;
+  }
+}
+
+.rowstats {
+  display: flex;
+  align-items: center;
+  @include font-params(12px, #6DC47F, 400, 16px);
+
+  @include for-phone-only {
+    font-size: 7px;
+    line-height: 1;
+  }
+}
+
+.divstats {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @include font-params(12px, #6DC47F, 400, 16px);
+
+  @include for-phone-only {
+    font-size: 7px;
+    line-height: 1;
+  }
+}

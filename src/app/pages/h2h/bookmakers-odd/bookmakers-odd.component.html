@@ -1,0 +1,65 @@
+<ng-container *ngIf="pastMatches?.length">
+  <p class="match">
+    {{ pastMatches && pastMatches[0]?.homeTeam?.name }} VS
+    {{ pastMatches && pastMatches[0]?.awayTeam?.name }} ODDS
+  </p>
+  <div class="table-grid">
+    <div class="grid-item grid-header">
+      <div class="home-title">
+        <select #selectedMatch (change)="changeShowType(selectedMatch.value)" class="select select-league">
+          <option value="resume" selected>DRAW NOT BET FULLTIME</option>
+          <option value="1X">1X2 FULLTIME</option>
+          <option value="AH">ASIAN HANDICAP</option>
+          <option value="EH">EUROPEAN HANDICAP</option>
+          <option value="DC">DOUBLE CHANCE FULLTIME</option>
+          <option value="DNB">DRAW NOT BET HALF</option>
+          <option value="OU">OVER/UNDER</option>
+          <option value="BTS">BOTS TEAM TO SCORE FULLTIME</option>
+          <option value="TQ">TO QUALIFIED</option>
+          <option value="OE">ODD OR EVEN FULLTIME</option>
+        </select>
+      </div>
+      <div class="home-title"></div>
+      <div class="home-title">
+        <select #selectedMatch (change)="changeShowType(selectedMatch.value)" class="select select-league">
+          <option value="resume" selected>ODDS</option>
+          <option value="1X">Open Odds</option>
+        </select>
+      </div>
+      <div class="home-title">
+        <select #selectedMatch (change)="changeShowType(selectedMatch.value)" class="select select-league">
+          <option value="1X">Result</option>
+          <option value="resume" selected>90' MINUTE</option>
+          <option value="1X">First time of 45' MINUTE</option>
+          <option value="1X">Second half time of45' MINUTE</option>
+        </select>
+      </div>
+    </div>
+    <div class="grid-item">
+      <div class="markimg">Bookmakers</div>
+      <div class="home-title"></div>
+      <div class="home-title">Home</div>
+      <div class="home-title">Draw</div>
+      <div class="home-title">Away</div>
+    </div>
+    <div class="grid-item" *ngFor="let item of odds">
+      <div class="markimg">
+        <app-bookmaker class="bookmakerimg" [home]="item?.bookmakername"
+          [homeEmblem]="item?.bookmakerimg"></app-bookmaker>
+      </div>
+      <div class="score">
+      </div>
+      <div class="score">
+        {{ item?.odd?.home }}
+      </div>
+      <div class="score">
+        {{ item?.odd?.draw}}
+      </div>
+      <div class="score">
+        {{ item?.odd?.away }}
+      </div>
+    </div>
+  </div>
+  <app-more *ngIf="odds?.length !== allodds?.length" [loaderState]="loaderState" (getMore)="more()">
+  </app-more>
+</ng-container>

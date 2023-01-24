@@ -1,0 +1,14 @@
+<ng-container *ngIf="pastMatches?.length">
+  <p class="match p-4 pb-25">
+    Matchstat.com {{ pastMatches && pastMatches[0]?.homeTeam?.name }} VS
+    {{ pastMatches && pastMatches[0]?.awayTeam?.name }} Prediction
+  </p>
+  <div class="table-grid br20 px-4 py-3 w-100">
+    <div class="header">
+      <app-search class="width35"></app-search>
+      <div class="cstext width10">VS</div>
+      <app-search class="width35"></app-search>
+      <button class="searchbtn btn width20">Search</button>
+    </div>
+  </div>
+</ng-container>

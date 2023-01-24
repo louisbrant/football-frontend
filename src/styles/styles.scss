@@ -1,0 +1,908 @@
+@import './reset';
+@import './colors';
+@import './fonts';
+@import "./icons";
+/* You can add global styles to this file, and also import other style files */
+
+$mobileExtension: 360px;
+
+html {
+  font-size: 1rem;
+  min-height: 100%;
+}
+
+html,
+body {
+  height: 100%;
+  background-color: #F1F1F1;
+  color: $text-color;
+}
+
+body {
+  margin: 0;
+  font-family: 'Source Sans Pro', sans-serif;
+  height: 100%;
+  @include font-params(16px, $black, 400, 16px);
+}
+
+.container {
+  max-width: 1160px;
+  margin: 0 auto;
+
+  &-left {
+    display: flex;
+    gap: 40px;
+  }
+
+  @include for-phone-only {
+    max-width: 500px;
+
+    &-left {
+      gap: 10px;
+    }
+  }
+
+  @media (max-width: 516px) {
+    margin: 0 8px;
+  }
+}
+
+.card {
+  padding: 16px;
+  background: $white;
+  border-radius: 6px;
+  width: 100%;
+
+  @include for-phone-only {
+    padding: 8px 8px 12px;
+    font-size: 8px;
+    border-radius: 3px;
+  }
+
+  &-header {
+    padding-bottom: 16px;
+    display: flex;
+    align-items: center;
+    @include font-params(18px, $black, 600, 16px);
+
+    @include for-phone-only {
+      font-size: 10px;
+      padding-bottom: 4px;
+    }
+
+    &-black {
+      background: #343A3F;
+      border-radius: 4px;
+      color: $white;
+      padding: 10px 17px;
+      @include font-params(16px, $white, 600, 16px);
+    }
+  }
+
+  &-right-block {
+    max-width: 360px;
+    min-height: 372px;
+  }
+
+  &-item {
+    padding: 16px 0;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #F1F1F1;
+
+
+    @include for-phone-only {
+      padding: 4px 0 2px;
+    }
+
+    &:last-child {
+      border-bottom: none;
+      padding-bottom: 0 !important;
+    }
+
+    &:first-child {
+      padding-top: 0 !important;
+    }
+  }
+}
+
+.btn {
+  border-radius: 4px;
+  border: none;
+
+  @include for-phone-only {
+    border-radius: 2px;
+  }
+}
+
+.btn-primary {
+  color: $white;
+  background: #376BB2;
+  padding: 10px;
+}
+
+.font-weight-bold {
+  font-weight: 600;
+}
+
+.font-weight-400 {
+  font-weight: 400;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.ml-auto {
+  margin-left: auto;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.btn-win,
+.btn-draw,
+.btn-lost {
+  background: $win;
+  border: none;
+  border-radius: 3px;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include font-params(14px, $white, 600, 16px);
+
+  @include for-phone-only {
+    width: 13px;
+    height: 13px;
+    font-size: 8px;
+  }
+}
+
+.btn-draw {
+  background: $draw;
+}
+
+.btn-lost {
+  background: $lost;
+}
+
+.last-games {
+  display: flex;
+  gap: 8px;
+
+  @include for-phone-only {
+    gap: 3px;
+  }
+}
+
+.select {
+  padding: 0 11px;
+  background: transparent;
+  font-size: 13px;
+  margin-left: 16px;
+  border: 1px solid #AAAAAA;
+  border-radius: 10px;
+  height: 28px;
+
+  @include for-phone-only {
+    font-size: 8px;
+    margin-left: 10px;
+    padding: 0 6px;
+    height: 22px;
+  }
+
+  &-year {
+    min-width: 108px;
+
+    @include for-phone-only {
+      min-width: 48px;
+    }
+  }
+
+  &-league {
+    min-width: 120px;
+
+    @include for-phone-only {
+      min-width: 56px;
+    }
+  }
+
+  &-range {
+    min-width: 128px;
+
+    @include for-phone-only {
+      min-width: 60px;
+    }
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.title {
+  @include font-params(26px, $black, 600, 24px);
+  margin-right: auto;
+
+  @include for-phone-only {
+    font-size: 10px;
+  }
+}
+
+.table-grid {
+  background: $white;
+  border-radius: 6px;
+
+  @include for-phone-only {
+    padding-top: 7px;
+    border-radius: 3px;
+  }
+}
+
+.table {
+  background: $white;
+  border-radius: 6px;
+
+  @include for-phone-only {
+    padding: 5px;
+    border-radius: 3px;
+    font-size: 8px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-weight: 600;
+
+    thead {
+      th {
+        border: 1px solid #F1F1F1;
+        padding: 7px 0;
+
+        @include for-phone-only {
+          padding: 0;
+        }
+
+        &:first-child {
+          text-align: left;
+          padding-left: 20px;
+
+          @include for-phone-only {
+            padding-left: 12px;
+          }
+        }
+      }
+    }
+
+    td {
+      padding: 0;
+      text-align: center;
+      line-height: 32px;
+
+      @include for-phone-only {
+        line-height: 18px;
+      }
+
+      &:first-child {
+        text-align: left;
+        padding-left: 20px;
+
+        @include for-phone-only {
+          padding-left: 12px;
+        }
+      }
+
+      &:last-child {
+        border: none;
+      }
+    }
+
+    tr:last-child {
+      td {
+        padding-bottom: 13px;
+
+        @include for-phone-only {
+          padding-bottom: 11px;
+        }
+      }
+    }
+  }
+}
+
+.grid-item {
+  display: grid;
+  grid-template-columns: 2fr 5fr 3fr 5fr 2fr 2fr;
+  padding: 9px 32px 11px;
+  border-bottom: 1px solid #F1F1F1;
+  align-items: center;
+  font-size: 14px;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+
+  @include for-phone-only {
+    font-size: 8px;
+    padding: 4px 16px;
+  }
+}
+
+.grid-header {
+  margin: 0 16px 8px;
+  background: #F1F2F5;
+  border-radius: 6px;
+  padding: 11px 16px 10px;
+  border-bottom: none;
+  font-weight: 600;
+  font-size: 16px;
+  color: #04071E;
+
+  @include for-phone-only {
+    font-size: 7px;
+    padding: 0 9px;
+    border-radius: 2px;
+    margin: 0 9px 2px;
+  }
+}
+
+@include for-phone-only {
+  .hide-mobile {
+    display: none;
+  }
+}
+
+.mb-30 {
+  margin-bottom: 30px;
+}
+
+.mb-40 {
+  margin-bottom: 40px;
+
+  @include for-phone-only {
+    margin-bottom: 20px;
+  }
+}
+
+.mb-60 {
+  margin-bottom: 60px;
+
+  @include for-phone-only {
+    margin-bottom: 20px;
+  }
+}
+
+.mw-360 {
+  max-width: 360px;
+  width: 100%;
+
+  @include for-phone-only {
+    max-width: 100%;
+  }
+}
+
+.position {
+  display: flex;
+  align-items: center;
+
+  &-color {
+    width: 3px;
+    height: 23px;
+    margin-right: 17px;
+
+    @include for-phone-only {
+      width: 2px;
+      height: 17px;
+      margin-right: 8px;
+    }
+  }
+
+  &-league-champions {
+    background: $win;
+  }
+
+  &-league-europe {
+    background: $win;
+    opacity: .6;
+  }
+
+  &-league-conference {
+    background: $win;
+    opacity: .4;
+  }
+
+  &-relegation {
+    background: $lost;
+    opacity: .6;
+  }
+
+  &-info {
+    margin-right: 10px;
+
+    @include for-phone-only {
+      margin-right: 4px;
+    }
+  }
+}
+
+.three-rows {
+  table {
+
+    thead {
+
+      td {
+        border-bottom: 1px solid #F1F1F1 !important;
+        line-height: 16px;
+        padding-top: 7px;
+        padding-bottom: 7px;
+
+        @include for-phone-only {
+          padding-bottom: 0;
+          padding-top: 0;
+        }
+      }
+
+      tr {
+        &:last-child td {
+          padding-bottom: 7px;
+
+          @include for-phone-only {
+            padding-bottom: 0;
+          }
+        }
+      }
+    }
+
+    tbody {
+      tr {
+        &:last-child td {
+          padding-bottom: 5px;
+
+          @include for-phone-only {
+            padding-bottom: 4px;
+          }
+        }
+      }
+    }
+
+    td,
+    th {
+      width: 32.2%;
+      text-align: center;
+
+      @include for-phone-only {
+        width: 32.5%;
+      }
+
+      &:first-child {
+        width: 32.3%;
+        padding-left: 20px;
+        text-align: left;
+
+        @include for-phone-only {
+          padding-left: 10px;
+          width: 37%;
+        }
+      }
+
+      &:last-child {
+        width: 35.5%;
+
+        @include for-phone-only {
+          width: 32.5%;
+        }
+      }
+    }
+  }
+}
+
+.loader {
+  display: inline-block;
+  position: relative;
+  width: 25px;
+  height: 25px;
+
+  @include for-phone-only {
+    width: 15px;
+    height: 15px;
+  }
+
+  div {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    border: 4px solid #fff;
+    border-radius: 50%;
+    animation: loader 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: #fff transparent transparent transparent;
+
+    @include for-phone-only {
+      width: 15px;
+      height: 15px;
+      border: 1px solid #fff;
+    }
+
+    &:nth-child(1) {
+      animation-delay: -0.45s;
+    }
+
+    &:nth-child(2) {
+      animation-delay: -0.3s;
+    }
+
+    &:nth-child(3) {
+      animation-delay: -0.15s;
+    }
+  }
+}
+
+@keyframes loader {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.put-forward {
+  z-index: 99999 !important;
+}
+
+.nonepd {
+  padding: 0% !important;
+}
+
+.nonebd {
+  border: 0px solid black !important;
+}
+
+.nonebr {
+  border-radius: 0px !important;
+}
+
+.br20 {
+  border-radius: 20px !important;
+}
+
+.divflow {
+  display: flow-root !important;
+}
+
+
+.nonemg {
+  margin: 0px !important
+}
+
+.p-0 {
+  padding: 0rem !important;
+}
+
+.p-1 {
+  padding: 0.25rem !important;
+}
+
+.p-2 {
+  padding: 0.5rem !important;
+}
+
+.p-25 {
+  padding: 1rem !important;
+}
+
+.p-3 {
+  padding: 1rem !important;
+}
+
+.p-4 {
+  padding: 2rem !important;
+}
+
+.pt-0 {
+  padding-top: 0rem !important;
+}
+
+.pt-1 {
+  padding-top: 0.25rem !important;
+}
+
+.pt-2 {
+  padding-top: 0.5rem !important;
+}
+
+.pt-25 {
+  padding-top: 1rem !important;
+}
+
+.pt-3 {
+  padding-top: 1rem !important;
+}
+
+.pt-4 {
+  padding-top: 2rem !important;
+}
+
+.pb-0 {
+  padding-bottom: 0rem !important;
+}
+
+.pb-1 {
+  padding-bottom: 0.25rem !important;
+}
+
+.pb-2 {
+  padding-bottom: 0.5rem !important;
+}
+
+.pb-25 {
+  padding-bottom: 1rem !important;
+}
+
+.pb-3 {
+  padding-bottom: 1rem !important;
+}
+
+.pb-4 {
+  padding-bottom: 2rem !important;
+}
+
+.px-0 {
+  padding-right: 0rem !important;
+  padding-left: 0rem !important;
+}
+
+.px-1 {
+  padding-right: 0.25rem !important;
+  padding-left: 0.25rem !important;
+}
+
+.px-2 {
+  padding-right: 0.5rem !important;
+  padding-left: 0.5rem !important;
+}
+
+.px-25 {
+  padding-right: 1rem !important;
+  padding-left: 1rem !important;
+}
+
+.px-3 {
+  padding-right: 1rem !important;
+  padding-left: 1rem !important;
+}
+
+.px-4 {
+  padding-right: 2rem !important;
+  padding-left: 2rem !important;
+}
+
+.py-0 {
+  padding-top: 0rem !important;
+  padding-bottom: 0rem !important;
+}
+
+.py-1 {
+  padding-top: 0.25rem !important;
+  padding-bottom: 0.25rem !important;
+}
+
+.py-2 {
+  padding-top: 0.5rem !important;
+  padding-bottom: 0.5rem !important;
+}
+
+.py-25 {
+  padding-top: 1rem !important;
+  padding-bottom: 1rem !important;
+}
+
+.py-3 {
+  padding-top: 1rem !important;
+  padding-bottom: 1rem !important;
+}
+
+.py-4 {
+  padding-top: 2rem !important;
+  padding-bottom: 2rem !important;
+}
+
+.pr-0 {
+  padding-right: 0rem !important;
+}
+
+.pr-1 {
+  padding-right: 0.25rem !important;
+}
+
+.pr-2 {
+  padding-right: 0.5rem !important;
+}
+
+.pr-25 {
+  padding-right: 1rem !important;
+}
+
+.pr-3 {
+  padding-right: 1rem !important;
+}
+
+.pr-4 {
+  padding-right: 2rem !important;
+}
+
+.pl-0 {
+  padding-left: 0rem !important;
+}
+
+.pl-1 {
+  padding-left: 0.25rem !important;
+}
+
+.pl-2 {
+  padding-left: 0.5rem !important;
+}
+
+.pl-25 {
+  padding-left: 1rem !important;
+}
+
+.pl-3 {
+  padding-left: 1rem !important;
+}
+
+.pl-4 {
+  padding-left: 2rem !important;
+}
+
+
+.rightpad {
+  padding-right: 1rem;
+}
+
+.leftpad {
+  padding-left: 1rem;
+}
+
+.text-left {
+  text-align: left !important;
+}
+
+.fs20 {
+  font-size: 20px;
+}
+
+.btcolor {
+  border-top: 1px solid #F1F1F1;
+}
+
+.bbcolor {
+  border-bottom: 1px solid #F1F1F1;
+}
+
+.text-uppercase {
+  text-transform: uppercase !important;
+}
+
+.divflex {
+  display: flex;
+}
+
+.divgrid {
+  display: grid;
+}
+
+.leftbd {
+  border-left: 1px solid #F1F1F1;
+}
+
+.rightbd {
+  border-right: 1px solid #F1F1F1;
+}
+
+.whitebg {
+  background: #FFFF !important;
+}
+
+.btr20 {
+  border-top-left-radius: 20px !important;
+  border-top-right-radius: 20px !important;
+}
+
+.dpblock {
+  display: block !important;
+}
+
+.divcontents {
+  display: contents !important;
+}
+
+.row {
+  display: flex;
+}
+
+.F1bg {
+  background: #F1F1F1 !important;
+}
+
+.halfwidth {
+  width: 50%;
+}
+
+.thirdwidth {
+  width: 33.33%;
+}
+
+.FBbg {
+  background: #FBFBFB !important;
+}
+
+.btn-predic {
+  background: #6DC47F;
+  border-radius: 10px;
+  color: #FFFF;
+  font-size: 12px;
+  width: 5rem;
+}
+
+thead {
+  background: #FBFBFB !important;
+}
+
+thead>tr {
+  border-top: 1px solid #F1F1F1 !important;
+}
+
+tbody>tr {
+  font-weight: 400;
+  color: #4C535F;
+  border-top: 1px solid #F1F1F1 !important;
+}
+
+tbody>tr:nth-child(even) {
+  background: #FBFBFB !important;
+}
+
+.secondheight {
+  height: 3rem !important;
+}
+
+.mr-1 {
+  margin-right: 0.25rem;
+}
+
+.col-6 {
+  width: 50%;
+}
+
+.bb10 {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.br10 {
+  border-radius: 10px;
+}

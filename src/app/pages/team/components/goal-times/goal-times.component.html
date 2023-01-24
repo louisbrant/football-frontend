@@ -1,0 +1,16 @@
+<app-header-component title="Goal Times" [hasSelectLeague]="true" [leagues]="leagues" [curLeague]="curLeague"
+  (selectedLeague)="selectLeague($event)" [hasSelectRange]="true" [seasons]="seasons" [curSeason]="curSeason"
+  (selectedSeason)="selectSeason($event)"></app-header-component>
+
+<div class="table-grid br20" *ngIf="list">
+  <div class="grid-item">
+    <div>Minute</div>
+    <div class="text-center">Goals Scored</div>
+    <div class="text-center">Goals Conseeded</div>
+  </div>
+  <div class="grid-item br20" *ngFor="let item of list.period">
+    <div class="font-weight-400">{{item.minute}}</div>
+    <div class="text-center">{{item.scoringCount}}({{item.scoringPercent}}%)</div>
+    <div class="text-center">{{item.concededCount}}({{item.concededPercent}}%)</div>
+  </div>
+</div>

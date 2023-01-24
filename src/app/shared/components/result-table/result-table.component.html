@@ -1,0 +1,32 @@
+<app-header-component [title]="title + ' Results'" [hasSelectLeague]="hasLeague" [hasSelectRange]="hasSeason"
+  [seasons]="seasons" [curSeason]="seasonId" [leagues]="leagues" [curLeague]="leagueId"
+  (selectedSeason)="selectedSeason.emit($event)" (selectedLeague)="selectedLeague.emit($event)"></app-header-component>
+<ng-container *ngIf="results.length">
+  <div class="table-grid nonepd br20">
+    <div class="grid-item grid-header nonepd nonemg nonebr py-2 text-uppercase btcolor bbcolor">
+      <div class="pl-3">Date</div>
+      <div class="home-title">Home</div>
+      <div></div>
+      <div class="away-title">Away</div>
+      <div>SCORE</div>
+      <div></div>
+    </div>
+    <div class="grid-item pointer  nonepd px-2 py-2 bbcolor" *ngFor="let item of results"
+      (click)="navigateToH2h(item.homeTeam.id, item.awayTeam.id)">
+      <div class="date">{{ item.dateStart | date: "dd.MM.yyyy" }}</div>
+      <app-home-team [home]="item.homeTeam.name" [homeEmblem]="item.homeTeam.logo_path"></app-home-team>
+      <app-league-emblem [leagueEmblem]="item.league.logo_path"></app-league-emblem>
+      <app-away-team [away]="item.awayTeam.name" [awayEmblem]="item.awayTeam.logo_path"></app-away-team>
+      <div class="score">
+        <div class="result {{ item.class }}"></div>
+        {{ item.homeTeam.score }} - {{ item.awayTeam.score }}
+      </div>
+      <div>
+        <app-stats (click)="$event.stopPropagation(); navigateToEvent(item.id)"></app-stats>
+      </div>
+    </div>
+  </div>
+  <app-more *ngIf="results.length % 10 === 0 && results.length !== lastLength" [loaderState]="loaderState"
+    (getMore)="getMore.emit()"></app-more>
+  <div class="secondheight br20"></div>
+</ng-container>

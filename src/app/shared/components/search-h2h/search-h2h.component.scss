@@ -1,0 +1,68 @@
+@import "../../../../styles/mixins";
+@import "../../../../styles/colors";
+
+app-header-component {
+  margin-bottom: 16px;
+
+  @include for-phone-only {
+    margin-bottom: 10px;
+  }
+}
+
+.card {
+  width: 100%;
+  padding: 20px;
+
+  @include for-phone-only {
+    padding: 10px;
+  }
+
+  &-body {
+    display: flex;
+    align-items: center;
+  }
+}
+
+app-search {
+  max-width: 253px;
+  width: 100%;
+}
+
+.vs {
+  margin: 0 20px;
+  font-weight: 600;
+
+  @include for-phone-only {
+    font-size: 8px;
+    margin: 0 10px;
+  }
+}
+
+.btn-search {
+  margin-left: 16px;
+  background: #6DC47F;
+  border-radius: 10px;
+  padding: 0 27px;
+  color: white;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  height: 37px;
+
+
+  @include for-phone-only {
+    font-size: 11px;
+    height: 20px;
+    padding: 0 9px;
+    margin-left: 7px;
+  }
+}
+
+
+
+
+@include for-phone-only {
+  .title {
+    margin-bottom: 10px;
+  }
+}

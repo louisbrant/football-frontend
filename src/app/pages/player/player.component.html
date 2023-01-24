@@ -1,0 +1,30 @@
+<div class="container d-flex">
+  <div class="left">
+    <ng-container *ngIf="player; else playerEmpty">
+      <app-player-profile class="mb-60 whitebg br20"></app-player-profile>
+      <app-upcoming-match [title]="'Upcoming Match For ' + player.team.name" [teamName]="player.team.name"
+        class="mb-60 whitebg br20"></app-upcoming-match>
+      <app-player-stat [title]="player.fullName" class="mb-60 whitebg br20"></app-player-stat>
+      <app-compare-with class="mb-60 whitebg br20"></app-compare-with>
+      <app-fixtures [title]="player.team.name" class="mb-60 whitebg br20"></app-fixtures>
+      <app-results [title]="player.team.name" class="mb-60 whitebg br20"></app-results>
+      <app-competition-standing [seasonId]="player.seasonId" [leagueId]="player.leagueId"
+        class="mb-60 whitebg br20"></app-competition-standing>
+      <app-team-player-stats [title]="player.team.name" [teamId]="player.team.id" [seasonId]="player.seasonId"
+        [coachShow]="false" class="mb-60 whitebg br20"></app-team-player-stats>
+    </ng-container>
+    <ng-template #playerEmpty>
+      <div *ngIf="!loading">
+        <h1 class="font-weight-bold text-center">Player not found!</h1>
+      </div>
+
+      <div *ngIf="loading">
+        <h1 class="font-weight-bold text-center">Player is loading...</h1>
+      </div>
+    </ng-template>
+  </div>
+  <div class="right">
+    <app-interesting-h2h class="mb-30"></app-interesting-h2h>
+    <app-live-events></app-live-events>
+  </div>
+</div>

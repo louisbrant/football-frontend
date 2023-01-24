@@ -1,0 +1,34 @@
+<div class="container d-flex">
+  <div class="left">
+    <ng-container *ngIf="team; else teamEmpty">
+      <app-team-profile class="mb-60 whitebg br20" [teamId]="team.id" [seasonId]="team.seasonId"></app-team-profile>
+      <app-upcoming-match [teamName]="team.name" class="mb-60 whitebg br20"
+        [showprediction]="true"></app-upcoming-match>
+      <app-fixtures [title]="team.name" class="mb-60 whitebg br20"></app-fixtures>
+      <app-results [title]="team.name" class="mb-60 whitebg br20"></app-results>
+      <app-competition-standing [seasonId]="team.seasonId" [leagueId]="team.leagueId"
+        class="mb-60 whitebg br20"></app-competition-standing>
+      <app-performance-summary class="mb-60 whitebg br20"></app-performance-summary>
+      <app-goal-times class="mb-60 whitebg br20"></app-goal-times>
+      <app-season-match-stats class="mb-60 whitebg br20"></app-season-match-stats>
+      <app-total-match-goals class="mb-60 whitebg br20"></app-total-match-goals>
+      <app-team-player-stats [title]="team.name" [teamId]="team.id" [coachShow]="true" [seasonId]="team.seasonId"
+        class="mb-60 whitebg br20"></app-team-player-stats>
+      <app-team-interesting-h2h class="mb-60 whitebg br20"></app-team-interesting-h2h>
+      <app-search-h2h class="mb-60 whitebg br20"></app-search-h2h>
+    </ng-container>
+    <ng-template #teamEmpty>
+      <div *ngIf="!loading">
+        <h1 class="font-weight-bold text-center">Team not found!</h1>
+      </div>
+
+      <div *ngIf="loading">
+        <h1 class="font-weight-bold text-center">Team is loading...</h1>
+      </div>
+    </ng-template>
+  </div>
+  <div class="right">
+    <app-interesting-h2h class="mb-30"></app-interesting-h2h>
+    <app-live-events></app-live-events>
+  </div>
+</div>

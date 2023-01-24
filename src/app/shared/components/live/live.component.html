@@ -1,0 +1,69 @@
+<div class="live-container">
+  <div class="live-body">
+    <div class="live-item league-row">
+      <div>
+        <div class="live-status">{{liveMatch?.time?.status}}</div>
+      </div>
+      <div>
+        <img [src]="liveMatch?.league?.logo_path" class="lc-emblem">
+      </div>
+      <div></div>
+    </div>
+    <div class="live-item clubs">
+      <div class="home">
+        <div class="club-name text-right">
+          <span>{{liveMatch?.localTeam?.name}}</span>
+          <span>{{liveMatch?.localTeam?.country?.data?.name}}</span>
+        </div>
+        <img [src]="liveMatch?.localTeam?.logo_path" class="image">
+      </div>
+      <div class="score-block">
+        <span class="minute">{{liveMatch?.time?.minute}} Min</span>
+        <div class="score">{{liveMatch?.matchEnd}}</div>
+      </div>
+      <div class="away">
+        <img [src]="liveMatch?.visitorTeam?.logo_path" class="image">
+        <div class="club-name">
+          <span>{{liveMatch?.visitorTeam?.name}}</span>
+          <span>{{liveMatch?.visitorTeam?.country?.data?.name}}</span>
+        </div>
+      </div>
+    </div>
+    <div class="goals column">
+      <div>
+        <div *ngFor="let item of visitorTeamEvents">
+          <div class="away-goal" *ngIf="item.type==='goal' || item.type==='own-goal'">
+            {{item.player_name}} {{item.minute}}’
+            <i class="icon icon-goal-white"></i>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div *ngFor="let item of localTeamEvents">
+          <div class="home-goal" *ngIf="item.type==='goal' || item.type==='own-goal'">
+            {{item.player_name}} {{item.minute}}’
+            <i class="icon icon-goal-white"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="live-footer">
+    <span>
+      <i class="icon icon-calendar-white"></i>
+      {{liveMatch?.time?.starting_at?.date_time | date: 'M.d.yy h:mm'}}
+    </span>
+    <span>
+      <i class="icon icon-location"></i>
+      {{liveMatch?.venue?.name}}, {{liveMatch?.venue?.city}}
+    </span>
+    <span>
+      <i class="icon icon-referee"></i>
+      {{liveMatch?.referee?.fullname}}
+    </span>
+    <span>
+      <i class="icon icon-weather"></i>
+      {{liveMatch?.weather?.temperature_celcius?.temp}} °C ({{liveMatch?.weather?.type}})
+    </span>
+  </div>
+</div>

@@ -1,0 +1,285 @@
+<app-header-component [title]="title + ' Overall Stats'" [hasSelectRange]="true" [seasons]="seasons"
+  [curSeason]="curSeason" (selectedSeason)="selectSeason($event)"></app-header-component>
+
+<div class="table" *ngIf="overallStats">
+  <table class="w-100">
+    <thead>
+      <tr>
+        <td class="nonepd">
+          <div class="stats">
+            <span>Name</span>
+            <span>Result</span>
+          </div>
+        </td>
+        <td class="nonepd">
+          <div class="stats">
+            <span>Name</span>
+            <span>Result</span>
+          </div>
+        </td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <div class="stats">
+            <span>No. Of Clubs</span>
+            <span>{{ overallStats.stats.numberOfClubs }}</span>
+          </div>
+        </td>
+        <td>
+          <div class="stats">
+            <span>Most Goals / Match Av.</span>
+            <span>{{
+              overallStats.stats.teamWithMostGoalsPerMatchNumber
+              }}</span>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="stats">
+            <span>No. Of Matches</span>
+            <span>{{ overallStats.stats.numberOfMatches }}</span>
+          </div>
+        </td>
+        <td>
+          <div class="stats">
+            <span>Most Goals / Match Team</span>
+            <span (click)="
+                navigateToTeamPage(overallStats.stats.teamWithMostGoalsPerMatch)
+              " style="cursor: pointer">{{ overallStats.stats.teamWithMostGoalsPerMatch }}</span>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="stats">
+            <span>Matches Already Played</span>
+            <span>{{ overallStats.stats.matchesAlreadyPlayed }}</span>
+          </div>
+        </td>
+        <td>
+          <div class="stats">
+            <span>Topscorer No. Of Goals</span>
+            <span>{{ overallStats.stats.seasonTopscorerNumber }}</span>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="stats">
+            <span>No. Of Goals</span>
+            <span>{{ overallStats.stats.numberOfGoals }}</span>
+          </div>
+        </td>
+        <td>
+          <div class="stats">
+            <span>Topscorer Player</span>
+            <span (click)="
+                navigateToPlayerProfile(overallStats.stats.topscorerPlayer)
+              " style="cursor: pointer">{{ overallStats.stats.topscorerPlayer }}</span>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="stats">
+            <span>Avg Goals / Match</span>
+            <span>{{ overallStats.stats.avgGoalsPerMatch }}</span>
+          </div>
+        </td>
+        <td>
+          <div class="stats">
+            <span>Most Conceded Goals No.</span>
+            <span>{{
+              overallStats.stats.teamWithMostConcededGoalsNumber
+              }}</span>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="stats">
+            <span>Goal Scored Every Mins</span>
+            <span>{{ overallStats.stats.goalScoredEveryMins }}</span>
+          </div>
+        </td>
+        <td>
+          <div class="stats">
+            <span>Most Conceded Goals Club</span>
+            <span (click)="
+                navigateToTeamPage(overallStats.stats.mostConcededGoalsClub)
+              " style="cursor: pointer">{{ overallStats.stats.mostConcededGoalsClub }}</span>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="stats">
+            <span>Most Goals By Team</span>
+            <span>{{ overallStats.stats.mostGoalsByTeam }}</span>
+          </div>
+        </td>
+        <td>
+          <div class="stats">
+            <span>Season Most Assist No.</span>
+            <span>{{ overallStats.stats.seasonAssistTopscorerNumber }}</span>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="stats">
+            <span>Team With Most Goals</span>
+            <span (click)="navigateToTeamPage(overallStats.stats.teamWithMostGoals)" style="cursor: pointer">{{
+              overallStats.stats.teamWithMostGoals }}</span>
+          </div>
+        </td>
+        <td>
+          <div class="stats">
+            <span>Most Assists Player</span>
+            <span (click)="
+                navigateToPlayerProfile(overallStats.stats.mostAssistsPlayer)
+              " style="cursor: pointer">{{ overallStats.stats.mostAssistsPlayer }}</span>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="stats">
+            <span>Avg Homegoals / Match</span>
+            <span>{{ overallStats.stats.avgHomegoalsPerMatch }}</span>
+          </div>
+        </td>
+        <td>
+          <div class="stats">
+            <span>Yellow Cards</span>
+            <span>{{ overallStats.stats.yellowCards }}</span>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="stats">
+            <span>Avg Awaygoals / Match</span>
+            <span>{{ overallStats.stats.avgAwaygoalsPerMatch }}</span>
+          </div>
+        </td>
+        <td>
+          <div class="stats">
+            <span>Yellow Cards / Match</span>
+            <span>{{ overallStats.stats.avgYellowcardsPerMatch }}</span>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="stats">
+            <span>BTTS Matches</span>
+            <span></span>
+          </div>
+        </td>
+        <td>
+          <div class="stats">
+            <span>Yellow Reds</span>
+            <span>{{ overallStats.stats.yellowReds }}</span>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="stats">
+            <span>BTTS Percentage</span>
+            <span>{{ overallStats.stats.bttsPercentage }}</span>
+          </div>
+        </td>
+        <td>
+          <div class="stats">
+            <span>Yellow Reds / Match</span>
+            <span>{{ overallStats.stats.avgYellowredcardsPerMatch }}</span>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="stats">
+            <span>Most Cleansheets</span>
+            <span>{{ overallStats.stats.mostCleanSheets }}</span>
+          </div>
+        </td>
+        <td>
+          <div class="stats">
+            <span>Direct Reds</span>
+            <span>{{ overallStats.stats.directReds }}</span>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="stats">
+            <span>Team With Most Cleansheets</span>
+            <span (click)="
+                navigateToTeamPage(overallStats.stats.teamWithMostCleanSheets)
+              " style="cursor: pointer">{{ overallStats.stats.teamWithMostCleanSheets }}</span>
+          </div>
+        </td>
+        <td>
+          <div class="stats">
+            <span>Reds / Match</span>
+            <span>{{ overallStats.stats.avgRedcardsPerMatch }}</span>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="stats">
+            <span>Goalie Most Cleansheets No.</span>
+            <span>{{
+              overallStats.stats.goalkeeperMostCleansheetsNumber
+              }}</span>
+          </div>
+        </td>
+        <td>
+          <div class="stats">
+            <span>Avg Corners / Match</span>
+            <span>{{ overallStats.stats.avgCornersPerMatch }}</span>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="stats">
+            <span>Goalie With Most Cleansheets</span>
+            <span (click)="
+                navigateToPlayerProfile(
+                  overallStats.stats.goalkeeperMostCleansheets
+                )
+              " style="cursor: pointer">{{ overallStats.stats.goalkeeperMostCleansheets }}</span>
+          </div>
+        </td>
+        <td>
+          <div class="stats">
+            <span>Team Most Corners No.</span>
+            <span>{{ overallStats.stats.teamMostCornersCount }}</span>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="stats">
+            <span>Avg League Player Rating</span>
+            <span>{{ overallStats.stats.avgLeaguePlayerRating }}</span>
+          </div>
+        </td>
+        <td>
+          <div class="stats">
+            <span>Team With Most Corners</span>
+            <span (click)="navigateToTeamPage(overallStats.stats.teamMostCorners)" style="cursor: pointer">{{
+              overallStats.stats.teamMostCorners }}</span>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

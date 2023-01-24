@@ -1,0 +1,24 @@
+@import "../../../../../styles/mixins";
+
+.header {
+  margin-bottom: 20px;
+
+  @include for-phone-only {
+    margin-bottom: 4px;
+  }
+}
+
+.select-match {
+  width: 148px;
+
+  @include for-phone-only {
+    width: 70px;
+  }
+}
+.select-team {
+  width: 134px;
+
+  @include for-phone-only {
+    width: 60px;
+  }
+}

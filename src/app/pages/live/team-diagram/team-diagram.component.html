@@ -1,0 +1,70 @@
+<app-header-component [title]="'Head To Head'"></app-header-component>
+<div class="container-left" *ngIf="fixtures">
+  <div class="card w-100">
+    <div class="card-body">
+      <div class="coming-match">
+        <div class="teams">
+          <div class="home">
+            <div class="emblem">
+              <img [src]="firstTeamLogo" />
+            </div>
+          </div>
+          <div class="league">
+            <div class="emblem">
+              <span class="title"> {{ allMatches?.length }} Matches </span>
+            </div>
+          </div>
+          <div class="away">
+            <div class="emblem">
+              <img [src]="secondTeamLogo" />
+            </div>
+          </div>
+        </div>
+        <div class="match-left">
+          <div class="times">
+            <span class="first-num">{{ firstTeamWinner }}</span>
+            <span class="wins">Wins</span>
+          </div>
+          <div class="times">
+            <span class="draws-num">{{ teamDraw }}</span>
+            <span class="wins">Draws</span>
+          </div>
+          <div class="times">
+            <span class="second-num">{{ secondTeamWinner }}</span>
+            <span class="wins">Wins</span>
+          </div>
+        </div>
+
+        <div class="progress mb-3">
+          <div
+            class="progress-bar first-wins"
+            role="progressbar"
+            [style]="{ width: firstTeamPercent }"
+            aria-valuemin="0"
+            aria-valuemax="100"
+          >
+            {{ firstTeamPercent }}
+          </div>
+          <div
+            class="progress-bar draws"
+            role="progressbar"
+            [style]="{ width: teamDrawPercent }"
+            aria-valuemin="0"
+            aria-valuemax="100"
+          >
+            {{ teamDrawPercent }}
+          </div>
+          <div
+            class="progress-bar second-wins"
+            role="progressbar"
+            [style]="{ width: secondTeamPercent }"
+            aria-valuemin="0"
+            aria-valuemax="100"
+          >
+            {{ secondTeamPercent }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

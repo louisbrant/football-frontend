@@ -1,0 +1,36 @@
+@import "../../../../../styles/mixins";
+
+app-header-component {
+  margin-bottom: 14px;
+
+  @include for-phone-only {
+    margin-bottom: 9px;
+  }
+}
+
+.date {
+  line-height: 1.2;
+}
+
+.home-title {
+  text-align: right;
+  margin-right: 31px;
+
+  @include for-phone-only {
+    margin-right: 4px;
+  }
+}
+
+.away-title {
+  margin-left: 20px;
+
+  @include for-phone-only {
+    margin-right: 4px;
+  }
+}
+
+.table-grid {
+  @include for-phone-only {
+    padding-bottom: 4px;
+  }
+}

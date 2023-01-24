@@ -1,0 +1,142 @@
+<app-header-component [title]="'Head to Head:' + firstTeam?.name + ' ' + 'VS' + ' ' +
+      secondTeam?.name + ' Predictions'"></app-header-component>
+<ng-container>
+  <div class="container-left">
+    <div class="mw-360" *ngIf="firstTeamGeneralInfo">
+      <div class="px-3">
+        <div class="card-header">
+          <div class="py-2 teamhead">
+            <div class="">
+              <div class="imgcontainer">
+                <img [src]="[firstTeamLogo]" class="teammarkimg">
+              </div>
+            </div>
+            <div class="px-3 pt-2">
+              <div class="teamname">
+                {{firstTeamGeneralInfo.name}}
+              </div>
+              <div class="gymname pt-2">
+                {{firstTeamGeneralInfo.venue.name}}
+              </div>
+            </div>
+          </div>
+        </div>
+        <img [src]="firstTeamGeneralInfo.venue.photo" class="profile-image">
+      </div>
+      <div class="card-body">
+        <div class="card-item p-25">
+          <span class="left">Venue Name</span>
+          <span class="right">{{firstTeamGeneralInfo.venue.name}}</span>
+        </div>
+        <div class="card-item p-25">
+          <span class="left">Capacity</span>
+          <span class="right">{{firstTeamGeneralInfo.venue.capacity}}</span>
+        </div>
+        <div class="card-item p-25">
+          <span class="left">City</span>
+          <span class="right">{{firstTeamGeneralInfo.venue.city}}</span>
+        </div>
+        <div class="card-item p-25">
+          <span class="left">Country</span>
+          <span class="right">{{firstTeamGeneralInfo.venue.country}}</span>
+        </div>
+        <div class="card-item p-25">
+          <span class="left">Coach</span>
+          <span class="right">{{firstTeamGeneralInfo.coach.lastName}}</span>
+        </div>
+        <div class="card-item p-25">
+          <span class="left">Top Scorer</span>
+          <span class="right">
+            <ng-container *ngIf="firstTeam?.topScorer">
+              {{firstTeam?.topScorer?.player?.data?.firstname}}
+            </ng-container>
+          </span>
+        </div>
+        <div class="card-item p-25" *ngIf="firstTeamForm?.homeForm && firstTeamForm?.awayForm">
+          <span class="left">Home Form</span>
+          <div class="right" [innerHTML]="firstTeamForm?.homeForm | lastGames"></div>
+        </div>
+        <div class="card-item p-25">
+          <span class="left">Away Form</span>
+          <div class="right" [innerHTML]="firstTeamForm?.awayForm | lastGames"></div>
+        </div>
+        <div class="card-header trophies p-25 mainheader">Main Trophies</div>
+        <div class="card-body trophies p-25">
+          <div class="card-item " *ngFor="let tr of firstTeamGeneralInfo.trophies">
+            <span class="left">{{tr.league_name}}</span>
+            <span class="right" [innerHTML]="tr.count | cups"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class=" mw-360" *ngIf="secondTeamGeneralInfo">
+      <div class="px-3">
+        <div class="card-header">
+          <div class="py-2 teamhead">
+            <div class="">
+              <div class="imgcontainer">
+                <img [src]="[secondTeamLogo]" class="teammarkimg">
+              </div>
+            </div>
+            <div class="px-3 pt-2">
+              <div class="teamname">
+                {{secondTeamGeneralInfo.name}}
+              </div>
+              <div class="gymname pt-2">
+                {{secondTeamGeneralInfo.venue.name}}
+              </div>
+            </div>
+          </div>
+        </div>
+        <img [src]="secondTeamGeneralInfo.venue.photo" class="profile-image">
+      </div>
+      <div class="card-body">
+        <div class="card-item p-25">
+          <span class="left">Venue Name</span>
+          <span class="right">{{secondTeamGeneralInfo.venue.name}}</span>
+        </div>
+        <div class="card-item p-25">
+          <span class="left">Capacity</span>
+          <span class="right">{{secondTeamGeneralInfo.venue.capacity}}</span>
+        </div>
+        <div class="card-item p-25">
+          <span class="left">City</span>
+          <span class="right">{{secondTeamGeneralInfo.venue.city}}</span>
+        </div>
+        <div class="card-item p-25">
+          <span class="left">Country</span>
+          <span class="right">{{secondTeamGeneralInfo.venue.country}}</span>
+        </div>
+        <div class="card-item p-25">
+          <span class="left">Coach</span>
+          <span class="right">{{secondTeamGeneralInfo.coach.lastName}}</span>
+        </div>
+        <div class="card-item p-25">
+          <span class="left">Top Scorer</span>
+          <span class="right">
+            <ng-container *ngIf="secondTeam?.topScorer">
+              {{secondTeam?.topScorer?.player?.data?.firstname}}
+            </ng-container>
+          </span>
+        </div>
+        <div class="card-item p-25" *ngIf="secondTeamForm?.awayForm && secondTeamForm?.homeForm">
+          <span class="left">Home Form</span>
+          <div class="right" [innerHTML]="secondTeamForm?.homeForm | lastGames"></div>
+        </div>
+        <div class="card-item p-25">
+          <span class="left">Away Form</span>
+          <div class="right" [innerHTML]="secondTeamForm?.awayForm | lastGames"></div>
+        </div>
+        <div class="card-header trophies p-25 mainheader">Main Trophies</div>
+        <div class="card-body trophies p-25">
+          <div class="card-item " *ngFor="let tr of secondTeamGeneralInfo.trophies">
+            <span class="left">{{tr.league_name}}</span>
+            <span class="right" [innerHTML]="tr.count | cups"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>

@@ -1,0 +1,11 @@
+<app-fixtures-table
+  [title]="title"
+  [seasons]="seasons"
+  [hasLeague]="false"
+  [seasonId]="curSeason"
+  [loaderState]="loaderState"
+  [lastLength]="lastLength"
+  [fixtures]="fixtures"
+  (selectedSeason)="selectSeason($event)"
+  (getMore)="more()"
+></app-fixtures-table>

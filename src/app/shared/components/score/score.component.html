@@ -1,0 +1,8 @@
+<div class="score">
+  <div class="result"
+       [class.result-win]="result && result > 0"
+       [class.result-draw]="result === 0"
+       [class.result-lost]="result && result < 0"
+  ></div>
+  {{score}}
+</div>

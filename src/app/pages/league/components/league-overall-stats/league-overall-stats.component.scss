@@ -1,0 +1,51 @@
+@import "../../../../../styles/mixins";
+
+app-header-component {}
+
+table {
+  margin-bottom: 18px;
+
+  @include for-phone-only {
+    margin-bottom: 3px;
+  }
+
+  tr {
+    &:first-child td {}
+
+    &:last-child td {
+      padding-bottom: 18px;
+
+      @include for-phone-only {
+        padding-bottom: 8px;
+      }
+    }
+  }
+
+  td {
+    width: 50%;
+    padding: 0;
+
+    span {
+      line-height: 1.2;
+      text-align: left;
+
+      &:last-child {
+        text-align: right;
+      }
+    }
+  }
+}
+
+.stats {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 20px;
+  gap: 10px;
+  padding: 8px 0;
+
+  @include for-phone-only {
+    margin: 0 10px;
+    padding: 5px 0;
+  }
+
+}

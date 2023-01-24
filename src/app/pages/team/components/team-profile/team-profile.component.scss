@@ -1,0 +1,249 @@
+@import "../../../../../styles/mixins";
+@import "../../../../../styles/colors";
+
+
+.table-grid-head,
+.table-grid {
+  display: flex;
+  align-items: center;
+
+}
+
+.grid-item {
+  width: 33.33%;
+  grid-template-columns: none !important;
+  border-bottom: 0px solid #F1F1F1 !important;
+}
+
+.profile-image {
+  height: 20rem;
+  width: 100%;
+  border-radius: 6px;
+
+  @include for-phone-only {
+    max-height: 89px;
+  }
+}
+
+app-header-component {
+  margin-bottom: 12px;
+
+  @include for-phone-only {
+    margin-bottom: 4px;
+  }
+}
+
+.card {
+
+  &-header {
+    &.trophies {
+      padding: 24px 0 14px;
+
+      @include for-phone-only {
+        padding: 11px 0 0;
+      }
+    }
+
+    &.rivals {
+      padding: 16px 0 18px;
+
+      @include for-phone-only {
+        padding: 8px 0 0;
+      }
+    }
+  }
+
+  &-body {
+    padding: 0px 0 8px;
+
+    @include for-phone-only {
+      padding: 8px 0 0;
+    }
+
+    &.trophies {
+      padding: 0;
+    }
+
+    &.rivals {
+      padding: 0 0 9px;
+
+      @include for-phone-only {
+        padding: 0;
+      }
+    }
+  }
+
+  &-filter {
+    display: flex;
+    gap: 13px;
+  }
+
+  &-item {
+    display: flex;
+    justify-content: space-between;
+
+    .trophies & {
+      padding: 13px 0 15px;
+
+      @include for-phone-only {
+        padding: 4px 0 2px;
+      }
+
+      &:last-child {
+        padding-bottom: 15px !important;
+        border-bottom: 1px solid #DDE1E6 !important;
+
+        @include for-phone-only {
+          padding-bottom: 2px !important;
+        }
+      }
+    }
+
+    .rivals & {
+      padding: 8px 0;
+
+
+      @include for-phone-only {
+        padding: 4px 0 2px;
+      }
+    }
+  }
+}
+
+.right {
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  text-align: right;
+}
+
+.btn-info {
+  background: #F1F2F5;
+  padding: 10px 13px;
+  white-space: nowrap;
+
+  @include for-phone-only {
+    font-size: 8px;
+    padding: 2px 4px;
+  }
+}
+
+.top {
+  padding-bottom: 10px;
+}
+
+
+.right {
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  text-align: right;
+}
+
+.btn-info {
+  background: #F1F2F5;
+  padding: 10px 13px;
+  white-space: nowrap;
+
+  @include for-phone-only {
+    font-size: 8px;
+    padding: 2px 4px;
+  }
+}
+
+.card-header {
+  background-color: white;
+}
+
+
+.headborder {
+  border-bottom: 1px solid #F1F1F1;
+}
+
+.padheader {
+  padding: 1.5rem !important;
+}
+
+.headtitle {
+  font-size: 26px;
+}
+
+.teamhead {
+  display: inline-flex;
+}
+
+.imgcontainer {
+  padding: 1rem;
+  background: #FFFFFF;
+  border: 1px solid #F1F1F1;
+  border-radius: 15px;
+}
+
+.teammarkimg {
+  width: 3rem;
+  height: 3rem;
+  max-width: none !important;
+}
+
+.teamname {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 24px;
+  color: #04071E;
+}
+
+.gymname {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 16px;
+  color: #4C535F;
+}
+
+.gymimg {
+  visibility: visible;
+  width: 20rem;
+}
+
+
+.table>tbody>tr:first-child {
+  border-top: 1px solid #F1F1F1;
+}
+
+.table>tbody>tr:first-child>td {
+  font-weight: bold;
+  border-top: 1px solid #F1F1F1;
+  font-weight: 700;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.card-body>.card-item:nth-of-type(even) {
+  background: #FBFBFB;
+}
+
+.card-item {
+  height: 50px;
+}
+
+.mainheader {
+  background: #FBFBFB;
+  border-bottom: 1px solid #F1F1F1;
+}
+
+
+.card-filter {
+  border-top: 1px solid #F1F1F1;
+  border-bottom: 1px solid #F1F1F1;
+}
+
+
+.btn-h2h-search {
+  background: #6DC47F;
+  border-radius: 10px;
+  color: #FFFF;
+  font-size: 12px;
+  width: 5rem;
+}

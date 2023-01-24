@@ -1,0 +1,41 @@
+@import "../../../../../styles/mixins";
+
+app-header-component {}
+
+table {
+  margin-bottom: 5px;
+
+  tr {
+    &:first-child td {
+      padding-top: 18px;
+
+      @include for-phone-only {
+        padding-top: 6px;
+      }
+    }
+
+    &:last-child td {
+      padding-bottom: 8px;
+
+      @include for-phone-only {
+        padding-bottom: 4px;
+      }
+    }
+  }
+
+  td {
+    width: 50%;
+    padding: 0;
+  }
+}
+
+.stats {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 20px;
+
+  @include for-phone-only {
+    margin: 0 10px;
+  }
+
+}

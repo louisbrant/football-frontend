@@ -1,0 +1,30 @@
+<div class="block">
+  <div class="mw-360">
+    <app-header-component
+      title="Real Madrid Recently Played"
+    ></app-header-component>
+    <div class="table-grid">
+      <div class="grid-item" *ngFor="let item of list">
+        <img src="assets/images/{{item.teamEmblem}}" class="emblem">
+        <div>{{item.teamName}}</div>
+        <app-league-emblem [leagueEmblem]="item.leagueEmblem"></app-league-emblem>
+        <div class="text-center">{{item.location}}</div>
+        <app-score class="score" [score]="item.score"></app-score>
+      </div>
+    </div>
+  </div>
+  <div class="mw-360">
+    <app-header-component
+      title="Chelsea  Recently Played"
+    ></app-header-component>
+    <div class="table-grid">
+      <div class="grid-item" *ngFor="let item of list">
+        <img src="assets/images/{{item.teamEmblem}}" class="emblem">
+        <div>{{item.teamName}}</div>
+        <app-league-emblem [leagueEmblem]="item.leagueEmblem"></app-league-emblem>
+        <div class="text-center">{{item.location}}</div>
+        <app-score class="score" [score]="item.score"></app-score>
+      </div>
+    </div>
+  </div>
+</div>

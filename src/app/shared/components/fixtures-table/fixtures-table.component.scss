@@ -1,0 +1,34 @@
+@import "../../../../styles/mixins";
+
+app-header-component {}
+
+.date {
+  line-height: 1.2;
+}
+
+.home-title {
+  text-align: right;
+  margin-right: 31px;
+
+  @include for-phone-only {
+    margin-right: 4px;
+  }
+}
+
+.away-title {
+  margin-left: 20px;
+
+  @include for-phone-only {
+    margin-right: 4px;
+  }
+}
+
+.table-grid {
+  @include for-phone-only {
+    padding-bottom: 4px;
+  }
+}
+
+.pointer {
+  color: #4C535F;
+}

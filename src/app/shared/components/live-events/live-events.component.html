@@ -1,0 +1,73 @@
+<div class="livehead">
+  <div class="row upcomingdiv" *ngIf="showupcoming ==true;else showlivehead">
+    <div class="nonepdlr text-center col-6 p-3 sidetab sidectselbtn" (click)="switchtab()">Live
+      Events
+    </div>
+    <div class="nonepdlr text-center col-6 p-3 sidetab sideunselbtn " (click)="switchtab()">Upcoming
+      Match
+    </div>
+  </div>
+  <ng-template #showlivehead>
+    <div class="row upcomingdiv">
+      <div class="nonepdlr text-center col-6 p-3 sidetab sideunselbtn " (click)="switchtab()">Live
+        Events
+      </div>
+      <div class="nonepdlr text-center col-6 p-3 sidetab  sidectselbtn" (click)="switchtab()">
+        Upcoming
+        Match
+      </div>
+    </div>
+  </ng-template>
+</div>
+
+
+<div class="livebody">
+  <div class="card-body whitebg bb10" *ngIf="showupcoming;else showlivebody">
+    <ng-container *ngIf="events?.length;else notFound">
+      <div class="card-item w-100" *ngFor="let event of events">
+        <div class="current-league divflex  w-100" (click)="currentLeague(event.league.name)">
+          <div class="col-6 divflex pl-2">
+            <img [src]="event?.league.logo_path" alt="" class="image">
+            <div class="team pt-2">
+              <span class="team-name">{{event.league.name}}</span>
+            </div>
+          </div>
+          <div class="col-6 pt-2">
+            <div class="team text-center team-country">
+              <span>{{event.league.country.data.name}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <app-more *ngIf="events.length !== allEvents.length" [loaderState]="loaderState" (getMore)="more()">
+
+      </app-more>
+    </ng-container>
+    <ng-template #notFound>
+      <h2 class="font-weight-bold text-center">Live events not found!</h2>
+    </ng-template>
+  </div>
+
+  <ng-template #showlivebody>
+    <div class="card-body whitebg bb10">
+      <ng-container *ngIf="events?.length;else notFound">
+        <!-- <div class="card-item" *ngFor="let event of events">
+          <div class="current-league" (click)="currentLeague(event.league.name)">
+            <img [src]="event?.league.logo_path" alt="" class="image">
+            <div class="team">
+              <span class="team-name">{{event.league.name}}</span>
+              <span>{{event.league.country.data.name}}</span>
+            </div>
+          </div>
+        </div> -->
+        <app-more *ngIf="events.length !== allEvents.length" [loaderState]="loaderState" (getMore)="more()">
+
+        </app-more>
+      </ng-container>
+      <ng-template #notFound>
+        <h2 class="font-weight-bold text-center">Upcoming matchs not found!</h2>
+      </ng-template>
+    </div>
+
+  </ng-template>
+</div>

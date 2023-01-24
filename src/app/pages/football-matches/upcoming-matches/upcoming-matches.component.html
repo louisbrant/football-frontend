@@ -1,0 +1,79 @@
+<ng-container>
+    <p class="match p-4 pt-4">
+        Upcoming Football Matches
+    </p>
+    <div class="btn-group btn-group-lg date" role="group">
+        <button type="button" class="btn" [class.active]="selected===selectedDays.ONE"
+            (click)="activateClass(date, selectedDays.ONE)">Today</button>
+        <div class="border"></div>
+        <button type="button" class="btn" [class.active]="selected===selectedDays.TWO"
+            (click)="activateClass(tomorrow, selectedDays.TWO)">Tomorrow</button>
+        <div class="border"></div>
+        <button type="button" class="btn" [class.active]="selected===selectedDays.THREE"
+            (click)="activateClass(firstDay, selectedDays.THREE)">{{firstDay.toLocaleDateString('en-us', {
+            weekday:"short", month:"short", day: 'numeric'})}}</button>
+        <div class="border"></div>
+        <button type="button" class="btn" [class.active]="selected===selectedDays.FOUR"
+            (click)="activateClass(secondDay, selectedDays.FOUR)">{{secondDay.toLocaleDateString('en-us', {
+            weekday:"short", month:"short", day: 'numeric'})}}</button>
+        <div class="border"></div>
+        <button type="button" class="btn" [class.active]="selected===selectedDays.FIVE"
+            (click)="activateClass(thirthDay, selectedDays.FIVE)">{{thirthDay.toLocaleDateString('en-us', {
+            weekday:"short", month:"short", day: 'numeric'})}}</button>
+        <div class="border"></div>
+        <button type="button" class="btn" [class.active]="selected===selectedDays.SIX"
+            (click)="activateClass(fourthDay, selectedDays.SIX)">{{fourthDay.toLocaleDateString('en-us', {
+            weekday:"short", month:"short", day: 'numeric'})}}</button>
+    </div>
+    <div class="col p-1 p-md-2 dates">
+        <select #selectedDay (change)="selectDate(selectedDay.value)" class="select select-league">
+            <option selected=true disabled>Date</option>
+            <option *ngFor="let option of days" [value]="option">
+                {{option}}
+            </option>
+        </select>
+    </div>
+
+    <div class="table-grid" *ngIf="groupByLeagues">
+        <div class="grid-item grid-header">
+            <div>HOME TEAM</div>
+            <div>AWAY TEAM</div>
+            <div>ODDS/ODDS</div>
+            <div>H2H</div>
+            <div></div>
+        </div>
+        <div *ngFor="let match of groupByLeagues">
+            <div class="text-start text-uppercase ps-3 ps-md-4 group" *ngIf="match?.group">
+                <img [src]="match.logo_path" class="icon">
+                <a class="m-0 league-link fw-bold" (click)="navigateToLeague(match!.group)">
+                    {{match!.group}}
+                </a>
+            </div>
+            <div class="grid-item pointer" *ngIf="match?.matchPlayed">
+
+                <app-home-team (click)="navigateToTeamPage(match.matchPlayed.firstTeam.name)"
+                    [homeEmblem]="match.matchPlayed.firstTeam.logo_path"
+                    [home]="match.matchPlayed.firstTeam.name"></app-home-team>
+
+                <app-away-team (click)="navigateToTeamPage(match.matchPlayed.secondTeam.name)"
+                    [awayEmblem]="match.matchPlayed.secondTeam.logo_path"
+                    [away]="match.matchPlayed.secondTeam.name"></app-away-team>
+
+                <div>
+                    <button *ngIf="match.matchPlayed.odds.oddFirstTeam" class="percent percent-orange">{{
+                        match.matchPlayed.odds.oddFirstTeam }} </button>
+                    <span *ngIf="match.matchPlayed.odds.oddFirstTeam && match.matchPlayed.odds.oddSecondTeam">-</span>
+                    <button *ngIf="match.matchPlayed.odds.oddSecondTeam" class="percent percent-green">{{
+                        match.matchPlayed.odds.oddSecondTeam }}</button>
+                </div>
+                <div (click)="navigateToH2h(match.matchPlayed.firstTeam.id, match.matchPlayed.secondTeam.id)">
+                    H2H 0-0
+                </div>
+                <div><button class="prediction">Prediction</button></div>
+            </div>
+        </div>
+    </div>
+    <app-more *ngIf="lastLength >= perPage" [loaderState]="loaderState" (getMore)="more()">
+        View More
+    </app-more>
+</ng-container>

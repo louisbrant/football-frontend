@@ -1,0 +1,44 @@
+@import "../../../../styles/colors";
+@import "../../../../styles/mixins";
+
+app-header-component {
+  margin-bottom: 16px;
+
+  @include for-phone-only {
+    margin-bottom: 9px;
+  }
+}
+
+.grid-item {
+  grid-template-columns: 1fr 6fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  padding: 11px 16px 12px 16px;
+  font-size: 16px;
+
+  @include for-phone-only {
+    font-size: 8px;
+    padding: 7px 7px 6px;
+    grid-template-columns: 1.5fr 6fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  }
+}
+
+.grid-header {
+  padding: 11px 0 10px;
+
+  @include for-phone-only {
+    padding: 0;
+  }
+
+  div:first-child {
+    margin-left: 16px;
+
+    @include for-phone-only {
+      margin-left: 10px;
+    }
+  }
+}
+
+.table-grid {
+  @include for-phone-only {
+    padding-bottom: 5px;
+  }
+}

@@ -1,0 +1,136 @@
+@import "../../../../styles/mixins";
+
+app-header-component {
+  @include for-phone-only {
+    margin-bottom: 9px;
+  }
+}
+
+.teams-info {
+  display: flex;
+  gap: 52px;
+  margin: 8px 24px 24px;
+  font-size: 14px;
+
+  @include for-phone-only {
+    margin: 5px 12px 12px;
+    font-size: 10px;
+    gap: 29px;
+  }
+}
+
+.coach-info,
+.total-players {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  @include for-phone-only {
+    gap: 6px;
+  }
+}
+
+.total-players {
+  justify-content: space-between;
+}
+
+.coach-name {
+  display: flex;
+  align-items: center;
+}
+
+.coach-image {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  margin-right: 10px;
+
+  @include for-phone-only {
+    margin-right: 8px;
+  }
+}
+
+.table-grid {
+  @include for-phone-only {
+    padding-bottom: 11px;
+  }
+}
+
+.grid-item {
+  grid-template-columns: 1.5fr 1fr 8fr 1.5fr 2fr 2fr 2fr 2fr 2fr 2fr;
+  font-size: 14px;
+
+  @include for-phone-only {
+    font-size: 8px;
+    line-height: 10px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+  }
+}
+
+.grid-header {
+  padding: 6px 16px;
+
+  @include for-phone-only {
+    padding: 2px 10px;
+    font-size: 7px;
+  }
+
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &.player-title {
+      justify-content: flex-start;
+    }
+  }
+}
+
+
+.player {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  @include for-phone-only {
+    margin-left: 4px;
+  }
+}
+
+.image {
+  @include for-phone-only {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+.playstat-head {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 16px;
+  text-transform: uppercase;
+
+  color: #04071E;
+}
+
+.playinfor-head {
+  font-size: 16px;
+  line-height: 16px;
+  text-transform: uppercase;
+  color: #04071E;
+  background: #FBFBFB;
+}
+
+.table-grid>.grid-item:nth-of-type(even) {
+  background: #FBFBFB;
+}
+
+.grid-header {
+  border-top: 1px solid #F1F1F1;
+  font-weight: 600;
+}
+
+.grid-item {
+  border-bottom: 1px solid #F1F1F1;
+}

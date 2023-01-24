@@ -1,0 +1,40 @@
+<div class="divflex">
+
+  <div class="mb-60 leftdiv pt-1 divblock whitebg br20" *ngIf="fixturesFirst">
+    <app-header-component [title]="'Other '+fixturesFirst[0]?.local_team?.name + ' ' + 'H2H'"></app-header-component>
+
+    <div class="container divcontents w-100 br20">
+      <div class="cardComp item" *ngFor="let item of fixturesFirst">
+        <div class=" py-2">
+          <div class="card-body pointer" (click)="navigateToH2h(item.localteam_id, item.visitorteam_id)">
+            <div class="card-item">
+              <span class="playname">{{ item.visitor_team.name }}</span>
+              <span class="h2htext">H2H <span class="h2hval">{{ item.ft_score }}</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="br20 height3"></div>
+    </div>
+  </div>
+  <div class="middlediv"></div>
+
+  <div class="mb-60 rightdiv pt-1 divblock whitebg br20" *ngIf="fixturesSecond">
+    <app-header-component [title]="'Other '+
+        fixturesSecond[0]?.local_team?.name + ' ' + 'H2H'
+      "></app-header-component>
+    <div class="container divcontents w-100 br20">
+      <div class="cardComp item" *ngFor="let item of fixturesSecond">
+        <div class=" py-2">
+          <div class="card-body pointer" (click)="navigateToH2h(item.localteam_id, item.visitorteam_id)">
+            <div class="card-item">
+              <span class="playname">{{ item.visitor_team.name }}</span>
+              <span class="h2htext">H2H <span class="h2hval">{{ item.ft_score }}</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="br20 height3"></div>
+    </div>
+  </div>
+</div>

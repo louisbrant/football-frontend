@@ -1,0 +1,45 @@
+<div class="mb-60" *ngIf="fixturesFirst">
+  <app-header-component
+    [title]="
+      fixturesFirst[0]?.local_team?.name + ' ' + 'Interesting Head to Heads'
+    "
+  ></app-header-component>
+  <div class="container w-100">
+    <div class="cardComp item" *ngFor="let item of fixturesFirst">
+      <div class="card">
+        <div
+          class="card-body pointer"
+          (click)="navigateToH2h(item.localteam_id, item.visitorteam_id)"
+        >
+          <div class="card-item">
+            <span class="font-weight-bold">{{ item.visitor_team.name }}</span>
+            <span>H2H {{ item.ft_score }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="mb-60" *ngIf="fixturesSecond">
+  <app-header-component
+    [title]="
+      fixturesSecond[0]?.local_team?.name + ' ' + 'Interesting Head to Heads'
+    "
+  ></app-header-component>
+  <div class="container w-100">
+    <div class="cardComp item" *ngFor="let item of fixturesSecond">
+      <div class="card">
+        <div
+          class="card-body pointer"
+          (click)="navigateToH2h(item.localteam_id, item.visitorteam_id)"
+        >
+          <div class="card-item">
+            <span class="font-weight-bold">{{ item.visitor_team.name }}</span>
+            <span>H2H {{ item.ft_score }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,55 @@
+<app-header-component [title]="label + ' Detailed Stats'" [hasSelectRange]="true" [seasons]="seasons"
+  [curSeason]="curSeason" (selectedSeason)="selectSeason($event)"></app-header-component>
+<ng-container *ngIf="detailedStats?.length">
+  <div class="card stats nonepd nonemg">
+    <app-arrow-tab [actives]="activeGroups" [width]="sizeOfArrowTabGroupwidth" [background]="sizeOfArrowTabGroupbag"
+      (activeChanged)="changeActiveGroup($event)"></app-arrow-tab>
+  </div>
+
+  <div class="table-grid nonepd">
+    <div class="grid-item grid-header py-1 nonemg nonebr F1bg">
+      <div>ID</div>
+      <div>TEAM</div>
+      <div class="text-center" *ngFor="let item of columns[currentType].headers">
+        <ng-container *ngIf="
+            item === cardTypes.RED || item === cardTypes.YELLOW;
+            else items
+          ">
+          <span class="pointer" (click)="sortByCard(item)"> {{ item }}</span>
+        </ng-container>
+        <ng-template #items>
+          {{ item }}
+        </ng-template>
+      </div>
+    </div>
+    <div class="grid-item" *ngFor="let item of detailedStats">
+      <div class="position">
+        <div [className]="'position-color ' + item.class"></div>
+        {{ item.position }}
+      </div>
+      <app-team (click)="navigateToTeamPage(item.name)" class="pointer" [teamEmblem]="item.logo_path"
+        [teamName]="item.name"></app-team>
+
+      <ng-container *ngFor="let key of columns[currentType].data">
+        <div *ngIf="key === 'nextMatch'; else otherFields">
+          <img *ngIf="item.nextMatch" [src]="item.nextMatch" class="image" />
+        </div>
+        <ng-template #otherFields>
+          <div
+            *ngIf="key == 'pastBTTS'||key == 'homeAwayOver'||key == 'homeAwayUnder'||key == 'totalFTS'||key == 'totalCleanSheet'||key == 'totalCorners'||key == 'red'; else otherFields">
+            <div class="text-center">{{ item[key] }}</div>
+          </div>
+          <ng-template #otherFields>
+            <div class="divflex">
+              <div class="text-center pt-1 w-2">{{ item[key] }}</div>
+              <div class="pl-2">
+                <button class="btn btn-predic w-7 p-1 px-2">All Predictions</button>
+              </div>
+            </div>
+          </ng-template>
+        </ng-template>
+      </ng-container>
+    </div>
+  </div>
+  <div class="secondheight br20"></div>
+</ng-container>

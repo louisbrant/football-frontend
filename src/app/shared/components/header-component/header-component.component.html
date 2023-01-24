@@ -1,0 +1,38 @@
+<div class="p-4 pb-25 w-100" *ngIf="leaguestat;else noneleagues">
+  <div class="divflex">
+    <h2 class="title headtitle">{{title}}</h2>
+    <app-select-league *ngIf="hasSelectLeague" [leagues]="leagues" [curLeague]="curLeague"
+      (selectedLeague)="selectedLeague.emit($event)"></app-select-league>
+    <app-select-year *ngIf="hasSelectYear"></app-select-year>
+    <app-select-range [seasons]="seasons" [curSeason]="curSeason" (selectedSeason)="selectedSeason.emit($event)"
+      *ngIf="hasSelectRange"></app-select-range>
+  </div>
+  <div class="divflex pt-3">
+    <div class="UECL leagueskind"></div>
+    <div class="leaguestxt px-2">UEFA Champions League</div>
+    <div class="UEEL leagueskind"></div>
+    <div class="leaguestxt px-2">UEFA Europa League</div>
+    <div class="Relegation leagueskind"></div>
+    <div class="leaguestxt px-2">Relegation</div>
+  </div>
+</div>
+<ng-template #noneleagues>
+  <div class="header nonebd p-4 pb-25" *ngIf="nonebb==true;else bbcolor">
+    <h2 class="title headtitle">{{title}}</h2>
+    <app-select-league *ngIf="hasSelectLeague" [leagues]="leagues" [curLeague]="curLeague"
+      (selectedLeague)="selectedLeague.emit($event)"></app-select-league>
+    <app-select-year *ngIf="hasSelectYear"></app-select-year>
+    <app-select-range [seasons]="seasons" [curSeason]="curSeason" (selectedSeason)="selectedSeason.emit($event)"
+      *ngIf="hasSelectRange"></app-select-range>
+  </div>
+  <ng-template #bbcolor>
+    <div class="header p-4 pb-25">
+      <h2 class="title headtitle">{{title}}</h2>
+      <app-select-league *ngIf="hasSelectLeague" [leagues]="leagues" [curLeague]="curLeague"
+        (selectedLeague)="selectedLeague.emit($event)"></app-select-league>
+      <app-select-year *ngIf="hasSelectYear"></app-select-year>
+      <app-select-range [seasons]="seasons" [curSeason]="curSeason" (selectedSeason)="selectedSeason.emit($event)"
+        *ngIf="hasSelectRange"></app-select-range>
+    </div>
+  </ng-template>
+</ng-template>

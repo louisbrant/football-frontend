@@ -1,0 +1,190 @@
+@import "../../../../../styles/mixins";
+@import "../../../../../styles/colors";
+
+
+app-header-component {
+  margin-bottom: 12px;
+
+  @include for-phone-only {
+    margin-bottom: 4px;
+  }
+}
+
+.player {
+  &-image-block {
+    max-height: 110px;
+    margin-right: 26px;
+
+    @include for-phone-only {
+      max-height: 31px;
+      margin-right: 6px;
+    }
+  }
+
+  &-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+    font-weight: 400;
+
+    @include for-phone-only {
+      font-size: 8px;
+      gap: 0;
+      line-height: 12px;
+    }
+  }
+
+  &-name {
+    font-size: 24px;
+    font-weight: 600;
+
+    @include for-phone-only {
+      font-size: 12px;
+    }
+  }
+
+  &-image {
+    max-height: 111px;
+    width: 116.02px;
+    height: 110.83px;
+    border-radius: 10px;
+
+    @include for-phone-only {
+      max-height: 31px;
+    }
+  }
+}
+
+
+
+.card {
+  padding: 0;
+
+  &-header {
+
+    padding: 10px 10px 0;
+    border-bottom: 1px solid #DDE1E6;
+
+    @include for-phone-only {
+      padding: 8px 7px;
+    }
+  }
+
+  &-body {
+    padding: 16px 20px 25px 17px;
+
+    @include for-phone-only {
+      padding: 2px 8px 4px;
+    }
+  }
+
+  &-filter {
+    display: flex;
+    gap: 8px;
+    padding: 20px;
+
+    @include for-phone-only {
+      padding: 8px;
+    }
+  }
+
+  &-emblems {
+    display: flex;
+    justify-content: center;
+    gap: 45px;
+    margin: 30px 0;
+    padding-left: 20%;
+
+    @include for-phone-only {
+      margin: 2px 0 9px 0;
+      gap: 26px;
+    }
+  }
+
+  &-item {
+    width: 25%;
+    display: flex;
+    justify-content: space-between;
+
+    @include for-phone-only {
+      padding: 5px 0 2px;
+    }
+  }
+}
+
+.emblems {
+  &-block {
+    height: 140px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    @include for-phone-only {
+      height: 73px;
+    }
+  }
+}
+
+.emblem {
+  max-height: 65px;
+  border-radius: 10px;
+  max-width: 95px;
+
+  &-div {
+    height: 101px;
+    display: flex;
+    align-items: center;
+
+    @include for-phone-only {
+      height: 49px;
+    }
+  }
+
+  @include for-phone-only {
+    max-height: 49px;
+    max-width: 56px;
+  }
+}
+
+.country-flag {
+  height: 20px;
+  margin-right: auto;
+  border-radius: 3px;
+
+  @include for-phone-only {
+    height: 8px;
+  }
+}
+
+.right {
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-width: 90px;
+
+  @include for-phone-only {
+    min-width: 47px;
+  }
+}
+
+.btn-info {
+  background: #F1F2F5;
+  padding: 10px 13px;
+  white-space: nowrap;
+
+  @include for-phone-only {
+    font-size: 8px;
+    padding: 2px 4px;
+  }
+}
+
+.container-left {
+  gap: 20px;
+}
+
+.card-body:nth-child(even) {
+  font-weight: 600;
+}

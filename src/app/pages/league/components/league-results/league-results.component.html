@@ -1,0 +1,11 @@
+<app-result-table
+  [title]="title"
+  [seasons]="seasons"
+  [hasLeague]="false"
+  [seasonId]="curSeason"
+  [loaderState]="loaderState"
+  [lastLength]="lastLength"
+  [results]="results"
+  (selectedSeason)="selectSeason($event)"
+  (getMore)="more()"
+></app-result-table>

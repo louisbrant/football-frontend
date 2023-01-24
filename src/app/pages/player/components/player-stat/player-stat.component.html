@@ -1,0 +1,326 @@
+<app-header-component
+  [title]="title + ' Stats'"
+  [hasSelectLeague]="true"
+  [hasSelectRange]="true"
+  [seasons]="seasons"
+  [leagues]="leagues"
+  [curSeason]="curSeason"
+  [curLeague]="curLeague"
+  (selectedSeason)="selectSeason($event)"
+  (selectedLeague)="selectLeague($event)"
+></app-header-component>
+
+<div class="table" *ngIf="player">
+  <table class="w-100">
+    <tbody>
+      <tr>
+        <td>
+          <div class="stats">
+            <span>Position</span>
+            <span>{{ player.position }}</span>
+          </div>
+        </td>
+        <td>
+          <div class="stats">
+            <span>Cleansheets</span>
+            <span>{{ player.statistics.cleanSheets }}</span>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="stats">
+            <span>Shirt Number</span>
+            <span>{{ player.shirtNumber }}</span>
+          </div>
+        </td>
+        <td>
+          <div class="stats">
+            <span>Rating</span>
+            <span>{{ player.statistics.rating }}</span>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="stats">
+            <span>Captain</span>
+            <span>{{ player.statistics.captain ? "Yes" : "No" }}</span>
+          </div>
+        </td>
+        <td>
+          <div class="stats">
+            <span>Fouls Commited</span>
+            <span>{{ player.statistics.fouls.committed ?? 0 }}</span>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="stats">
+            <span>Injured</span>
+            <span>{{ player.statistics.injured ? "Yes" : "No" }}</span>
+          </div>
+        </td>
+        <td>
+          <div class="stats">
+            <span>Fouls Drawn</span>
+            <span>{{ player.statistics.fouls.drawn ?? 0 }}</span>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="stats">
+            <span>Minutes Played</span>
+            <span>{{ player.statistics.minutesPlayed }}</span>
+          </div>
+        </td>
+        <td>
+          <div class="stats">
+            <span>Total Crosses</span>
+            <span>{{ player.statistics.crosses.total ?? 0 }}</span>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="stats">
+            <span>Appearences</span>
+            <span>{{ player.statistics.appearences }}</span>
+          </div>
+        </td>
+        <td>
+          <div class="stats">
+            <span>Accurate Crosses</span>
+            <span>{{ player.statistics.crosses.accurate ?? 0 }}</span>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="stats">
+            <span>Lineups</span>
+            <span>{{ player.statistics.lineups }}</span>
+          </div>
+        </td>
+        <td>
+          <div class="stats">
+            <span>Dribble Attempts</span>
+            <span>{{ player.statistics.dribble.attempts ?? 0 }}</span>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="stats">
+            <span>Subbed In</span>
+            <span>{{ player.statistics.subbedIn }}</span>
+          </div>
+        </td>
+        <td>
+          <div class="stats">
+            <span>Dribble Success</span>
+            <span>{{ player.statistics.dribble.success ?? 0 }}</span>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="stats">
+            <span>Subbed Out</span>
+            <span>{{ player.statistics.subbedOut }}</span>
+          </div>
+        </td>
+        <td>
+          <div class="stats">
+            <span>Dribble Past</span>
+            <span>{{ player.statistics.dribble.past ?? 0 }}</span>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="stats">
+            <span>Goals</span>
+            <span>{{ player.statistics.goals }}</span>
+          </div>
+        </td>
+        <td>
+          <div class="stats">
+            <span>Total Duels</span>
+            <span>{{ player.statistics.duels.total ?? 0 }}</span>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="stats">
+            <span>Own Goals</span>
+            <span>{{ player.statistics.ownGoals }}</span>
+          </div>
+        </td>
+        <td>
+          <div class="stats">
+            <span>Duels Won</span>
+            <span>{{ player.statistics.duels.won ?? 0 }}</span>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="stats">
+            <span>Assists</span>
+            <span>{{ player.statistics.assists }}</span>
+          </div>
+        </td>
+        <td>
+          <div class="stats">
+            <span>Total Passes</span>
+            <span>{{ player.statistics.passes.total ?? 0 }}</span>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="stats">
+            <span>Saves</span>
+            <span>{{ player.statistics.saves }}</span>
+          </div>
+        </td>
+        <td>
+          <div class="stats">
+            <span>Pass Accuracy</span>
+            <span>{{ player.statistics.passes.accuracy || 0 }} %</span>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="stats">
+            <span>Inside Box Saves</span>
+            <span>{{ player.statistics.insideBoxSaves }}</span>
+          </div>
+        </td>
+        <td>
+          <div class="stats">
+            <span>Key Pases</span>
+            <span>{{ player.statistics.passes.key ?? 0 }}</span>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="stats">
+            <span>Dispossesed</span>
+            <span>{{ player.statistics.dispossessed }}</span>
+          </div>
+        </td>
+        <td>
+          <div class="stats">
+            <span>Penalties Won</span>
+            <span>{{ player.statistics.penalties.won ?? 0 }}</span>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="stats">
+            <span>Interceptions</span>
+            <span>{{ player.statistics.interceptions }}</span>
+          </div>
+        </td>
+        <td>
+          <div class="stats">
+            <span>Penalties Scored</span>
+            <span>{{ player.statistics.penalties.scored ?? 0 }}</span>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="stats">
+            <span>Yellow Cards</span>
+            <span>{{ player.statistics.yellowCards }}</span>
+          </div>
+        </td>
+        <td>
+          <div class="stats">
+            <span>Penalties Missed</span>
+            <span>{{ player.statistics.penalties.missed ?? 0 }}</span>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="stats">
+            <span>Yellow Red</span>
+            <span>{{ player.statistics.yellowRed }}</span>
+          </div>
+        </td>
+        <td>
+          <div class="stats">
+            <span>Penalties Committed</span>
+            <span>{{ player.statistics.penalties.committed ?? 0 }}</span>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="stats">
+            <span>Direct Red Cards</span>
+            <span>{{ player.statistics.directRedCards }}</span>
+          </div>
+        </td>
+        <td>
+          <div class="stats">
+            <span>Penalty Saves</span>
+            <span>{{ player.statistics.penalties.saves ?? 0 }}</span>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="stats">
+            <span>Tackles</span>
+            <span>{{ player.statistics.tackles ?? 0 }}</span>
+          </div>
+        </td>
+        <td>
+          <div class="stats">
+            <span>Shots Total</span>
+            <span>{{ player.statistics.shots.total ?? 0 }}</span>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="stats">
+            <span>Blocks</span>
+            <span>{{ player.statistics.blocks ?? 0 }}</span>
+          </div>
+        </td>
+        <td>
+          <div class="stats">
+            <span>Shots On Target</span>
+            <span>{{ player.statistics.shots.onTarget ?? 0 }}</span>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="stats">
+            <span>Hit Post</span>
+            <span>{{ player.statistics.hitPost ?? 0 }}</span>
+          </div>
+        </td>
+        <td>
+          <div class="stats">
+            <span>Shots Off Target</span>
+            <span>{{ player.statistics.shots.offTarget ?? 0 }}</span>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

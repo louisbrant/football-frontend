@@ -1,0 +1,236 @@
+<app-header-component title="Season Match Stats" [hasSelectLeague]="true" [leagues]="leagues" [curLeague]="curLeague"
+  (selectedLeague)="selectLeague($event)" [hasSelectRange]="true" [seasons]="seasons" [curSeason]="curSeason"
+  (selectedSeason)="selectSeason($event)"></app-header-component>
+
+<div class="table br20" *ngIf="matchStatistics">
+  <table class="w-100 br20">
+    <tbody>
+      <tr>
+        <td>
+          <div class="stats">
+            <span>Attacks</span>
+          </div>
+        </td>
+        <td>
+          <div class="stats">
+            <span>Dangerous Attacks</span>
+          </div>
+        </td>
+        <td>
+          <div class="stats">
+            <span>Av Possesion Percent</span>
+          </div>
+        </td>
+        <td>
+          <div class="stats">
+            <span>Fouls</span>
+          </div>
+        </td>
+      </tr>
+
+
+      <tr>
+        <td>
+          <div class="stats"><span>{{matchStatistics.stats.attacks}}</span>
+
+          </div>
+        </td>
+        <td>
+          <div class="stats"><span>{{matchStatistics.stats.dangerousAttacks}}</span>
+
+          </div>
+        </td>
+        <td>
+          <div class="stats"><span>{{matchStatistics.stats.avPossessionPercent}}</span>
+          </div>
+        </td>
+        <td>
+          <div class="stats"><span>{{matchStatistics.stats.fouls}}</span>
+          </div>
+        </td>
+      </tr>
+
+
+
+      <tr>
+        <td>
+          <div class="stats">
+            <span>Offside</span>
+          </div>
+        </td>
+        <td>
+          <div class="stats">
+            <span>Redcards</span>
+          </div>
+        </td>
+        <td>
+          <div class="stats">
+            <span>Yellow Cards</span>
+          </div>
+        </td>
+        <td>
+          <div class="stats">
+            <span>Shots Blocked</span>
+          </div>
+        </td>
+      </tr>
+
+
+      <tr>
+        <td>
+          <div class="stats"><span>{{matchStatistics.stats.offside}}</span>
+          </div>
+        </td>
+        <td>
+          <div class="stats"><span>{{matchStatistics.stats.redCards}}</span>
+          </div>
+        </td>
+        <td>
+          <div class="stats">
+            <span>{{matchStatistics.stats.yellowCards}}</span>
+          </div>
+        </td>
+        <td>
+          <div class="stats"><span>{{matchStatistics.stats.shotsBlocked}}</span>
+          </div>
+        </td>
+      </tr>
+
+
+
+      <tr>
+        <td>
+          <div class="stats">
+            <span>Av Fouls Per Game</span>
+          </div>
+        </td>
+        <td>
+          <div class="stats">
+            <span>Shots Off Target</span>
+          </div>
+        </td>
+        <td>
+          <div class="stats">
+            <span>Av Shots Off Target</span>
+          </div>
+        </td>
+        <td>
+          <div class="stats">
+            <span>Shots On Target</span>
+          </div>
+        </td>
+      </tr>
+
+
+
+      <tr>
+        <td>
+          <div class="stats"><span>{{matchStatistics.stats.avFoulsPerGame}}</span>
+          </div>
+        </td>
+        <td>
+          <div class="stats"><span>{{matchStatistics.stats.shotsOffTarget}}</span>
+          </div>
+        </td>
+        <td>
+          <div class="stats"><span>{{matchStatistics.stats.avShotsOffTarget}}</span>
+          </div>
+        </td>
+        <td>
+          <div class="stats"><span>{{matchStatistics.stats.shotsOnTarget}}</span>
+          </div>
+        </td>
+      </tr>
+
+
+      <tr>
+        <td>
+          <div class="stats">
+            <span>Av Shots On Target</span>
+          </div>
+        </td>
+        <td>
+          <div class="stats">
+            <span>Total Corners</span>
+          </div>
+        </td>
+        <td>
+          <div class="stats">
+            <span>Av Corners</span>
+          </div>
+        </td>
+        <td>
+          <div class="stats">
+            <span>BTTS</span>
+          </div>
+        </td>
+      </tr>
+
+
+      <tr>
+        <td>
+          <div class="stats"><span>{{matchStatistics.stats.avShotsOnTarget}}</span>
+          </div>
+        </td>
+        <td>
+          <div class="stats"><span>{{matchStatistics.stats.totalCorners}}</span>
+          </div>
+        </td>
+        <td>
+          <div class="stats"><span>{{matchStatistics.stats.avCorners}}</span>
+          </div>
+        </td>
+        <td>
+          <div class="stats"><span>{{matchStatistics.stats.btts}}</span>
+          </div>
+        </td>
+      </tr>
+
+
+      <tr>
+        <td>
+          <div class="stats">
+            <span>Av Player Rating Per Match</span>
+          </div>
+        </td>
+        <td>
+          <div class="stats">
+            <span>Tackles</span>
+          </div>
+        </td>
+        <td>
+          <div class="stats">
+            <span></span>
+          </div>
+        </td>
+        <td>
+          <div class="stats">
+            <span></span>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <div class="stats"><span>{{matchStatistics.stats.avPlayerRatingPerMatch}}</span>
+          </div>
+        </td>
+        <td>
+          <div class="stats"><span>{{matchStatistics.stats.tackles}}</span>
+          </div>
+        </td>
+        <td>
+          <div class="stats">
+            <span></span>
+          </div>
+        </td>
+        <td>
+          <div class="stats">
+            <span></span>
+          </div>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>

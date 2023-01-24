@@ -1,0 +1,719 @@
+<div class="header p-header">
+  <div class="p-header-name">
+    <h2 class="title">
+      <span class="live"
+        >{{ firstTeamName}} Vs
+        {{ secondTeamName}}</span
+      >
+      Season Stats
+    </h2>
+  </div>
+  <div>
+    <app-select-league
+      class="p-league"
+      [leagues]="leagues"
+      [curLeague]="curLeague"
+      (selectedLeague)="selectLeague($event)"
+      [allSelected]="allSelected"
+    ></app-select-league>
+    <app-select-range
+      [allSelected]="allSelected"
+      [seasons]="seasons"
+      [curSeason]="curSeason"
+      (selectedSeason)="selectSeason($event)"
+    ></app-select-range>
+
+<!--    <label for="s-match" class="s-label">Only Last Matches</label>-->
+<!--    <select-->
+<!--      #selectedMatch-->
+<!--      id="s-match"-->
+<!--      (change)="changeMatch(selectedMatch.value)"-->
+<!--      class="select select-league"-->
+<!--    >-->
+<!--      <option *ngIf="allSelected">All</option>-->
+<!--      <option *ngFor="let match of matches; let i = index" [value]="match.id">-->
+<!--        {{ i + 1 }}-->
+<!--      </option>-->
+<!--    </select>-->
+  </div>
+</div>
+
+<div class="table" *ngIf="firstTeamPerformance || secondTeamPerformance">
+  <table class="w-100">
+    <thead>
+      <tr>
+        <th class="t-summary">Performance Summary</th>
+        <th class="h-team">{{ allMatches && allMatches[0]?.homeTeam?.name }}</th>
+        <th class="a-team">{{ allMatches && allMatches[0]?.awayTeam?.name }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Total Wins</td>
+        <td>{{ firstTeamPerformance?.wins?.overall }}</td>
+        <td>{{ secondTeamPerformance?.wins?.overall }}</td>
+      </tr>
+      <tr>
+        <td>Home Wins</td>
+        <td>{{ firstTeamPerformance?.wins?.home }}</td>
+        <td>{{ secondTeamPerformance?.wins?.home }}</td>
+      </tr>
+      <tr>
+        <td>Away Wins</td>
+        <td>{{ firstTeamPerformance?.wins?.away }}</td>
+        <td>{{ secondTeamPerformance?.wins?.away }}</td>
+      </tr>
+      <tr>
+        <td>Total Draws</td>
+        <td>{{ firstTeamPerformance?.draw?.overall }}</td>
+        <td>{{ secondTeamPerformance?.draw?.overall }}</td>
+      </tr>
+      <tr>
+        <td>Home Draws</td>
+        <td>{{ firstTeamPerformance?.draw?.home }}</td>
+        <td>{{ secondTeamPerformance?.draw?.home }}</td>
+      </tr>
+      <tr>
+        <td>Away Draws</td>
+        <td>{{ firstTeamPerformance?.draw?.away }}</td>
+        <td>{{ secondTeamPerformance?.draw?.away }}</td>
+      </tr>
+      <tr>
+        <td>Total Lost</td>
+        <td>{{ firstTeamPerformance?.lost?.overall }}</td>
+        <td>{{ secondTeamPerformance?.lost?.overall }}</td>
+      </tr>
+      <tr>
+        <td>Home Losses</td>
+        <td>{{ firstTeamPerformance?.lost?.home }}</td>
+        <td>{{ secondTeamPerformance?.lost?.home }}</td>
+      </tr>
+      <tr>
+        <td>Away Losses</td>
+        <td>{{ firstTeamPerformance?.lost?.away }}</td>
+        <td>{{ secondTeamPerformance?.lost?.away }}</td>
+      </tr>
+      <tr>
+        <td>Total Goals For</td>
+        <td>{{ firstTeamPerformance?.goalsFor?.overall }}</td>
+        <td>{{ secondTeamPerformance?.goalsFor?.overall }}</td>
+      </tr>
+      <tr>
+        <td>Home Goals For</td>
+        <td>{{ firstTeamPerformance?.goalsFor?.home }}</td>
+        <td>{{ secondTeamPerformance?.goalsFor?.home }}</td>
+      </tr>
+      <tr>
+        <td>Away Goals For</td>
+        <td>{{ firstTeamPerformance?.goalsFor?.away }}</td>
+        <td>{{ secondTeamPerformance?.goalsFor?.away }}</td>
+      </tr>
+      <tr>
+        <td>Total Goals Against</td>
+        <td>{{ firstTeamPerformance?.goalsAgainst?.overall }}</td>
+        <td>{{ secondTeamPerformance?.goalsAgainst?.overall }}</td>
+      </tr>
+      <tr>
+        <td>Home Goals Against</td>
+        <td>{{ firstTeamPerformance?.goalsAgainst?.home }}</td>
+        <td>{{ secondTeamPerformance?.goalsAgainst?.home }}</td>
+      </tr>
+      <tr>
+        <td>Away Goals Against</td>
+        <td>{{ firstTeamPerformance?.goalsAgainst?.away }}</td>
+        <td>{{ secondTeamPerformance?.goalsAgainst?.away }}</td>
+      </tr>
+      <tr>
+        <td>Total Clean Sheet</td>
+        <td>{{ firstTeamPerformance?.cleanSheet?.overall }}</td>
+        <td>{{ secondTeamPerformance?.cleanSheet?.overall }}</td>
+      </tr>
+      <tr>
+        <td>Home Clean Sheet</td>
+        <td>{{ firstTeamPerformance?.cleanSheet?.home }}</td>
+        <td>{{ secondTeamPerformance?.cleanSheet?.home }}</td>
+      </tr>
+      <tr>
+        <td>Away Clean Sheet</td>
+        <td>{{ firstTeamPerformance?.cleanSheet?.away }}</td>
+        <td>{{ secondTeamPerformance?.cleanSheet?.away }}</td>
+      </tr>
+      <tr>
+        <td>Total Failed To Score</td>
+        <td>{{ firstTeamPerformance?.failedToScore?.overall }}</td>
+        <td>{{ secondTeamPerformance?.failedToScore?.overall }}</td>
+      </tr>
+      <tr>
+        <td>Home Failed To Score</td>
+        <td>{{ firstTeamPerformance?.failedToScore?.home }}</td>
+        <td>{{ secondTeamPerformance?.failedToScore?.home }}</td>
+      </tr>
+      <tr>
+        <td>Away Failed To Score</td>
+        <td>{{ firstTeamPerformance?.failedToScore?.away }}</td>
+        <td>{{ secondTeamPerformance?.failedToScore?.away }}</td>
+      </tr>
+      <tr>
+        <td>Total Av Goals Scored</td>
+        <td>{{ firstTeamPerformance?.avGoalsScored?.overall }}</td>
+        <td>{{ secondTeamPerformance?.avGoalsScored?.overall }}</td>
+      </tr>
+      <tr>
+        <td>Home Av Goals Scored</td>
+        <td>{{ firstTeamPerformance?.avGoalsScored?.home }}</td>
+        <td>{{ secondTeamPerformance?.avGoalsScored?.home }}</td>
+      </tr>
+      <tr>
+        <td>Away Av Goals Scored</td>
+        <td>{{ firstTeamPerformance?.avGoalsScored?.away }}</td>
+        <td>{{ secondTeamPerformance?.avGoalsScored?.away }}</td>
+      </tr>
+      <tr>
+        <td>Total Av Goals Conceded</td>
+        <td>{{ firstTeamPerformance?.avGoalsConceded?.overall }}</td>
+        <td>{{ secondTeamPerformance?.avGoalsConceded?.overall }}</td>
+      </tr>
+      <tr>
+        <td>Home Av Goals Conceded</td>
+        <td>{{ firstTeamPerformance?.avGoalsConceded?.home }}</td>
+        <td>{{ secondTeamPerformance?.avGoalsConceded?.home }}</td>
+      </tr>
+      <tr>
+        <td>Away Av Goals Conceded</td>
+        <td>{{ firstTeamPerformance?.avGoalsConceded?.away }}</td>
+        <td>{{ secondTeamPerformance?.avGoalsConceded?.away }}</td>
+      </tr>
+      <tr>
+        <td>Total Av 1st Goal Scored</td>
+        <td>{{ firstTeamPerformance?.avFirstGoalsScored?.overall }}</td>
+        <td>{{ secondTeamPerformance?.avFirstGoalsScored?.overall }}</td>
+      </tr>
+      <tr>
+        <td>Home Av 1st Goal Scored</td>
+        <td>{{ firstTeamPerformance?.avFirstGoalsScored?.home }}</td>
+        <td>{{ secondTeamPerformance?.avFirstGoalsScored?.home }}</td>
+      </tr>
+      <tr>
+        <td>Away Av 1st Goal Scored</td>
+        <td>{{ firstTeamPerformance?.avFirstGoalsScored?.away }}</td>
+        <td>{{ secondTeamPerformance?.avFirstGoalsScored?.away }}</td>
+      </tr>
+      <tr>
+        <td>Total Av 1st Goal Conceded</td>
+        <td>{{ firstTeamPerformance?.avFirstGoalsConceded?.overall }}</td>
+        <td>{{ secondTeamPerformance?.avFirstGoalsConceded?.overall }}</td>
+      </tr>
+      <tr>
+        <td>Home Av 1st Goal Conceded</td>
+        <td>{{ firstTeamPerformance?.avFirstGoalsConceded?.home }}</td>
+        <td>{{ secondTeamPerformance?.avFirstGoalsConceded?.home }}</td>
+      </tr>
+      <tr>
+        <td>Away Av 1st Goal Conceded</td>
+        <td>{{ firstTeamPerformance?.avFirstGoalsConceded?.away }}</td>
+        <td>{{ secondTeamPerformance?.avFirstGoalsConceded?.away }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<br />
+<!--Performance summary table ends-->
+<!--Goals Scoring Minutes table starts-->
+<div class="table" *ngIf="firstTeamGoalsScored || secondTeamGoalsScored">
+  <table class="w-100">
+    <thead>
+      <tr>
+        <th class="t-summary">Goals Scoring Minutes</th>
+        <th class="h-team">{{ allMatches && allMatches[0]?.homeTeam?.name }}</th>
+        <th class="a-team">{{ allMatches && allMatches[0]?.awayTeam?.name }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ firstTeamGoalsScored.period && firstTeamGoalsScored.period[0]?.minute ? firstTeamGoalsScored.period[0]?.minute : '0-15'}}</td>
+        <td>
+          {{ firstTeamGoalsScored.period && firstTeamGoalsScored.period[0]?.scoringCount }}({{
+          firstTeamGoalsScored.period && firstTeamGoalsScored.period[0]?.scoringPercent
+          }}%)
+        </td>
+        <td>
+          {{ secondTeamGoalsScored.period && secondTeamGoalsScored.period[0]?.scoringCount }}({{
+          secondTeamGoalsScored.period && secondTeamGoalsScored.period[0]?.scoringPercent
+          }}%)
+        </td>
+      </tr>
+      <tr>
+        <td>{{ firstTeamGoalsScored.period && firstTeamGoalsScored.period[1]?.minute ? firstTeamGoalsScored.period[1]?.minute : '15-30'}}</td>
+        <td>
+          {{ firstTeamGoalsScored.period && firstTeamGoalsScored.period[1]?.scoringCount }}({{
+          firstTeamGoalsScored.period && firstTeamGoalsScored.period[1]?.scoringPercent
+          }}%)
+        </td>
+        <td>
+          {{ secondTeamGoalsScored.period && secondTeamGoalsScored.period[1]?.scoringCount }}({{
+          secondTeamGoalsScored.period && secondTeamGoalsScored.period[1]?.scoringPercent
+          }}%)
+        </td>
+      </tr>
+      <tr>
+        <td>{{firstTeamGoalsScored.period && firstTeamGoalsScored.period[2]?.minute ? firstTeamGoalsScored.period[2]?.minute : '30-45'}}</td>
+        <td>
+          {{ firstTeamGoalsScored.period && firstTeamGoalsScored.period[2]?.scoringCount }}({{
+          firstTeamGoalsScored.period &&  firstTeamGoalsScored.period[2]?.scoringPercent
+          }}%)
+        </td>
+        <td>
+          {{ secondTeamGoalsScored.period && secondTeamGoalsScored.period[2]?.scoringCount }}({{
+          secondTeamGoalsScored.period && secondTeamGoalsScored.period[2]?.scoringPercent
+          }}%)
+        </td>
+      </tr>
+      <tr>
+        <td>{{ firstTeamGoalsScored.period && firstTeamGoalsScored.period[3]?.minute ? firstTeamGoalsScored.period[3]?.minute : '45-60'}}</td>
+        <td>
+          {{ firstTeamGoalsScored.period && firstTeamGoalsScored.period[3]?.scoringCount }}({{
+          firstTeamGoalsScored.period &&firstTeamGoalsScored.period[3]?.scoringPercent
+          }}%)
+        </td>
+        <td>
+          {{ secondTeamGoalsScored.period && secondTeamGoalsScored.period[3]?.scoringCount }}({{
+          secondTeamGoalsScored.period && secondTeamGoalsScored.period[3]?.scoringPercent
+          }}%)
+        </td>
+      </tr>
+      <tr>
+        <td>{{ firstTeamGoalsScored.period && firstTeamGoalsScored.period[4]?.minute ? firstTeamGoalsScored.period[4]?.minute : '60-75'}}</td>
+        <td>
+          {{ firstTeamGoalsScored.period && firstTeamGoalsScored.period[4]?.scoringCount }}({{
+          firstTeamGoalsScored.period && firstTeamGoalsScored.period[4]?.scoringPercent
+          }}%)
+        </td>
+        <td>
+          {{ secondTeamGoalsScored.period && secondTeamGoalsScored.period[4]?.scoringCount }}({{
+          secondTeamGoalsScored.period && secondTeamGoalsScored.period[4]?.scoringPercent
+          }}%)
+        </td>
+      </tr>
+      <tr>
+        <td>{{ firstTeamGoalsScored.period && firstTeamGoalsScored.period[5]?.minute ? firstTeamGoalsScored.period[5]?.minute : '75-90'}}</td>
+        <td>
+          {{ firstTeamGoalsScored.period && firstTeamGoalsScored.period[5]?.scoringCount }}({{
+          firstTeamGoalsScored.period && firstTeamGoalsScored.period[5]?.scoringPercent
+          }}%)
+        </td>
+        <td>
+          {{ secondTeamGoalsScored.period && secondTeamGoalsScored.period[5]?.scoringCount }}({{
+          secondTeamGoalsScored.period && secondTeamGoalsScored.period[5]?.scoringPercent
+          }}%)
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<br />
+<!--Goals Scoring Minutes table ends-->
+<!--Goals Conceded Minutes table start-->
+<div class="table" *ngIf="firstTeamGoalsScored || secondTeamGoalsScored">
+  <table class="w-100">
+    <thead>
+      <tr>
+        <th class="t-summary">Goals Conceded Minutes</th>
+        <th class="h-team">{{ allMatches && allMatches[0]?.homeTeam?.name }}</th>
+        <th class="a-team">{{ allMatches && allMatches[0]?.awayTeam?.name }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ firstTeamGoalsScored.period && firstTeamGoalsScored.period[0]?.minute ?  firstTeamGoalsScored.period[0]?.minute : '0-15'}} </td>
+        <td>
+          {{ firstTeamGoalsScored.period && firstTeamGoalsScored.period[0]?.concededCount }}({{
+          firstTeamGoalsScored.period && firstTeamGoalsScored.period[0]?.concededPercent
+          }}%)
+        </td>
+        <td>
+          {{ secondTeamGoalsScored.period && secondTeamGoalsScored.period[0]?.concededCount }}({{
+          secondTeamGoalsScored.period && secondTeamGoalsScored.period[0]?.concededPercent
+          }}%)
+        </td>
+      </tr>
+      <tr>
+        <td>{{ firstTeamGoalsScored.period && firstTeamGoalsScored.period[1]?.minute ? firstTeamGoalsScored.period[1]?.minute : '15-30'}}</td>
+        <td>
+          {{ firstTeamGoalsScored.period && firstTeamGoalsScored.period[1]?.concededCount }}({{
+          firstTeamGoalsScored.period && firstTeamGoalsScored.period[1]?.concededPercent
+          }}%)
+        </td>
+        <td>
+          {{ secondTeamGoalsScored.period && secondTeamGoalsScored.period[1]?.concededCount }}({{
+          secondTeamGoalsScored.period && secondTeamGoalsScored.period[1]?.concededPercent
+          }}%)
+        </td>
+      </tr>
+      <tr>
+        <td>{{ firstTeamGoalsScored.period && firstTeamGoalsScored.period[2]?.minute ? firstTeamGoalsScored.period[2]?.minute : '30-45' }}</td>
+        <td>
+          {{ firstTeamGoalsScored.period && firstTeamGoalsScored.period[2]?.concededCount }}({{
+          firstTeamGoalsScored.period && firstTeamGoalsScored.period[2]?.concededPercent
+          }}%)
+        </td>
+        <td>
+          {{ secondTeamGoalsScored.period && secondTeamGoalsScored.period[2]?.concededCount }}({{
+          secondTeamGoalsScored.period && secondTeamGoalsScored.period[2]?.concededPercent
+          }}%)
+        </td>
+      </tr>
+      <tr>
+        <td>{{ firstTeamGoalsScored.period && firstTeamGoalsScored.period[3]?.minute ? firstTeamGoalsScored.period[3]?.minute : '45-60'}}</td>
+        <td>
+          {{ firstTeamGoalsScored.period && firstTeamGoalsScored.period[3]?.concededCount }}({{
+          firstTeamGoalsScored.period && firstTeamGoalsScored.period[3]?.concededPercent
+          }}%)
+        </td>
+        <td>
+          {{ secondTeamGoalsScored.period && secondTeamGoalsScored.period[3]?.concededCount }}({{
+          secondTeamGoalsScored.period && secondTeamGoalsScored.period[3]?.concededPercent
+          }}%)
+        </td>
+      </tr>
+      <tr>
+        <td>{{ firstTeamGoalsScored.period && firstTeamGoalsScored.period[4]?.minute ? firstTeamGoalsScored.period[4]?.minute : '60-75'}}</td>
+        <td>
+          {{ firstTeamGoalsScored.period && firstTeamGoalsScored.period[4]?.concededCount }}({{
+          firstTeamGoalsScored.period && firstTeamGoalsScored.period[4]?.concededPercent
+          }}%)
+        </td>
+        <td>
+          {{ secondTeamGoalsScored.period && secondTeamGoalsScored.period[4]?.concededCount }}({{
+          secondTeamGoalsScored.period && secondTeamGoalsScored.period[4]?.concededPercent
+          }}%)
+        </td>
+      </tr>
+      <tr>
+        <td>{{ firstTeamGoalsScored.period && firstTeamGoalsScored.period[5]?.minute ? firstTeamGoalsScored.period[5]?.minute : '75-90' }}</td>
+        <td>
+          {{ firstTeamGoalsScored.period && firstTeamGoalsScored.period[5]?.concededCount }}({{
+          firstTeamGoalsScored.period && firstTeamGoalsScored.period[5]?.concededPercent
+          }}%)
+        </td>
+        <td>
+          {{ secondTeamGoalsScored.period && secondTeamGoalsScored.period[5]?.concededCount }}({{
+          secondTeamGoalsScored.period &&  secondTeamGoalsScored.period[5]?.concededPercent
+          }}%)
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<br />
+<!--Goals Conceded Minutes table ends-->
+<!--Combined Match Stats table starts-->
+<div class="table" *ngIf="firstTeamPerformance || secondTeamPerformance">
+  <table class="w-100">
+    <thead>
+      <tr>
+        <th class="t-summary">Combined Match Stats</th>
+        <th class="h-team">{{ allMatches && allMatches[0]?.homeTeam?.name }}</th>
+        <th class="a-team">{{ allMatches && allMatches[0]?.awayTeam?.name }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Attacks</td>
+        <td>{{ firstTeamMatchStat.stats?.attacks }}</td>
+        <td>{{ secondTeamMatchStat.stats?.attacks }}</td>
+      </tr>
+      <tr>
+        <td>Dangerous Attacks</td>
+        <td>{{ firstTeamMatchStat.stats?.dangerousAttacks }}</td>
+        <td>{{ secondTeamMatchStat.stats?.dangerousAttacks }}</td>
+      </tr>
+      <tr>
+        <td>Av Possession Percent</td>
+        <td>{{ firstTeamMatchStat.stats?.avPossessionPercent }}</td>
+        <td>{{ secondTeamMatchStat.stats?.avPossessionPercent }}</td>
+      </tr>
+      <tr>
+        <td>Fouls</td>
+        <td>{{ firstTeamMatchStat.stats?.fouls }}</td>
+        <td>{{ secondTeamMatchStat.stats?.fouls }}</td>
+      </tr>
+      <tr>
+        <td>Av Fouls Per Game</td>
+        <td>{{ firstTeamMatchStat.stats?.avFoulsPerGame }}</td>
+        <td>{{ secondTeamMatchStat.stats?.avFoulsPerGame }}</td>
+      </tr>
+      <tr>
+        <td>Offside</td>
+        <td>{{ firstTeamMatchStat.stats?.offside }}</td>
+        <td>{{ secondTeamMatchStat.stats?.offside }}</td>
+      </tr>
+      <tr>
+        <td>Red Cards</td>
+        <td>{{ firstTeamMatchStat.stats?.redCards }}</td>
+        <td>{{ secondTeamMatchStat.stats?.redCards }}</td>
+      </tr>
+      <tr>
+        <td>Yellow Cards</td>
+        <td>{{ firstTeamMatchStat.stats?.yellowCards }}</td>
+        <td>{{ secondTeamMatchStat.stats?.yellowCards }}</td>
+      </tr>
+      <tr>
+        <td>Shots Blocked</td>
+        <td>{{ firstTeamMatchStat.stats?.shotsBlocked }}</td>
+        <td>{{ secondTeamMatchStat.stats?.shotsBlocked }}</td>
+      </tr>
+      <tr>
+        <td>Shots Off Target</td>
+        <td>{{ firstTeamMatchStat.stats?.shotsOffTarget }}</td>
+        <td>{{ secondTeamMatchStat.stats?.shotsOffTarget }}</td>
+      </tr>
+      <tr>
+        <td>Av Shots Off Target</td>
+        <td>{{ firstTeamMatchStat.stats?.avShotsOffTarget }}</td>
+        <td>{{ secondTeamMatchStat.stats?.avShotsOffTarget }}</td>
+      </tr>
+      <tr>
+        <td>Shots On Target</td>
+        <td>{{ firstTeamMatchStat.stats?.shotsOnTarget }}</td>
+        <td>{{ secondTeamMatchStat.stats?.shotsOnTarget }}</td>
+      </tr>
+      <tr>
+        <td>Av Shots On Target</td>
+        <td>{{ firstTeamMatchStat.stats?.avShotsOnTarget }}</td>
+        <td>{{ secondTeamMatchStat.stats?.avShotsOnTarget }}</td>
+      </tr>
+      <tr>
+        <td>Total Corners</td>
+        <td>{{ firstTeamMatchStat.stats?.totalCorners }}</td>
+        <td>{{ secondTeamMatchStat.stats?.totalCorners }}</td>
+      </tr>
+      <tr>
+        <td>Av Corners</td>
+        <td>{{ firstTeamMatchStat.stats?.avCorners }}</td>
+        <td>{{ secondTeamMatchStat.stats?.avCorners }}</td>
+      </tr>
+      <tr>
+        <td>BTTS</td>
+        <td>{{ firstTeamMatchStat.stats?.btts }}</td>
+        <td>{{ secondTeamMatchStat.stats?.btts }}</td>
+      </tr>
+      <tr>
+        <td>Av Player Rating Per Match</td>
+        <td>{{ firstTeamMatchStat.stats?.avPlayerRatingPerMatch }}</td>
+        <td>{{ secondTeamMatchStat.stats?.avPlayerRatingPerMatch }}</td>
+      </tr>
+      <tr>
+        <td>Tackles</td>
+        <td>{{ firstTeamMatchStat.stats?.tackles }}</td>
+        <td>{{ secondTeamMatchStat.stats?.tackles }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<br />
+<!--Combined Match Stats table ends-->
+<!--Goal Percentages table starts-->
+<div class="table" *ngIf="firstTeamPerformance || secondTeamPerformance">
+  <table class="w-100">
+    <thead>
+      <tr>
+        <th class="t-summary">Total Match Goals Percentages</th>
+        <th class="h-team" colspan="2">
+          {{ allMatches && allMatches[0]?.homeTeam?.name }}
+        </th>
+        <th class="a-team" colspan="2">
+          {{ allMatches && allMatches[0]?.awayTeam?.name }}
+        </th>
+      </tr>
+      <tr>
+        <th></th>
+        <th style="border-right: none">Home</th>
+        <th style="border-left: none">Away</th>
+        <th style="border-right: none">Home</th>
+        <th style="border-left: none">Away</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Over 0.5</td>
+        <td style="border-right: none">
+          {{ firstTeamProbabilities?.stats?.home?.over_0_5 }}
+        </td>
+        <td style="border-left: none">
+          {{ firstTeamProbabilities?.stats?.away?.over_0_5 }}
+        </td>
+        <td style="border-right: none">
+          {{ secondTeamProbabilities?.stats?.home?.over_0_5 }}
+        </td>
+        <td style="border-left: none">
+          {{ secondTeamProbabilities?.stats?.away?.over_0_5 }}
+        </td>
+      </tr>
+      <tr>
+        <td>Over 1.5</td>
+        <td style="border-right: none">
+          {{ firstTeamProbabilities.stats?.home?.over_1_5 }}
+        </td>
+        <td style="border-left: none">
+          {{ firstTeamProbabilities.stats?.away?.over_1_5 }}
+        </td>
+        <td style="border-right: none">
+          {{ secondTeamProbabilities.stats?.home?.over_1_5 }}
+        </td>
+        <td style="border-left: none">
+          {{ secondTeamProbabilities.stats?.away?.over_1_5 }}
+        </td>
+      </tr>
+      <tr>
+        <td>Over 2.5</td>
+        <td style="border-right: none">
+          {{ firstTeamProbabilities.stats?.home?.over_2_5 }}
+        </td>
+        <td style="border-left: none">
+          {{ firstTeamProbabilities.stats?.away?.over_2_5 }}
+        </td>
+        <td style="border-right: none">
+          {{ secondTeamProbabilities.stats?.home?.over_2_5 }}
+        </td>
+        <td style="border-left: none">
+          {{ secondTeamProbabilities.stats?.away?.over_2_5 }}
+        </td>
+      </tr>
+      <tr>
+        <td>Over 3.5</td>
+        <td style="border-right: none">
+          {{ firstTeamProbabilities.stats?.home?.over_3_5 }}
+        </td>
+        <td style="border-left: none">
+          {{ firstTeamProbabilities.stats?.away?.over_3_5 }}
+        </td>
+        <td style="border-right: none">
+          {{ secondTeamProbabilities.stats?.home?.over_3_5 }}
+        </td>
+        <td style="border-left: none">
+          {{ secondTeamProbabilities.stats?.away?.over_3_5 }}
+        </td>
+      </tr>
+      <tr>
+        <td>Over 4.5</td>
+        <td style="border-right: none">
+          {{ firstTeamProbabilities.stats?.home?.over_4_5 }}
+        </td>
+        <td style="border-left: none">
+          {{ firstTeamProbabilities.stats?.away?.over_4_5 }}
+        </td>
+        <td style="border-right: none">
+          {{ secondTeamProbabilities.stats?.home?.over_4_5 }}
+        </td>
+        <td style="border-left: none">
+          {{ secondTeamProbabilities.stats?.away?.over_4_5 }}
+        </td>
+      </tr>
+      <tr>
+        <td>Over 5.5</td>
+        <td style="border-right: none">
+          {{ firstTeamProbabilities.stats?.home?.over_5_5 }}
+        </td>
+        <td style="border-left: none">
+          {{ firstTeamProbabilities.stats?.away?.over_5_5 }}
+        </td>
+        <td style="border-right: none">
+          {{ secondTeamProbabilities.stats?.home?.over_5_5 }}
+        </td>
+        <td style="border-left: none">
+          {{ secondTeamProbabilities.stats?.away?.over_5_5 }}
+        </td>
+      </tr>
+      <tr>
+        <td>Under 0.5</td>
+        <td style="border-right: none">
+          {{ firstTeamProbabilities.stats?.home?.under_0_5 }}
+        </td>
+        <td style="border-left: none">
+          {{ firstTeamProbabilities.stats?.away?.under_0_5 }}
+        </td>
+        <td style="border-right: none">
+          {{ secondTeamProbabilities.stats?.home?.under_0_5 }}
+        </td>
+        <td style="border-left: none">
+          {{ secondTeamProbabilities.stats?.away?.under_0_5 }}
+        </td>
+      </tr>
+      <tr>
+        <td>Under 1.5</td>
+        <td style="border-right: none">
+          {{ firstTeamProbabilities.stats?.home?.under_1_5 }}
+        </td>
+        <td style="border-left: none">
+          {{ firstTeamProbabilities.stats?.away?.under_1_5 }}
+        </td>
+        <td style="border-right: none">
+          {{ secondTeamProbabilities.stats?.home?.under_1_5 }}
+        </td>
+        <td style="border-left: none">
+          {{ secondTeamProbabilities.stats?.away?.under_1_5 }}
+        </td>
+      </tr>
+      <tr>
+        <td>Under 2.5</td>
+        <td style="border-right: none">
+          {{ firstTeamProbabilities.stats?.home?.under_2_5 }}
+        </td>
+        <td style="border-left: none">
+          {{ firstTeamProbabilities.stats?.away?.under_2_5 }}
+        </td>
+        <td style="border-right: none">
+          {{ secondTeamProbabilities.stats?.home?.under_2_5 }}
+        </td>
+        <td style="border-left: none">
+          {{ secondTeamProbabilities.stats?.away?.under_2_5 }}
+        </td>
+      </tr>
+      <tr>
+        <td>Under 3.5</td>
+        <td style="border-right: none">
+          {{ firstTeamProbabilities.stats?.home?.under_3_5 }}
+        </td>
+        <td style="border-left: none">
+          {{ firstTeamProbabilities.stats?.away?.under_3_5 }}
+        </td>
+        <td style="border-right: none">
+          {{ secondTeamProbabilities.stats?.home?.under_3_5 }}
+        </td>
+        <td style="border-left: none">
+          {{ secondTeamProbabilities.stats?.away?.under_3_5 }}
+        </td>
+      </tr>
+      <tr>
+        <td>Under 4.5</td>
+        <td style="border-right: none">
+          {{ firstTeamProbabilities.stats?.home?.under_4_5 }}
+        </td>
+        <td style="border-left: none">
+          {{ firstTeamProbabilities.stats?.away?.under_4_5 }}
+        </td>
+        <td style="border-right: none">
+          {{ secondTeamProbabilities.stats?.home?.under_4_5 }}
+        </td>
+        <td style="border-left: none">
+          {{ secondTeamProbabilities.stats?.away?.under_4_5 }}
+        </td>
+      </tr>
+      <tr>
+        <td>Under 5.5</td>
+        <td style="border-right: none">
+          {{ firstTeamProbabilities.stats?.home?.under_5_5 }}
+        </td>
+        <td style="border-left: none">
+          {{ firstTeamProbabilities.stats?.away?.under_5_5 }}
+        </td>
+        <td style="border-right: none">
+          {{ secondTeamProbabilities.stats?.home?.under_5_5 }}
+        </td>
+        <td style="border-left: none">
+          {{ secondTeamProbabilities.stats?.away?.under_5_5 }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

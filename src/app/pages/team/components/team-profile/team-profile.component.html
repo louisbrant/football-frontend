@@ -1,0 +1,115 @@
+<ng-container *ngIf="generalInfo">
+  <div class="container-left br20 divblock">
+    <div class="card w-100 br20 nonepd">
+      <div class="px-3 p-4 pb-25">
+        <div class="card-header">
+          <div class="py-2 teamhead">
+            <div class="">
+              <div class="imgcontainer">
+                <img [src]="[generalInfoLogo]" class="teammarkimg">
+              </div>
+            </div>
+            <div class="px-3 pt-3">
+              <div class="teamname">
+                {{generalInfo.name}}
+              </div>
+              <div class="gymname pt-3">
+                {{generalInfo.venue.name}}
+              </div>
+            </div>
+          </div>
+        </div>
+        <img [src]="generalInfo.venue.photo" class="profile-image br20">
+      </div>
+
+      <div class="card-body">
+        <div class="divflex table-grid-head ">
+          <div class="grid-item">
+            <span class="right">Venue Name</span>
+          </div>
+          <div class="grid-item">
+            <span class="right">Capacity</span>
+          </div>
+          <div class="grid-item">
+            <span class="right">City</span>
+          </div>
+        </div>
+        <div class="divflex nonepd table-grid ">
+          <div class="grid-item">
+            <span class="left">{{ generalInfo.venue.name }}</span>
+          </div>
+          <div class="grid-item">
+            <span class="left">{{ generalInfo.venue.capacity }}</span>
+          </div>
+          <div class="grid-item">
+            <span class="left">{{ generalInfo.venue.city }}</span>
+          </div>
+        </div>
+
+        <div class="divflex nonepd table-grid-head ">
+          <div class="grid-item">
+            <span class="right">Country</span>
+          </div>
+          <div class="grid-item">
+            <span class="right">Coach</span>
+          </div>
+          <div class="grid-item">
+            <p class="right">Top Scorer</p>
+          </div>
+        </div>
+        <div class="divflex nonepd table-grid ">
+          <div class="grid-item">
+            <span class="left">{{ generalInfo.venue.country }}</span>
+          </div>
+          <div class="grid-item">
+            <span class="left">{{ generalInfo.coach.lastName }}</span>
+          </div>
+          <div class="grid-item">
+            <span class="left">
+              <span class="left pointer" (click)="
+                        navigateToPlayerProfile(
+                          secondaryInfo.topScorer?.player?.data?.firstname
+                        )
+                      ">
+                <ng-container *ngIf="secondaryInfo?.topScorer">
+                  {{ secondaryInfo.topScorer?.player?.data?.firstname }}
+                </ng-container>
+              </span>
+            </span>
+          </div>
+        </div>
+        <div class="divflex nonepd px-3 py-3">
+          <div class="card-item thirdwidth nonepd nonebd px-2" *ngIf="homeForm?.length">
+            <span class="left">Home Form</span>
+            <div class="right" [innerHTML]="homeForm | lastGames"></div>
+          </div>
+          <div class="thirdwidth"></div>
+          <div class="card-item thirdwidth nonepd nonebd px-2" *ngIf="awayForm?.length">
+            <span class="left">Away Form</span>
+            <div class="right" [innerHTML]="awayForm | lastGames"></div>
+          </div>
+        </div>
+      </div>
+      <div class="card-filter py-4 px-4 ">
+        <button class="btn btn-h2h-search">H2H With</button>
+        <app-search [isMenu]="true" placeholder="Search" class="search" [listResult]="teamProfiles" [showBorder]="true"
+          [size]="'short'" [isDebounce]="true" (eventSubmit)="searchTeams($event)" [firstTeamId]="generalInfo.id"
+          class="w-100"></app-search>
+      </div>
+      <div class="card-header trophies px-4 py-3 FBbg btcolor bbcolor">Main Trophies</div>
+      <div class="card-body trophies px-4">
+        <div class="card-item bbcolor" *ngFor="let tr of generalInfo.trophies">
+          <span class="left">{{ tr.league_name }}</span>
+          <span class="right" [innerHTML]="tr.count | cups"></span>
+        </div>
+      </div>
+      <div class="card-header rivals  px-4 py-3 FBbg btcolor">Top Rival</div>
+      <div class="card-body rivals px-4">
+        <div class="card-item bbcolor" *ngFor="let item of generalInfo.rivals">
+          <span class="left">{{ item.name }}</span>
+          <app-stats class="pointer" (click)="navigateToH2h(generalInfo.id, item.id)"></app-stats>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>

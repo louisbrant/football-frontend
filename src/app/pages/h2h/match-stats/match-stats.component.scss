@@ -1,0 +1,30 @@
+@import "../../../../styles/mixins";
+
+.header {
+  margin-bottom: 14px;
+
+  @include for-phone-only {
+    margin-bottom: 9px;
+  }
+}
+
+tbody>tr {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  color: #4C535F;
+  border-bottom: 1px solid #F1F1F1 !important;
+}
+
+tbody>tr:nth-of-type(even)>td {
+  background: #FBFBFB;
+}
+
+thead>tr {
+  border-top: 1px solid #F1F1F1 !important;
+  border-bottom: 1px solid #F1F1F1 !important;
+}
+
+thead>tr {
+  background: #FBFBFB;
+}

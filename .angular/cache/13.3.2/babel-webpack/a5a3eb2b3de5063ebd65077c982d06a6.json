@@ -1,0 +1,1 @@
+{"ast":null,"code":"export var ResultEnum = /*#__PURE__*/(() => {\n  (function (ResultEnum) {\n    ResultEnum[\"RESULT\"] = \"RESULT\";\n    ResultEnum[\"FIXTURE\"] = \"FIXTURE\";\n  })(ResultEnum || (ResultEnum = {}));\n\n  return ResultEnum;\n})();","map":null,"metadata":{},"sourceType":"module"}

@@ -1,0 +1,23 @@
+<div class="container d-flex">
+  <div class="left">
+    <ng-container *ngIf="matchData; else matchEmpty">
+      <app-live [matchData]="matchData" class="mb-60 whitebg br20"></app-live>
+      <app-live-match-stat [matchData]="matchData" class="mb-60 whitebg br20"></app-live-match-stat>
+      <app-lineups [matchData]="matchData" class="mb-60 whitebg br20"></app-lineups>
+      <app-match-events [matchData]="matchData" class="mb-60 whitebg br20"></app-match-events>
+    </ng-container>
+    <ng-template #matchEmpty>
+      <div *ngIf="!loading">
+        <h1 class="font-weight-bold text-center">Match not found!</h1>
+      </div>
+
+      <div *ngIf="loading">
+        <h1 class="font-weight-bold text-center">Match is loading...</h1>
+      </div>
+    </ng-template>
+  </div>
+  <div class="right">
+    <app-interesting-h2h class="mb-30"></app-interesting-h2h>
+    <app-live-events></app-live-events>
+  </div>
+</div>
