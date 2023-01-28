@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  footballApiUrl: 'http://35.189.64.21/football/api/v1',
+  footballApiUrl: 'http://localhost:3000/football/api/v1',
   changeOrigin: true
 };
 

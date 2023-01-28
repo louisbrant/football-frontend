@@ -54,21 +54,21 @@
   border-right: 1px solid #F1F1F1;
 }
 
-.arrowbuttongroup {
+.arrowbuttongroup> {
   border-top: 1px solid #F1F1F1;
   --bs-gutter-x: 0rem;
   border-bottom: 1px solid #F1F1F1;
 }
 
-.arrowbuttongroup>.divflex.gerneldiv {
+.arrowbuttongroup>div>.divflex.gerneldiv {
   margin-left: -1rem;
 }
 
-.arrowbuttongroup>.divflex.smalldiv {
-  margin-left: -2rem;
+.arrowbuttongroup>div>.divflex.smalldiv {
+  margin-left: -1rem;
 }
 
-.arrowbuttongroup>.divflex:first-child {
+.arrowbuttongroup>div>.divflex:first-child {
   margin-left: 0rem;
 }
 
@@ -77,4 +77,8 @@
   border-bottom: 1px solid #F1F1F1 !important;
   border-left: 1px solid #F1F1F1 !important;
   border-right: 0px solid #F1F1F1 !important;
+}
+
+.smalldiv:last-child>.rightdiv {
+  margin-left: -0.8rem;
 }

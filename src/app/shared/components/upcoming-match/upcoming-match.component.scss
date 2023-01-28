@@ -134,7 +134,6 @@ app-header-component {
 
   @include for-phone-only {
     width: 175px;
-    font-size: 13px;
   }
 }
 
@@ -144,12 +143,10 @@ app-header-component {
   text-align: center;
   color: #FFFFFF;
   border: none;
-  font-size: 14px;
   border-radius: 6px;
 
   @include for-phone-only {
     width: 31px;
-    font-size: 10px;
   }
 
   &-green {
@@ -164,6 +161,7 @@ app-header-component {
 .upcomdiv {
   height: 3.5rem;
   padding: 1.5rem !important;
+  width: 70%;
 }
 
 .upcomingtime {
@@ -172,7 +170,6 @@ app-header-component {
 
 .upprebtn {
   width: 100%;
-  font-size: 15px;
 }
 
 .right {

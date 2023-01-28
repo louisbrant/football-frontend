@@ -60,6 +60,7 @@ a {
   .navbar {
     .nav-link {
       padding: 0;
+      font-size: 8px !important;
     }
   }
 }
@@ -114,4 +115,10 @@ a {
 
 .nav-link {
   display: flex;
+}
+
+@media (max-width: 770px) {
+  .me-2 {
+    margin: 0.5rem !important;
+  }
 }

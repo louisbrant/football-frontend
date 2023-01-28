@@ -73,7 +73,7 @@ export class DetailedStatComponent extends FilterLeagueDirective {
 
   activeGroups: TabActiveInterface[] = [
     { name: 'BTTS', active: 'btts', isActive: true },
-    { name: 'POVER 2.5', active: 'over', isActive: true },
+    { name: 'OVER 2.5', active: 'over', isActive: true },
     { name: 'Under 2.5', active: 'under', isActive: true },
     { name: 'FTS', active: 'fts', isActive: true },
     { name: 'CLEAN SHEET', active: 'cleanSheet', isActive: true },
@@ -170,7 +170,6 @@ export class DetailedStatComponent extends FilterLeagueDirective {
               class: setPositionColor(item.name),
             };
           });
-          console.log(this.detailedStats)
           this.loaderState = { val: false };
         },
         () => (this.loaderState = { val: false })

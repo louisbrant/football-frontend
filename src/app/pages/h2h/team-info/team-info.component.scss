@@ -194,3 +194,13 @@ app-header-component {
   background: #FBFBFB;
   border-bottom: 1px solid #F1F1F1;
 }
+
+@media (max-width: 540px) {
+  .container-left {
+    display: grid !important;
+  }
+
+  .team-infor {
+    width: 100% !important;
+  }
+}

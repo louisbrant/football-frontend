@@ -5,14 +5,14 @@
         <div class="teamhead">
           <div class="">
             <div class="imgcontainer">
-              <img [src]="[leagueInfo.logo_path]" class="teammarkimg">
+              <img [src]="[leagueInfo?.logo_path]" class="teammarkimg">
             </div>
           </div>
           <div class="px-3 pt-3">
-            <span class="league-name">{{leagueInfo.name}}</span>
+            <span class="league-name">{{leagueInfo?.name}}</span>
             <div class="league-country pt-2">
-              <img [src]="leagueInfo.country_flag" class="league-country-flag">
-              {{leagueInfo.country}}
+              <img [src]="leagueInfo?.country_flag" class="league-country-flag">
+              {{leagueInfo?.country}}
             </div>
           </div>
         </div>
@@ -39,10 +39,10 @@
 
 <div class="card-body divflex pb-2">
   <div class="card-item nonebd nonepd pl-3">
-    <span class="center">{{leagueInfo.seasonsDates?.startDate | date : 'dd.MM.yyyy'}}</span>
+    <span class="center">{{leagueInfo?.seasonsDates?.startDate | date : 'dd.MM.yyyy'}}</span>
 
   </div>
-  <div class="card-item nonebd nonepd"><span class="center">{{leagueInfo.seasonsDates?.endDate | date :
+  <div class="card-item nonebd nonepd"><span class="center">{{leagueInfo?.seasonsDates?.endDate | date :
       'dd.mm.yyyy'}}</span>
 
   </div>
@@ -68,10 +68,10 @@
   <div class="card-item  nonebd nonepd pl-3"><span class="center">{{leagueInfo?.seasonsDates?.progress}}</span>
 
   </div>
-  <div class="card-item  nonebd nonepd"><span class="center">{{leagueInfo.type}}</span>
+  <div class="card-item  nonebd nonepd"><span class="center">{{leagueInfo?.type}}</span>
 
   </div>
-  <div class="card-item  nonebd nonepd"><span class="center">{{leagueInfo.predictability}}</span>
+  <div class="card-item  nonebd nonepd"><span class="center">{{leagueInfo?.predictability}}</span>
 
   </div>
 </div>
