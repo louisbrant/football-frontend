@@ -22,7 +22,7 @@
       </div>
       <div *ngIf="showprediction" class="pr-2">
         <div class="py-3">
-          <button class="btn btn-predic upprebtn py-2 divflex">
+          <button (click)="navigateToH2h(upcoming.firstTeam.id, upcoming.secondTeam.id)" class="btn btn-predic upprebtn py-2 divflex">
             <span class="right p-1"><i class="icon icon-eye"></i></span> View Match Prediction <span class="left p-1"><i
                 class="icon icon-out"></i></span>
           </button>
