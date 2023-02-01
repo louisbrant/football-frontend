@@ -47,7 +47,7 @@
     <app-detailed-stat *ngIf="isCurrentLeague && (seasons$ | async)" [title]="leagues[0].leagueName"
       class="mb-40 whitebg br20"></app-detailed-stat>
 
-    <!-- <app-bookmakers-odd [pastMatches]="allMatches" class="mb-40 whitebg br20"></app-bookmakers-odd> -->
+    <app-bookmakers-odd [pastMatches]="allMatches" class="mb-40 whitebg br20"></app-bookmakers-odd>
     <ng-template #teamEmpty>
       <div *ngIf="!loading">
         <h1 class="font-weight-bold text-center">Teams not found!</h1>

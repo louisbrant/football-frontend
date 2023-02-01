@@ -906,3 +906,9 @@ tbody>tr:nth-child(even) {
 .br10 {
   border-radius: 10px;
 }
+
+.league-info {
+  @include for-phone-only {
+    font-size: 8px !important;
+  }
+}

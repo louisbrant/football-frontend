@@ -1,12 +1,7 @@
 @import "../../../../styles/colors";
 @import "../../../../styles/mixins";
 
-app-header-component {
-
-  @include for-phone-only {
-    margin-bottom: 9px;
-  }
-}
+app-header-component {}
 
 .grid-item {
   grid-template-columns: 2fr 5fr 3fr 3fr 4fr;
@@ -169,4 +164,11 @@ app-header-component {
 
 .w-7 {
   width: 7rem !important;
+
+  @include for-phone-only {
+    width: 4rem !important;
+    font-size: 7px;
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+  }
 }

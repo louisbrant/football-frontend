@@ -2,8 +2,8 @@
   [curSeason]="curSeason" (selectedSeason)="selectSeason($event)"></app-header-component>
 <ng-container *ngIf="detailedStats?.length">
   <div class="card stats nonepd nonemg">
-    <app-arrow-tab [actives]="activeGroups" [width]="sizeOfArrowTabGroupwidth" [background]="sizeOfArrowTabGroupbag"
-      (activeChanged)="changeActiveGroup($event)"></app-arrow-tab>
+    <app-arrow-tab [actives]="activeGroups" [width]="sizeOfArrowTabGroupwidth" [minwidth]="minsizeOfArrowTabGroupwidth"
+      [background]="sizeOfArrowTabGroupbag" (activeChanged)="changeActiveGroup($event)"></app-arrow-tab>
   </div>
 
   <div class="table-grid nonepd">

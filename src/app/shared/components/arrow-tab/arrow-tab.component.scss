@@ -40,12 +40,18 @@
 }
 
 .arrowbtn {
+  // z-index: 1;
+}
+
+
+
+.arrowbtn {
   border-radius: 0%;
 }
 
 .arrowmenudiv {
-  width: 2em !important;
-  height: 2em;
+  width: 36px !important;
+  height: 36px;
   margin-left: -1.8rem;
   border-radius: 1rem;
   border-top-right-radius: 5px;
@@ -75,10 +81,24 @@
 .arrowbtn {
   border-top: 1px solid#F1F1F1 !important;
   border-bottom: 1px solid #F1F1F1 !important;
-  border-left: 1px solid #F1F1F1 !important;
+  border-left: 0px solid #F1F1F1 !important;
   border-right: 0px solid #F1F1F1 !important;
 }
 
 .smalldiv:last-child>.rightdiv {
   margin-left: -0.8rem;
+}
+
+@media (max-width: 540px) {
+
+  .fstbg>.arrowbtn,
+  .fstbg>.arrowmenudiv {
+    font-size: 7px !important;
+  }
+
+  .arrowmenudiv {
+
+    width: 22px !important;
+    height: 22px !important;
+  }
 }

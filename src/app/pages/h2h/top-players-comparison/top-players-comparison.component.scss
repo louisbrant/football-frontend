@@ -4,6 +4,10 @@ tbody>tr {
   line-height: 20px;
   color: #4C535F;
   border-bottom: 1px solid #F1F1F1 !important;
+
+  @include for-phone-only {
+    font-size: 8px;
+  }
 }
 
 tbody>tr:nth-of-type(even)>td {

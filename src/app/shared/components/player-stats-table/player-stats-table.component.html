@@ -36,7 +36,7 @@
       </div>
     </div>
     <div class="grid-item nonepd pt-2 pb-2" *ngFor="let item of playerStats.players; let i = index">
-      <div>{{ item.number }}</div>
+      <div class="text-center">{{ item.number }}</div>
       <div><img [src]="item.image_path" class="image" /></div>
       <div class="player pointer" (click)="navigateToPlayerProfile(item.fullName)">
         <span>{{ item.fullName }}</span>

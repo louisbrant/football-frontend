@@ -59,6 +59,7 @@ app-header-component {
 .name {
   margin-top: 16px;
   margin-bottom: 20px;
+  text-align: center;
 
   @include for-phone-only {
     margin-top: 6px;

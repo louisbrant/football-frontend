@@ -10,6 +10,7 @@ export class ArrowTabComponent implements OnInit {
   currentActive?: TabActiveInterface;
 
   @Input() width: string = '1.9em'
+  @Input() minwidth: string = '1.9em'
   @Input() height: string = '1.9em'
   @Input() background: string = "#F1F1F1";
 
@@ -31,11 +32,14 @@ export class ArrowTabComponent implements OnInit {
 
   ngOnInit(): void {
     console.log("window.innerWidth======>", window.innerWidth);
-    if (window.innerWidth < (770 - 100)) {
-      this.windowtype = 4;
-      if (window.innerWidth < (540 - 100)) {
-        this.windowtype = 3;
-      }
+    // if (window.innerWidth < (770 - 100)) {
+    //   this.windowtype = 4;
+    //   if (window.innerWidth < (540 - 100)) {
+    //     this.windowtype = 3;
+    //   }
+    // }
+    if (window.innerWidth < 540) {
+      this.width = this.minwidth;
     }
     console.log("this.windowtype=>", this.windowtype);
     let newactives: any = [], newchildrenactives: any = [], i: any = 0;

@@ -90,7 +90,8 @@ export class DetailedStatComponent extends FilterLeagueDirective {
 
   }
 
-  public sizeOfArrowTabGroupwidth = '8.5em';
+  public sizeOfArrowTabGroupwidth = '114px';
+  public minsizeOfArrowTabGroupwidth = '65px';
   public sizeOfArrowTabGroupbag = 'fst';
 
 
